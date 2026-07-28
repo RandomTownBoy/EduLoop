@@ -89,7 +89,7 @@ btnNext.onclick = () => {
 
     } else {
 
-        window.location.href = "pages/home.html";
+        window.location.href = "home.html";
 
     }
 
@@ -97,7 +97,7 @@ btnNext.onclick = () => {
 
 btnSkip.onclick = () => {
 
-    window.location.href = "pages/home.html";
+    window.location.href = "home.html";
 
 };
 

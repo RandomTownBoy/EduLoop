@@ -64,9 +64,9 @@ document.getElementById("nav-profile").addEventListener("click", function (e) {
     e.preventDefault();
 
     if (localStorage.getItem("userVerified") === "true") {
-        window.location.href = "/pages/profile/profile.html";
+        window.location.href = "profile/profile.html";
     } else {
-        window.location.href = "/pages/verify/verify.html";
+        window.location.href = "verify/verify.html";
     }
 
 });

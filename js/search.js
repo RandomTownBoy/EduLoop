@@ -95,7 +95,7 @@ document.querySelectorAll(".product-card").forEach((card) => {
     card.addEventListener("click", () => {
         const id = card.dataset.id || "";
         window.location.href =
-            `/pages/marketplace/detail_product.html?id=${id}`;
+            `/marketplace/detail_product.html?id=${id}`;
     });
 });
 

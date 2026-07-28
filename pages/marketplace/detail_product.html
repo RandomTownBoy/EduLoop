@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed-variant": "#503d73",
+              "secondary-fixed": "#ebdcff",
+              "surface-container-high": "#e7e8e9",
+              "on-primary-fixed-variant": "#004d65",
+              background: "#f8f9fa",
+              "on-tertiary-container": "#743e48",
+              "on-primary-fixed": "#001f2a",
+              "inverse-on-surface": "#f0f1f2",
+              "on-surface-variant": "#3f484e",
+              "on-surface": "#191c1d",
+              "inverse-primary": "#75d2fc",
+              error: "#ba1a1a",
+              secondary: "#68548d",
+              "on-error-container": "#93000a",
+              tertiary: "#874e58",
+              "on-error": "#ffffff",
+              "tertiary-fixed-dim": "#fcb3be",
+              "tertiary-fixed": "#ffd9de",
+              "tertiary-container": "#f5adb8",
+              "surface-dim": "#d9dadb",
+              "on-secondary": "#ffffff",
+              "on-secondary-container": "#5d4a82",
+              "on-tertiary-fixed-variant": "#6b3741",
+              "on-tertiary": "#ffffff",
+              "primary-fixed-dim": "#75d2fc",
+              "on-primary-container": "#00556f",
+              primary: "#006685",
+              "on-tertiary-fixed": "#360c17",
+              "inverse-surface": "#2e3132",
+              "primary-container": "#6ecbf5",
+              "on-primary": "#ffffff",
+              "surface-container-highest": "#e1e3e4",
+              "on-secondary-fixed": "#230f45",
+              "secondary-container": "#d6beff",
+              "outline-variant": "#bec8cf",
+              "surface-bright": "#f8f9fa",
+              "primary-fixed": "#bfe8ff",
+              "surface-tint": "#006685",
+              surface: "#f8f9fa",
+              "secondary-fixed-dim": "#d3bcfc",
+              "surface-variant": "#e1e3e4",
+              "error-container": "#ffdad6",
+              "surface-container": "#edeeef",
+              "surface-container-low": "#f3f4f5",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#191c1d",
+              outline: "#6f787e",
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "2rem",
+              xl: "3rem",
+              full: "9999px",
+            },
+            spacing: {
+              base: "8px",
+              sm: "12px",
+              "container-max": "1280px",
+              lg: "48px",
+              xl: "80px",
+              gutter: "24px",
+              md: "24px",
+              xs: "4px",
+            },
+            fontFamily: {
+              "headline-md": ["Montserrat"],
+              "body-sm": ["Inter"],
+              "body-lg": ["Inter"],
+              "headline-lg-mobile": ["Montserrat"],
+              "headline-lg": ["Montserrat"],
+              "label-md": ["Inter"],
+              "label-sm": ["Inter"],
+              "body-md": ["Inter"],
+              "display-lg": ["Montserrat"],
+              "display-lg-mobile": ["Montserrat"],
+            },
+            fontSize: {
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+              "headline-lg-mobile": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "headline-lg": [
+                "32px",
+                { lineHeight: "40px", fontWeight: "600" },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-sm": ["12px", { lineHeight: "14px", fontWeight: "500" }],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "display-lg-mobile": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+        background-color: rgba(248, 249, 250, 0.7);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .carousel-indicator-active {
+        width: 24px;
+        background-color: #006685;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container"
+  >
+    <!-- Shared TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm"
+    >
+      <div
+        class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto"
+      >
+        <div class="flex items-center gap-base">
+          <button
+            id="back-button"
+            class="material-symbols-outlined text-primary active:scale-95 duration-200"
+          >
+            arrow_back
+          </button>
+          <h1 class="font-headline-md text-headline-md font-bold text-primary">
+            EduLoop
+          </h1>
+        </div>
+        <div class="flex items-center gap-md">
+          <span
+            class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-high p-xs rounded-full transition-colors"
+            >share</span
+          >
+          <span
+            class="material-symbols-outlined text-primary cursor-pointer"
+            data-icon="location_on"
+            >location_on</span
+          >
+        </div>
+      </div>
+    </header>
+    <main
+      class="pt-20 pb-32 max-w-container-max mx-auto px-gutter md:px-lg grid grid-cols-1 md:grid-cols-12 gap-lg"
+    >
+      <!-- Image Carousel Section -->
+      <section class="md:col-span-7 lg:col-span-8 space-y-md">
+        <div class="relative group">
+          <div
+            class="overflow-hidden rounded-xl shadow-sm aspect-[4/3] md:aspect-[16/10] bg-surface-container"
+          >
+            <img
+              id="product-image"
+              class="w-full h-full object-cover"
+              data-alt="A professional high-resolution studio photograph of a modern silver laptop resting on a clean minimalist desk. The lighting is soft and airy, creating a bright light-mode aesthetic with gentle shadows. Subtle pastel blue and purple light accents reflect off the metallic surface, aligning with a Gen Z marketplace vibe. The atmosphere is organized, sleek, and high-end."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuALflyWDeOjGjKFZ9KvYBs381vwLBxZ4H-x8TlqzRa0LcnPxWNN8enn99-nqA49i1QPnRjGPW7_ZVZTG8SgH8RomB_18pKIS5mPlCJss2gvlMOQn-to2ITa1GUWt9qWUPgqaOVO1aWBZkJT9gz2b6-dL3VadCHmgzxrtjq0ApsgCugnxAuAMbvKn--oYwZsK3tDm6ovn3Fo-C8uEEKIlxVJnDQg_4m1rTffJEo9E4xnsTsJZpjsrlZCliAE5Z0jc984RQd7aFigWQ"
+            />
+          </div>
+          <!-- Carousel Indicators -->
+          <div class="absolute bottom-md left-1/2 -translate-x-1/2 flex gap-xs">
+            <div
+              class="h-1.5 carousel-indicator-active rounded-full transition-all duration-300"
+            ></div>
+            <div
+              class="h-1.5 w-1.5 bg-on-surface-variant/30 rounded-full"
+            ></div>
+            <div
+              class="h-1.5 w-1.5 bg-on-surface-variant/30 rounded-full"
+            ></div>
+          </div>
+        </div>
+        <!-- AI Insights: Visual Gauge (Mobile & Tablet) -->
+        <div
+          class="block md:hidden bg-surface-container-low p-md rounded-lg shadow-sm border border-outline-variant/30"
+        >
+          <div class="flex items-center justify-between mb-sm">
+            <h3 class="font-label-md text-label-md flex items-center gap-xs">
+              <span
+                class="material-symbols-outlined text-primary text-[20px]"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >auto_awesome</span
+              >
+              AI Condition Score
+            </h3>
+            <span class="font-label-sm text-primary">High Accuracy</span>
+          </div>
+          <div class="flex items-center gap-md">
+            <div class="relative h-24 w-24">
+              <svg class="h-full w-full" viewBox="0 0 36 36">
+                <path
+                  class="stroke-surface-container-highest"
+                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                  fill="none"
+                  stroke-width="3"
+                ></path>
+                <path
+                  class="stroke-primary"
+                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                  fill="none"
+                  stroke-dasharray="85, 100"
+                  stroke-linecap="round"
+                  stroke-width="3"
+                ></path>
+              </svg>
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center"
+              >
+                <span class="font-headline-md text-headline-md text-primary"
+                  >85</span
+                >
+                <span
+                  class="text-[10px] uppercase font-bold text-on-surface-variant"
+                  >Score</span
+                >
+              </div>
+            </div>
+            <div>
+              <p class="font-headline-md text-headline-md text-on-surface">
+                Baik
+              </p>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                Layar mulus, baterai 90% health. Minim lecet pemakaian.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Details Sidebar -->
+      <aside class="md:col-span-5 lg:col-span-4 space-y-lg">
+        <div class="space-y-sm">
+          <h2
+            id="product-name"
+            class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface"
+          >
+            MacBook Air M1 2020 Space Grey
+          </h2>
+          <div class="flex items-baseline gap-xs">
+            <span
+              id="product-price"
+              class="font-headline-md text-headline-md text-primary"
+              >Rp 5.500.000</span
+            >
+            <span
+              id="product-original-price"
+              class="font-label-sm text-label-sm text-on-surface-variant line-through"
+              >Rp 7.200.000</span
+            >
+          </div>
+        </div>
+        <!-- Seller Profile -->
+        <div
+          class="flex items-center gap-md bg-surface-container-lowest p-md rounded-lg shadow-sm"
+        >
+          <img
+            id
+            class="h-14 w-14 rounded-full object-cover"
+            data-alt="A close-up portrait of a friendly college student smiling, wearing a clean casual hoodie. The background is a brightly lit university campus with soft natural daylight. The image has a clean, authentic, and modern feel, emphasizing trust and community in a student-to-student marketplace. The lighting is high-key and optimistic."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0QupZtNvlj4njaakjRriB1HggVz2XYfpVDjnWtHcPc0ZYCE9REXgCG7-KPz5UKs3qujG3n1rh1AQiU0GwHh16CWLyHaMb6e1Un8RYVQA3pwbH2QNJ4UAAgLIXgrRYYpUTnCAjLvLCAcP6BOk1bHTVa0rDsT544lEIEU0cP7C20b4NzRwBB7GsuQjbfJqFQ0JbApRJ_6uG1RhSR3CVLQ8mjil6bS3pEIwI7EjuvjsZEQq9Sq5TQikArzo8NxaWnJWRrRocgLkQyA"
+          />
+          <div class="flex-1">
+            <div class="flex items-center gap-xs">
+              <p
+                id="seller-name"
+                class="font-label-md text-label-md text-on-surface"
+              >
+                Aditya Wijaya
+              </p>
+              <div
+                class="bg-primary-container/30 text-primary px-xs py-[2px] rounded-full flex items-center gap-[2px]"
+              >
+                <span
+                  class="material-symbols-outlined text-[14px]"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >verified</span
+                >
+                <span class="text-[10px] font-bold uppercase tracking-wider"
+                  >Trusted</span
+                >
+              </div>
+            </div>
+            <p
+              id="seller-campus"
+              class="font-body-sm text-body-sm text-on-surface-variant"
+            >
+              Universitas Bengkulu
+            </p>
+            <div class="flex items-center gap-xs mt-xs">
+              <span
+                class="material-symbols-outlined text-secondary text-[16px]"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span class="font-label-sm text-label-sm text-on-surface"
+                >4.9 (42 reviews)</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- AI Insights: Desktop Only -->
+        <div
+          class="hidden md:block bg-surface-container-low p-md rounded-lg shadow-sm border border-outline-variant/30"
+        >
+          <div class="flex items-center justify-between mb-sm">
+            <h3
+              class="font-label-md text-label-md flex items-center gap-xs text-primary"
+            >
+              <span
+                class="material-symbols-outlined text-[20px]"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >auto_awesome</span
+              >
+              AI Condition Score
+            </h3>
+          </div>
+          <div class="flex items-center gap-md">
+            <div class="relative h-20 w-20">
+              <svg class="h-full w-full" viewBox="0 0 36 36">
+                <path
+                  class="stroke-surface-container-highest"
+                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                  fill="none"
+                  stroke-width="3"
+                ></path>
+                <path
+                  class="stroke-primary"
+                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                  fill="none"
+                  stroke-dasharray="85, 100"
+                  stroke-linecap="round"
+                  stroke-width="3"
+                ></path>
+              </svg>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="font-label-md text-label-md text-primary"
+                  >85%</span
+                >
+              </div>
+            </div>
+            <div>
+              <p class="font-label-md text-label-md text-on-surface">
+                Kondisi: Baik
+              </p>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                Scanned via EduLoop AI Inspection Tool.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Description -->
+        <div class="space-y-sm">
+          <h3
+            class="font-label-md text-label-md text-on-surface uppercase tracking-wider"
+          >
+            Description
+          </h3>
+          <p
+            id="product-description"
+            class="font-body-md text-body-md text-on-surface-variant leading-relaxed"
+          >
+            Laptop jarang dipakai, hanya untuk tugas kuliah ringan. Semua port
+            berfungsi normal, keyboard aman. Fullset box dan charger original.
+            Baterai masih awet banget bisa sampai 10-12 jam pemakaian. Alasan
+            jual mau upgrade ke Pro.
+          </p>
+        </div>
+        <!-- Meet Point Section -->
+        <div class="space-y-sm">
+          <h3
+            class="font-label-md text-label-md text-on-surface uppercase tracking-wider"
+          >
+            Suggested Meet Point
+          </h3>
+          <div class="relative h-40 rounded-xl overflow-hidden shadow-sm group">
+            <img
+              class="w-full h-full object-cover"
+              data-alt="A stylized aerial map view showing a university campus with modern buildings and green spaces. The map is overlaid with a clean UI pin marker labeled Perpustakaan Pusat. The colors are soft pastels, predominantly light blue and green, maintaining a calm and organized aesthetic. High-quality digital mapping interface style."
+              data-location="Jakarta"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNaAy44J4Q2dDLDCsY7VuWvaTKH6SBL9a11YDkb4tRBVXpiRxbbyZ6Ms8iPwfbGZqmjMoMDBMWIv-dPdc4ohV3ic99X9XJ6NYXESj68s6KQwVoxH7k_PdNpF8hJbaWqt94C26pWprgn0-CuAjSjCQWcXDg8nbKMarrVMeDEFMZYhbGJytnFP7Qpy9r4Pu3YtwxJd-aazoelMCs-qllIragMGFAjJuvGveRQ_5HaSnwLAakVAXXeG0SEAVb0b6lPVE1wekfyMQytQ"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent flex items-end p-md"
+            >
+              <div class="flex items-center gap-xs text-surface">
+                <span class="material-symbols-outlined text-[20px]"
+                  >location_on</span
+                >
+                <p id="meet-point" class="font-label-md text-label-md">
+                  Perpustakaan Pusat
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <!-- Sticky CTA Bottom Bar -->
+    <nav
+      class="fixed bottom-0 w-full z-50 glass-effect rounded-t-lg shadow-lg border-t border-outline-variant/20"
+    >
+      <div
+        class="max-w-container-max mx-auto px-gutter py-sm flex items-center gap-md"
+      >
+        <button
+          class="flex-none p-md bg-surface-container-high rounded-full hover:bg-surface-container-highest transition-colors active:scale-90 duration-200"
+        >
+          <span class="material-symbols-outlined text-on-surface-variant"
+            >favorite</span
+          >
+        </button>
+        <div class="flex-1 flex gap-sm">
+          <button
+            id="chat-button"
+            class="flex-1 py-md px-lg rounded-full border-2 border-primary text-primary font-headline-md text-label-md hover:bg-primary/5 transition-all active:scale-95"
+          >
+            Chat Penjual
+          </button>
+          <button
+            id="add-cart-button"
+            class="flex-1 py-md px-lg rounded-full bg-gradient-to-r from-primary to-secondary text-on-primary font-headline-md text-label-md shadow-md shadow-primary/20 hover:opacity-90 transition-all active:scale-95"
+          >
+            Tambah ke Keranjang
+          </button>
+        </div>
+      </div>
+    </nav>
+    <!-- Simple Mobile Bottom Nav (Icon only fallback logic) -->
+    <div class="md:hidden">
+      <!-- Managed by the sticky CTA which overrides the generic bottom bar for product screens -->
+    </div>
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: "MacBook Pro M2",
+          price: "Rp 14.500.000",
+          image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuAWA_6ZJI598sQICwEpg6khM-u8ncTTc7-bS4xXaRMETfnpOaf6xjOnFryMvDwQD9GxeThBnKEsvmg83HH6fiSf30urEA2CpMawuZBghbIb2bH907hdvL87EG2TTM33BdqDeBJ_D4rrx_DRvkK7V7Lfg9Q8O-Ka-2W0K4O-cHdDFW1RjQXXQ42RBpj-W1-MblAzi0aVPfIcakeZu5cvRsle9aczwQZElyeaVb8cdw3tZsU6w_BzS71BGKTF5jkQhT_Y-erXVYRLknJ0",
+          description: "Laptop mulus, charger original, baterai sehat.",
+          seller: "Aditya Wijaya",
+          campus: "Universitas Bengkulu",
+          meetPoint: "Perpustakaan Pusat",
+        },
+        {
+          id: 2,
+          name: "ASUS Vivobook 14",
+          price: "Rp 5.500.000",
+          image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuBpP62zlGMGdqnSJzic731Xhq7q1Rq8iN93iaSlYemmL0cmoid2F0QSyDte6Ph1V_LqvOhwRBMewElXeAvRHVsYLntzBi4xWK3tt4JzIzaC0KRQq_7C0SCvHsccsf-cW-02m3xwSzYD9oNnzio3d_a4Xvw9ad3DWJheVlHgKlCcDVu2qSPaaBVZHxwDPyYRbGvj3apImCJ1WbJELxWxrM_tDSn9TrtEWlcMZ4ZW36N7P8VESGMYCFtY3piSLatAVcPhjDSXoQRyykty",
+          description: "Laptop bekas kuliah, kondisi sangat baik.",
+          seller: "Rizky",
+          campus: "Universitas Bengkulu",
+          meetPoint: "Gedung Dekanat",
+        },
+      ];
+
+      const defaultProduct = {
+        name: "MacBook Air M1 2020 Space Grey",
+        price: "Rp 5.500.000",
+        image:
+          "https://lh3.googleusercontent.com/aida-public/AB6AXuALflyWDeOjGjKFZ9KvYBs381vwLBxZ4H-x8TlqzRa0LcnPxWNN8enn99-nqA49i1QPnRjGPW7_ZVZTG8SgH8RomB_18pKIS5mPlCJss2gvlMOQn-to2ITa1GUWt9qWUPgqaOVO1aWBZkJT9gz2b6-dL3VadCHmgzxrtjq0ApsgCugnxAuAMbvKn--oYwZsK3tDm6ovn3Fo-C8uEEKIlxVJnDQg_4m1rTffJEo9E4xnsTsJZpjsrlZCliAE5Z0jc984RQd7aFigWQ",
+        description:
+          "Laptop jarang dipakai, hanya untuk tugas kuliah ringan. Semua port normal. Fullset box dan charger original.",
+        seller: "Aditya Wijaya",
+        campus: "Universitas Bengkulu",
+        meetPoint: "Perpustakaan Pusat",
+      };
+      const params = new URLSearchParams(window.location.search);
+      const productId = Number(params.get("id"));
+
+      let product = products.find((item) => item.id === productId);
+
+      if (!product) {
+        product = products[0]; // default product
+      }
+
+      if (product) {
+        document.getElementById("product-name").textContent = product.name;
+
+        document.getElementById("product-price").textContent = product.price;
+
+        document.getElementById("product-image").src = product.image;
+
+        document.getElementById("product-description").textContent =
+          product.description;
+
+        document.getElementById("seller-name").textContent = product.seller;
+
+        document.getElementById("seller-campus").textContent = product.campus;
+
+        document.getElementById("meet-point").textContent = product.meetPoint;
+      }
+
+      // Micro-interaction for the back button
+      document.getElementById("back-button").onclick = () => {
+        history.back();
+      };
+
+      // Subtle parallax effect on scroll for the hero image
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('img[data-alt*="laptop"]');
+        if (hero) {
+          hero.style.transform = `translateY(${scrolled * 0.1}px)`;
+        }
+      });
+
+      // Button active state pulse
+      document.querySelectorAll("button").forEach((btn) => {
+        btn.addEventListener("mousedown", () => {
+          btn.classList.add("scale-95");
+        });
+        btn.addEventListener("mouseup", () => {
+          btn.classList.remove("scale-95");
+        });
+      });
+
+
+      document.getElementById("chat-button").onclick = () => {
+        window.location.href = "../chat/chat.html";
+      };
+
+      // Tambah ke keranjang
+      document.getElementById("add-cart-button").onclick = () => {
+        // Simpan produk sementara
+        const cartProduct = {
+          name: document.getElementById("product-name").textContent,
+          price: document.getElementById("product-price").textContent,
+          image: document.getElementById("product-image").src,
+          seller: document.getElementById("seller-name").textContent,
+        };
+
+        localStorage.setItem("eduloop_cart", JSON.stringify(cartProduct));
+
+        // pindah ke cart
+        window.location.href = "../transaction/cart.html";
+      };
+    </script>
+  </body>
+</html>
+> >
+>

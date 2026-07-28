@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduLoop - Marketplace Mahasiswa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container-lowest": "#ffffff",
+                "primary": "#006685",
+                "surface-container-highest": "#e1e3e4",
+                "primary-container": "#6ecbf5",
+                "on-primary-container": "#00556f",
+                "error": "#ba1a1a",
+                "outline-variant": "#bec8cf",
+                "tertiary-fixed": "#ffd9de",
+                "secondary-fixed": "#ebdcff",
+                "background": "#f8f9fa",
+                "on-background": "#191c1d",
+                "secondary": "#68548d",
+                "on-primary-fixed-variant": "#004d65",
+                "on-primary": "#ffffff",
+                "secondary-fixed-dim": "#d3bcfc",
+                "surface-container-high": "#e7e8e9",
+                "surface-container": "#edeeef",
+                "inverse-on-surface": "#f0f1f2",
+                "tertiary-container": "#f5adb8",
+                "on-error": "#ffffff",
+                "on-error-container": "#93000a",
+                "on-secondary-fixed-variant": "#503d73",
+                "on-tertiary": "#ffffff",
+                "on-secondary-fixed": "#230f45",
+                "error-container": "#ffdad6",
+                "primary-fixed": "#bfe8ff",
+                "on-secondary": "#ffffff",
+                "on-surface": "#191c1d",
+                "surface-variant": "#e1e3e4",
+                "surface-tint": "#006685",
+                "inverse-surface": "#2e3132",
+                "on-surface-variant": "#3f484e",
+                "surface": "#f8f9fa",
+                "outline": "#6f787e",
+                "tertiary": "#874e58",
+                "on-tertiary-fixed": "#360c17",
+                "on-tertiary-container": "#743e48",
+                "surface-container-low": "#f3f4f5",
+                "surface-dim": "#d9dadb",
+                "secondary-container": "#d6beff",
+                "tertiary-fixed-dim": "#fcb3be",
+                "on-secondary-container": "#5d4a82",
+                "on-tertiary-fixed-variant": "#6b3741",
+                "surface-bright": "#f8f9fa",
+                "on-primary-fixed": "#001f2a",
+                "inverse-primary": "#75d2fc",
+                "primary-fixed-dim": "#75d2fc",
+                "pastel-blue": "#6ECBF5",
+                "pastel-yellow": "#FFE082",
+                "pastel-pink": "#FFB6C1",
+                "pastel-purple": "#B39DDB"
+            },
+            "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "xs": "4px",
+                "sm": "12px",
+                "container-max": "1280px",
+                "md": "24px",
+                "base": "8px",
+                "xl": "80px",
+                "gutter": "24px",
+                "lg": "48px"
+            },
+            "fontFamily": {
+                "headline-md": ["Montserrat"],
+                "display-lg-mobile": ["Montserrat"],
+                "label-md": ["Inter"],
+                "label-sm": ["Inter"],
+                "headline-lg": ["Montserrat"],
+                "headline-lg-mobile": ["Montserrat"],
+                "body-md": ["Inter"],
+                "display-lg": ["Montserrat"],
+                "body-sm": ["Inter"],
+                "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .gradient-primary {
+            background: linear-gradient(135deg, #6ECBF5 0%, #B39DDB 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm">
+<div class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto">
+<div class="flex items-center gap-2">
+<img alt="EduLoop Logo" class="h-8 w-8 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-J4iulVe9gdsc-NsQlfAetB0oUhq98oZz3e4nbogSC_7IBM2Hfozjhdaouj_eqJliDueZl-EyMWSqI59Oh5RTKz3v8aSbLW_VOkyNnS8Vc-evNBptsgKLn9eukGTFg0YjCgBy06vHVIFWILZfkyYNVlSNIMU-UEJ1pvCwh3qQdT_JWz2sTDUS6Fbri336eqkSi4KrLHUJ4yzDBVEqDYhibHS9K1LxqJ2u4CgrSqwDpZ4cpazzDXoXeEHTmWE2IhLLQ0ZVwujY7g"/>
+<span class="font-headline-md text-headline-md font-bold text-primary">EduLoop</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-high transition-colors rounded-full relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button id="btn-cart" class="p-2 hover:bg-surface-container-high transition-colors rounded-full"><span class="material-symbols-outlined text-on-surface-variant">shopping_cart</span></button>
+<div class="w-8 h-8 rounded-full bg-primary-fixed overflow-hidden">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A close-up portrait of a young, friendly-looking male university student with a warm smile and approachable expression. He is photographed in a brightly lit, modern campus setting with soft architectural bokeh in the background. The aesthetic is clean and professional, with high-key lighting that emphasizes a trustworthy persona within a Gen Z marketplace app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBExh6Un1ne4R7W3pA--uMXpwGf3zl92XQniWPyPcCBgSCknMVNcVJ3A4xOnMWxmryzarI_y72vVqq9-eojqQhx36gVL3Pzn-Uxhh_MhC3dfWMvx_oPRGyBwIp3-ADFNxmVSYyjEejEIeF5T6kbdCyBiUAFyllrc6cshZJYYwY6ucgg3MnA6r7ks_W7cAspi3wYQikA4nm-3MkFF2ts8XySXVmQZ_QCR1qRSCVTG-ow8homSMZ6-4H9wyRN91MYLFCSJ0T0ObzPQ">
+</div>
+</div>
+</div>
+</header>
+<main class="pt-20 px-gutter space-y-lg max-w-container-max mx-auto">
+<!-- Welcome Greeting -->
+<section class="mt-4">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Halo, Alex 👋</h1>
+<p class="font-body-sm text-on-surface-variant">Selamat datang kembali di EduLoop.</p>
+</section>
+<!-- Search Bar -->
+<section>
+<div class="flex gap-sm">
+<div class="flex-1 bg-surface-container-low rounded-full px-4 py-3 flex items-center gap-2 border-2 border-transparent focus-within:border-pastel-blue focus-within:shadow-[0_0_15px_rgba(110,203,245,0.3)] transition-all">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-body-sm placeholder:text-outline-variant" placeholder="Cari buku, laptop, almamater..." type="text"/>
+</div>
+<button class="bg-surface-container-high p-3 rounded-2xl active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-on-surface-variant">tune</span>
+</button>
+</div>
+</section>
+<!-- Quick Menu -->
+<section>
+<div class="grid grid-cols-4 gap-4 text-center">
+<div id="category-book" class="group cursor-pointer">
+<div class="bg-pastel-blue/20 p-4 rounded-full aspect-square flex items-center justify-center mb-2 group-active:scale-90 transition-all">
+<span class="material-symbols-outlined text-primary text-3xl">book</span>
+</div>
+<span class="font-label-md text-label-md">Buku</span>
+</div>
+<div id="category-elektronik" class="group cursor-pointer">
+<div class="bg-pastel-yellow/20 p-4 rounded-full aspect-square flex items-center justify-center mb-2 group-active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[#B8860B] text-3xl">laptop_mac</span>
+</div>
+<span class="font-label-md text-label-md">Elektronik</span>
+</div>
+<div id="category-fashion" class="group cursor-pointer">
+<div class="bg-pastel-pink/20 p-4 rounded-full aspect-square flex items-center justify-center mb-2 group-active:scale-90 transition-all">
+<span class="material-symbols-outlined text-[#D81B60] text-3xl">checkroom</span>
+</div>
+<span class="font-label-md text-label-md">Fashion</span>
+</div>
+<div id="category-kos" class="group cursor-pointer">
+<div class="bg-pastel-purple/20 p-4 rounded-full aspect-square flex items-center justify-center mb-2 group-active:scale-90 transition-all">
+<span class="material-symbols-outlined text-secondary text-3xl">bed</span>
+</div>
+<span class="font-label-md text-label-md">Kos</span>
+</div>
+</div>
+<div class="mt-6 text-center">
+<a id="all-category" class="font-label-md text-label-md text-primary flex items-center justify-center gap-1" href="#">
+                    Lihat Semua Kategori <span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</section>
+<!-- Banner Carousel (One slide visible) -->
+<section class="relative overflow-hidden rounded-xl h-48 gradient-primary p-6 text-on-primary">
+<div class="flex flex-col h-full justify-between max-w-[70%]">
+<div>
+<h2 class="font-headline-md text-headline-md leading-tight mb-2">Mahasiswa Baru?</h2>
+<p class="font-body-sm opacity-90">Temukan semua kebutuhan kuliah dengan harga lebih hemat.</p>
+</div>
+<button class="bg-white text-primary font-label-md text-label-md py-2 px-6 rounded-full w-fit shadow-md active:scale-95 transition-transform">
+                    Belanja Sekarang
+                </button>
+</div>
+<div class="absolute -right-8 -bottom-8 opacity-30 transform rotate-12">
+<span class="material-symbols-outlined text-[160px]">shopping_bag</span>
+</div>
+</section>
+<!-- EduLoop Points Card -->
+<section class="bg-surface-container-lowest p-gutter rounded-lg shadow-sm border border-surface-container">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-2">
+<div class="bg-pastel-yellow p-1 rounded-md">
+<span class="material-symbols-outlined text-white text-sm fill-icon">stars</span>
+</div>
+<span class="font-label-md text-label-md">EduLoop Points</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary">2,450 pts</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 mb-2">
+<div class="bg-pastel-blue h-2 rounded-full" style="width: 65%"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Silver Member • 550 pts lagi ke Gold</span>
+<button class="text-primary font-label-md text-label-md">Tukar Reward</button>
+</div>
+</section>
+<!-- Fitur Unggulan Bento Grid -->
+<section>
+<h3 class="font-headline-md text-headline-md mb-md">Fitur EduLoop</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-pastel-blue/10 p-4 rounded-lg flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<span class="font-label-md text-label-md">Verified Student</span>
+<p class="font-body-sm text-[10px] text-on-surface-variant">Keamanan 100% untuk mahasiswa.</p>
+</div>
+<div class="bg-pastel-pink/10 p-4 rounded-lg flex flex-col gap-2">
+<span class="material-symbols-outlined text-[#D81B60]">psychology</span>
+<span class="font-label-md text-label-md">AI Cek Kondisi</span>
+<p class="font-body-sm text-[10px] text-on-surface-variant">Scan barang dengan AI pintar.</p>
+</div>
+<div class="bg-pastel-purple/10 p-4 rounded-lg flex flex-col gap-2">
+<span class="material-symbols-outlined text-secondary">payments</span>
+<span class="font-label-md text-label-md">EduLoop SafePay</span>
+<p class="font-body-sm text-[10px] text-on-surface-variant">Rekening bersama aman &amp; mudah.</p>
+</div>
+<div class="bg-pastel-yellow/10 p-4 rounded-lg flex flex-col gap-2">
+<span class="material-symbols-outlined text-[#B8860B]">school</span>
+<span class="font-label-md text-label-md">Marketplace Kampus</span>
+<p class="font-body-sm text-[10px] text-on-surface-variant">Khusus untuk areamu sendiri.</p>
+</div>
+</div>
+</section>
+<!-- Khusus Kampusmu Horizontal Scroll -->
+<section>
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-md text-headline-md">Universitas Bengkulu</h3>
+<button class="text-primary font-label-md text-label-md">Lihat Semua</button>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar -mx-gutter px-gutter pb-4">
+<!-- Product Card 1 -->
+<div 
+onclick="window.location.href='/pages/marketplace/detail_product.html'"
+class="min-w-[160px] bg-white rounded-lg shadow-sm group cursor-pointer">
+<div class="relative rounded-t-lg overflow-hidden h-40">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="A clean photograph of a slightly used midnight blue laptop, shown from a front angle on a minimalist white desk, soft afternoon lighting, high-quality professional marketplace product photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj1laAUNOxx_DmWvsFVkiWkZeUCqlZQfDLGGvx79ZqTyzZk7-24kNSfuHDsQWJ2Il_nNGtLkYnHwvbLak_Fceq-dsd1muXQyLEij759Qg8tHdXVS1bU763TcAOQDNAFqolTl0Evl3YFy7Z6i7eA9YzbsMoAO0JXaOhp-dNCSaPUz-9pynn5RWYPkcTCNdz7w2GGcmaTZh1PbHd-lnyTOWWe35ns5Ivdwb4oTtxljHV5_lCAxQPA-1aUFFyPbsMWiKiHuCDjVLBKw"/>
+<div class="absolute top-2 right-2 bg-white/80 backdrop-blur-md p-1.5 rounded-full">
+<span class="material-symbols-outlined text-xs text-error">favorite</span>
+</div>
+</div>
+<div class="p-3">
+<div class="flex items-center gap-1 mb-1">
+<span class="bg-pastel-blue/20 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold">Bekas</span>
+<span class="material-symbols-outlined text-primary text-[12px] fill-icon">verified</span>
+</div>
+<h4 class="font-label-md text-label-md truncate mb-1">Laptop Acer Swift 3</h4>
+<p class="font-label-md text-label-md text-primary mb-1">Rp 4.500.000</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Fakultas Teknik</p>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div 
+onclick="window.location.href='/pages/marketplace/detail_product.html'"
+class="min-w-[160px] bg-white rounded-lg shadow-sm group cursor-pointer">
+<div class="relative rounded-t-lg overflow-hidden h-40">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="A collection of engineering textbooks neatly stacked, vibrant covers visible, soft focus educational background, professional studio lighting with pastel accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEXFhVcfj0oAoU7ZNTAIjGnglgxpYTjoOtyvJzNtnFd7DTt9Acg0EbZIB5D9C6UjvExLq957_H4uKE3Wsza-tqcNWGs27FQd9EmGC9KFtDbXLFT46zoUpIRYNp16mx2O0r-GGV4aIavjBi_9nwM75ye_0SRUSMxIi5WMgk8iit1g5KbU3mSjf4yHX05En5BKT0dB09EPYTi4vNFIj4Mh-6wzyh2U05PGvjf3tsOwTDWrNRcDE4sgOYnYF_SVid2qrkl9OJ0q5dtQ"/>
+<div class="absolute top-2 right-2 bg-white/80 backdrop-blur-md p-1.5 rounded-full">
+<span class="material-symbols-outlined text-xs text-on-surface-variant">favorite</span>
+</div>
+</div>
+<div class="p-3">
+<div class="flex items-center gap-1 mb-1">
+<span class="bg-pastel-yellow/20 text-[#B8860B] text-[10px] px-2 py-0.5 rounded-full font-bold">Baru</span>
+<span class="material-symbols-outlined text-primary text-[12px] fill-icon">verified</span>
+</div>
+<h4 class="font-label-md text-label-md truncate mb-1">Paket Buku Kalkulus</h4>
+<p class="font-label-md text-label-md text-primary mb-1">Rp 120.000</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">MIPA</p>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div 
+onclick="window.location.href='/pages/marketplace/detail_product.html'"
+class="min-w-[160px] bg-white rounded-lg shadow-sm group cursor-pointer">
+<div class="relative rounded-t-lg overflow-hidden h-40">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="A clean, folded navy blue blazer for a university, professionally presented on a marble surface with soft shadows, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXKjOu_HFl2qbfUpb5w6WjW7_TAKX1arYvzffky3uyWErCs54Q2GG6ztKsZGfh9ty91Mpy9zqRh3a752D5Ury1obn2yfDMBrsa8woRR5B3xTJAVavKRn3Ns0rix-vES3MJasrdU0ACAdBSZPH9MIn32wxezruEOIQQLfuu_l0Pyl6wS2aooHuI2eWryP8tapODo9Vw3jh0EvC6iCMwD72lnJ5p9jsuydJ-ifcV2X8yWBKvO7H7M5Q7_ZZ2jvRM3mJDrMFvXPgzhg"/>
+<div class="absolute top-2 right-2 bg-white/80 backdrop-blur-md p-1.5 rounded-full">
+<span class="material-symbols-outlined text-xs text-on-surface-variant">favorite</span>
+</div>
+</div>
+<div class="p-3">
+<div class="flex items-center gap-1 mb-1">
+<span class="bg-pastel-blue/20 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold">Bekas</span>
+</div>
+<h4 class="font-label-md text-label-md truncate mb-1">Jas Almamater UNIB</h4>
+<p class="font-label-md text-label-md text-primary mb-1">Rp 75.000</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Semua Fakultas</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Bundle Packs Large Cards -->
+<section>
+<h3 class="font-headline-md text-headline-md mb-md">EduLoop Bundle Pack</h3>
+<div class="space-y-4">
+<div class="relative rounded-lg overflow-hidden glass-card border border-surface-container-high p-6 flex justify-between items-center group">
+<div class="z-10 relative">
+<span class="bg-pastel-yellow text-[#B8860B] text-[10px] px-2 py-1 rounded-full font-bold mb-2 inline-block">BEST VALUE</span>
+<h4 class="font-headline-md text-headline-md mb-1">Maba Starter Pack</h4>
+<p class="font-body-sm text-on-surface-variant mb-4">Buku, Tas, Alat Tulis &amp; Kalkulator</p>
+<button class="bg-primary text-on-primary font-label-md text-label-md py-2 px-6 rounded-full group-hover:px-8 transition-all">Mulai Hemat</button>
+</div>
+<div class="opacity-40 absolute right-4 top-4">
+<span class="material-symbols-outlined text-8xl text-pastel-yellow">backpack</span>
+</div>
+</div>
+<div class="relative rounded-lg overflow-hidden glass-card border border-surface-container-high p-6 flex justify-between items-center group">
+<div class="z-10 relative">
+<span class="bg-pastel-purple text-secondary text-[10px] px-2 py-1 rounded-full font-bold mb-2 inline-block">COZY KOS</span>
+<h4 class="font-headline-md text-headline-md mb-1">Paket Anak Kos</h4>
+<p class="font-body-sm text-on-surface-variant mb-4">Kasur, Meja, Rak &amp; Kipas</p>
+<button class="bg-secondary text-on-secondary font-label-md text-label-md py-2 px-6 rounded-full group-hover:px-8 transition-all">Lihat Paket</button>
+</div>
+<div class="opacity-40 absolute right-4 top-4">
+<span class="material-symbols-outlined text-8xl text-pastel-purple">chair</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Mitra Ekosistem -->
+<section>
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-md text-headline-md">Mitra Kampus</h3>
+<button class="text-primary font-label-md text-label-md">Lihat Semua</button>
+</div>
+<div class="grid grid-cols-3 gap-y-6 gap-x-4">
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 bg-surface-container rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">restaurant</span>
+</div>
+<span class="font-label-sm text-label-sm text-center">Kantin</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 bg-surface-container rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">print</span>
+</div>
+<span class="font-label-sm text-label-sm text-center">Percetakan</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 bg-surface-container rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">local_laundry_service</span>
+</div>
+<span class="font-label-sm text-label-sm text-center">Laundry</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 bg-surface-container rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">devices_fold</span>
+</div>
+<span class="font-label-sm text-label-sm text-center">Servis Laptop</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 bg-surface-container rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">shopping_cart</span>
+</div>
+<span class="font-label-sm text-label-sm text-center">Kopmart</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 bg-surface-container rounded-2xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">more_horiz</span>
+</div>
+<span class="font-label-sm text-label-sm text-center">Lainnya</span>
+</div>
+</div>
+</section>
+<!-- Rekomendasi Grid -->
+<section class="pb-8">
+<h3 class="font-headline-md text-headline-md mb-md">Rekomendasi Untukmu</h3>
+<div class="grid grid-cols-2 gap-4">
+<!-- Product 1 -->
+<div 
+onclick="window.location.href='/pages/marketplace/detail_product.html'"
+class="bg-white rounded-lg shadow-sm group cursor-pointer">
+<div class="relative h-44 rounded-t-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A pair of clean white sneakers displayed on a pastel background, soft studio lighting, minimalist aesthetic for a student marketplace listing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrmF5lCdoFvJtzWAeV1wH6HdOV3OI2KbboQ4vMz_HF9zDOL63Bn_MBKjnQ15r4yDV9bBLKq98uSXZuxoTHVcH-CrS2_z2rgBKhWhX_-l8nfp5HPyr4pbsVF4HrK7INwWqwXT4be5gm-JxUqgP1_mNuDocut_BIgGxznMockRMTA-6XmOZTWCQnikwaifC7jeXJdRQskM28bJ6jx4HMMjmJRFQMJm1gibJqJXcfTdy_RuGZw8GnorWQ7Noirnb1T5CQRUCAf67-7g"/>
+<div class="absolute bottom-2 left-2 flex gap-1">
+<span class="bg-primary/90 text-white text-[8px] px-1.5 py-0.5 rounded backdrop-blur-sm">Like 12</span>
+</div>
+</div>
+<div class="p-3">
+<h4 class="font-label-md text-label-md truncate">Sneakers Putih Canvas</h4>
+<p class="font-label-md text-label-md text-primary">Rp 150.000</p>
+<div class="mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px] fill-icon">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Verified</span>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div 
+onclick="window.location.href='/pages/marketplace/detail_product.html'"class="bg-white rounded-lg shadow-sm group cursor-pointer">
+<div class="relative h-44 rounded-t-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An ergonomic office chair in a bright study area, sleek design, high-quality photograph for a student home office setup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlimyVHjIBV6SCljL9fcwn4KKvr9mDzGYwOmQ0ERReipp-RdS35g2JdR9qj6FMkG_0a76_gRT3OmwucFQoeuLBSz8duSiNLRrsG5ljVAf1Wt3E2FtFJHs3oi_YiB5HiDbEWAa5LGX4lvEFR4_GmqVzt9QAiNjRGMYA1IXgoT5IS1pT1VYD8Le6PAjDOckVVnVSRMSW4NWUNhcePxJyx0Vm_Wfe__364zrhd8SXvOsUWmK1n17M_kD2eGubFxw_DflF92L1cifvEw"/>
+<div class="absolute top-2 right-2 p-1.5 rounded-full bg-white/60">
+<span class="material-symbols-outlined text-xs">favorite</span>
+</div>
+</div>
+<div class="p-3">
+<h4 class="font-label-md text-label-md truncate">Kursi Belajar Ergonomis</h4>
+<p class="font-label-md text-label-md text-primary">Rp 350.000</p>
+<div class="mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[14px] fill-icon">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Verified</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-lg bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-lg border-t border-outline-variant/20">
+<div class="flex justify-around items-center px-sm py-xs w-full h-16 max-w-container-max mx-auto">
+<!-- Home (Active) -->
+<a id="nav-home" class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<!-- Search -->
+<a id="nav-search" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-label-sm">Search</span>
+</a>
+<!-- Sell -->
+<a id="nav-sell" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined text-primary scale-125">add_circle</span>
+<span class="font-label-sm text-label-sm">Sell</span>
+</a>
+<!-- Chat -->
+<a id="nav-chat" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-sm text-label-sm">Chat</span>
+</a>
+<!-- Profile -->
+<a id="nav-profile" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</div>
+</nav>
+<script src="../js/home_student.js"></script>
+</body></html>

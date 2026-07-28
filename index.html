@@ -1,0 +1,176 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "secondary-fixed-dim": "#d3bcfc",
+                  "on-primary-fixed": "#001f2a",
+                  "inverse-on-surface": "#f0f1f2",
+                  "primary-fixed-dim": "#75d2fc",
+                  "outline-variant": "#bec8cf",
+                  "tertiary-fixed": "#ffd9de",
+                  "secondary": "#68548d",
+                  "tertiary": "#874e58",
+                  "on-tertiary-container": "#743e48",
+                  "on-secondary-fixed": "#230f45",
+                  "on-secondary": "#ffffff",
+                  "on-primary-fixed-variant": "#004d65",
+                  "surface-variant": "#e1e3e4",
+                  "on-primary": "#ffffff",
+                  "secondary-fixed": "#ebdcff",
+                  "on-tertiary": "#ffffff",
+                  "surface": "#f8f9fa",
+                  "inverse-surface": "#2e3132",
+                  "on-tertiary-fixed-variant": "#6b3741",
+                  "surface-dim": "#d9dadb",
+                  "on-error": "#ffffff",
+                  "tertiary-container": "#f5adb8",
+                  "error": "#ba1a1a",
+                  "surface-container-high": "#e7e8e9",
+                  "background": "#f8f9fa",
+                  "outline": "#6f787e",
+                  "surface-container": "#edeeef",
+                  "on-primary-container": "#00556f",
+                  "surface-container-low": "#f3f4f5",
+                  "primary-container": "#6ecbf5",
+                  "error-container": "#ffdad6",
+                  "tertiary-fixed-dim": "#fcb3be",
+                  "on-surface-variant": "#3f484e",
+                  "surface-bright": "#f8f9fa",
+                  "inverse-primary": "#75d2fc",
+                  "primary-fixed": "#bfe8ff",
+                  "on-error-container": "#93000a",
+                  "surface-container-lowest": "#ffffff",
+                  "primary": "#006685",
+                  "on-secondary-container": "#5d4a82",
+                  "surface-tint": "#006685",
+                  "secondary-container": "#d6beff",
+                  "on-background": "#191c1d",
+                  "on-secondary-fixed-variant": "#503d73",
+                  "surface-container-highest": "#e1e3e4",
+                  "on-tertiary-fixed": "#360c17",
+                  "on-surface": "#191c1d"
+          },
+          "borderRadius": {
+                  "DEFAULT": "1rem",
+                  "lg": "2rem",
+                  "xl": "3rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "xl": "80px",
+                  "md": "24px",
+                  "lg": "48px",
+                  "sm": "12px",
+                  "gutter": "24px",
+                  "base": "8px",
+                  "xs": "4px",
+                  "container-max": "1280px"
+          },
+          "fontFamily": {
+                  "label-md": ["Inter"],
+                  "label-sm": ["Inter"],
+                  "headline-lg-mobile": ["Montserrat"],
+                  "display-lg-mobile": ["Montserrat"],
+                  "body-md": ["Inter"],
+                  "body-sm": ["Inter"],
+                  "headline-md": ["Montserrat"],
+                  "display-lg": ["Montserrat"],
+                  "body-lg": ["Inter"],
+                  "headline-lg": ["Montserrat"]
+          },
+          "fontSize": {
+                  "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                  "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}],
+                  "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                  "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                  "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                  "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                  "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    
+    @keyframes pulse-gentle {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+    }
+
+    .logo-float {
+      animation: pulse-gentle 4s ease-in-out infinite;
+    }
+
+    .bg-aura {
+      background: linear-gradient(135deg, #e0f2ff 0%, #fde7f3 100%);
+    }
+
+    .progress-glow {
+      box-shadow: 0 0 15px rgba(110, 203, 245, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface overflow-hidden">
+<!-- Splash Screen Container -->
+<main class="relative h-screen w-full flex flex-col items-center justify-between py-xl px-gutter bg-aura">
+<!-- Top Spacer for alignment -->
+<div class="h-10"></div>
+<!-- Center Content: Logo & Branding -->
+<section class="flex flex-col items-center text-center">
+<!-- 3D Heart-Book Logo Wrapper -->
+<div class="relative w-48 h-48 md:w-64 md:h-64 mb-md logo-float flex items-center justify-center">
+<img alt="EduLoop Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqyC4hY3ZHuYxkJIM9tAgBWD69vdUOwz3KhBR61lwvKkPeQxLBnOGcRit25Byg74tpXuPfy7vvLlmYevyK23rhnDIVy_hT4DWHzV9cjbNnli3oLW7jeqRCT3QGkUSg5rkOWw_WnINdW_NtkBLGQUETlwpFECVYq30q6WM2Z_iyuSwDO8Frsuf2CiBnywozMLSNkgGoPENvzNNqLnX1FKrqdzAfAAZYVuFL2zLfTAn7bc4phVzG-3Kn909z3BmSLW3BzHqjhJBOyg">
+</div>
+<!-- Brand Identity -->
+<div class="space-y-sm">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg tracking-tight text-primary">
+          EduLoop
+        </h1>
+<p class="font-label-md text-label-md text-on-surface-variant max-w-[280px] mx-auto opacity-80">
+          Marketplace Pelajar &amp; Mahasiswa
+        </p>
+</div>
+</section>
+<!-- Bottom Content: Progress & Meta -->
+<section class="w-full max-w-sm flex flex-col items-center space-y-md">
+<!-- Progress Bar Container -->
+<div class="w-full space-y-xs">
+<div class="flex justify-between items-end px-sm">
+<span class="font-label-sm text-label-sm text-primary opacity-60">Memuat data...</span>
+<span class="font-label-sm text-label-sm text-primary font-bold" id="progress-percent">17%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container to-primary transition-all duration-300 ease-out progress-glow" id="progress-bar" style="width: 17%;"></div>
+</div>
+</div>
+<!-- Footer Identity -->
+<div class="pt-sm border-t border-primary/10 w-full text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest opacity-40">
+          Aura Academic System
+        </p>
+</div>
+</section>
+<!-- Background Decorative Elements (Subtle Blurs) -->
+<div class="absolute top-[-10%] right-[-10%] w-64 h-64 bg-primary-container/20 blur-[100px] rounded-full"></div>
+<div class="absolute bottom-[-5%] left-[-10%] w-80 h-80 bg-secondary-container/20 blur-[100px] rounded-full"></div>
+</main>
+<script src="js/index.js"></script>
+</body></html>

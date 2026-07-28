@@ -1,0 +1,365 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EduLoop - Messages</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e1e3e4;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e7e8e9",
+                        "on-primary-container": "#00556f",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary-fixed": "#ffd9de",
+                        "on-primary-fixed": "#001f2a",
+                        "on-tertiary-container": "#743e48",
+                        "tertiary-fixed-dim": "#fcb3be",
+                        "primary-fixed-dim": "#75d2fc",
+                        "on-tertiary-fixed-variant": "#6b3741",
+                        "on-surface-variant": "#3f484e",
+                        "primary": "#006685",
+                        "surface-dim": "#d9dadb",
+                        "surface-container-highest": "#e1e3e4",
+                        "inverse-surface": "#2e3132",
+                        "surface-container": "#edeeef",
+                        "secondary-fixed": "#ebdcff",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#75d2fc",
+                        "tertiary": "#874e58",
+                        "surface": "#f8f9fa",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-variant": "#e1e3e4",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#006685",
+                        "primary-fixed": "#bfe8ff",
+                        "secondary": "#68548d",
+                        "on-secondary-container": "#5d4a82",
+                        "surface-bright": "#f8f9fa",
+                        "secondary-container": "#d6beff",
+                        "on-primary-fixed-variant": "#004d65",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191c1d",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#230f45",
+                        "secondary-fixed-dim": "#d3bcfc",
+                        "on-tertiary-fixed": "#360c17",
+                        "on-background": "#191c1d",
+                        "primary-container": "#6ecbf5",
+                        "tertiary-container": "#f5adb8",
+                        "outline": "#6f787e",
+                        "background": "#f8f9fa",
+                        "outline-variant": "#bec8cf",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#503d73",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "md": "24px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Montserrat"],
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "display-lg-mobile": ["Montserrat"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm">
+<div class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a young student with a friendly expression, set against a blurred academic library background. The lighting is soft and natural, emphasizing a clean and approachable aesthetic. The color palette features soft blues and warm skin tones, perfectly aligned with a modern Gen Z marketplace interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB72_KvXOuodAlBUxi73284CndnpadWtDW_kDo84oOSGbIcYrcsLKBQIgB1po0eX0_kkesEw12p-_ddSDPQlkwDvJUPKQXoDqKxdMrtKA4JV_FQ-1EHnVoxNO8Cl1NcmLqdrFrURZu51FuFsnkNkxfaFF8QawSzAU9p5sJ8EPO7Z0q0IyFIPMZDeYc8LWUTcAnD9x5MCa8gNRRbpeOmeQe68TwO1klOKhx1cSToH4qFCZVEaQq1WWBc4Jdr4pv1n5PnyrFkD3Kliw">
+</div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">EduLoop</h1>
+</div>
+<div class="flex items-center gap-base">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary">location_on</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-20 px-4 md:px-gutter max-w-container-max mx-auto">
+<!-- Search & Filter -->
+<div class="mb-md">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low rounded-full border-transparent focus:border-primary-container focus:ring-4 focus:ring-primary-container/20 transition-all outline-none font-body-md" placeholder="Search conversations..." type="text">
+</div>
+</div>
+<!-- Chat List -->
+<div class="space-y-xs">
+<!-- Chat Item 1 (Active/New Message) -->
+<div class="group flex items-center gap-4 p-4 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-all cursor-pointer shadow-sm relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-full my-4"></div>
+<!-- Avatar -->
+<div class="relative shrink-0">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="Budi" class="w-full h-full object-cover" data-alt="Close up of a cheerful student with short dark hair, wearing a casual collegiate sweatshirt. The background is a soft-focus campus courtyard in daylight. High-quality digital photography with a vibrant yet natural color tone that matches a premium Gen Z social commerce platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHhpkdMGlcu44jG_eTVEBfcxzIPTSmySMstXKTDVIQJwLIMV6sRQN4Z5QxLdnsVVPZGzfp6ycVRMFu7h_lOcioTYnwFum6CKoGpaf9fEmX8zc7BbUscKGn3GalxO-ZNdByCU0cAnxCdP1w7wlYdmL6TheTl9E4Xv0Tlt0-G78ozeqBKoHd6UK8Bb0wfYzdCtzQ5_JWZ6aeZg4RFKG1yxkUTHSuF-cTzLp9oS-R7gXejsXvbe4p7ZplAmP7pUFZi3umHDokDxSiIg">
+</div>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
+</div>
+<!-- Content -->
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-0.5">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Budi - UNIB</span>
+<!-- Verified Badge -->
+<div class="flex items-center gap-0.5 px-2 py-0.5 bg-primary-container/30 rounded-full shrink-0">
+<span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold text-primary tracking-tight">VERIFIED</span>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-primary shrink-0">12:45 PM</span>
+</div>
+<p class="text-body-sm font-semibold text-on-surface-variant truncate">Is the price negotiable for the Calculus textbook?</p>
+</div>
+<!-- Product Thumbnail -->
+<div class="shrink-0 group-hover:scale-105 transition-transform">
+<div class="w-12 h-12 rounded-md overflow-hidden bg-surface-container relative">
+<img alt="Calculus Textbook" class="w-full h-full object-cover" data-alt="A thick university-level Calculus textbook lying on a minimalist white desk. The cover is colorful and modern. Soft, bright lighting creates a clean, academic vibe. Part of a marketplace listing interface with a focus on student-to-student commerce." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc3v6fqWmV9mvOpbomf0inYgFiP2wBsEkHoXqOUbfPuECGgOEccG89HXoLmEujf6j6haCwJNE8PDvEBj5ySHxF2CVGnZ9Iwa9utD03BTuN3p2PqaMNGr9zhhrfW9Qudnqkfu4IJDBSTTLEXVkk3fr_xrWrusMCJIaTGrAGDCLQCS5V9ni-JaF9dcyNPItbnbNaeZh7zU5-llF3nKLKx_lWS6I7wiXR7t1eCnHMeQ51FcLKCqvaWAh2QCeBgxCL161akXemonWxWw">
+</div>
+</div>
+</div>
+<!-- Chat Item 2 -->
+<div class="group flex items-center gap-4 p-4 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-all cursor-pointer shadow-sm">
+<div class="relative shrink-0">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="Siti" class="w-full h-full object-cover" data-alt="A portrait of a male university student smiling, wearing glasses and a denim jacket. Neutral gray background with professional studio lighting that feels modern and approachable. The aesthetic is clean and minimalist, suitable for a trustworthy peer-to-peer marketplace user profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF0JSoPAaNarCxxkFsbZ1II1kPzaXsCIpEuQC7wzCmaoSkU2kwxQdRgvlfD78fn70ygsTXoYoJHuz5u92SNieeVw-APk9b-NHoV7xaVye_Lv7gPMGYJcM18bqTltgnRlcHq3ntg3cLNUuMUdI68IFwt1OkLvi4AEl5-qZSINkWUHx888OnlMMkfMydGVDjkbdYNsTH3LrNFru4P2kAk2utW30LspkwAu9wkl9kIwQCSlHV9uDU8a_UfU7d_5pyQrFVKmjVUPtuhg">
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-0.5">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Dewi - UI</span>
+<div class="flex items-center gap-0.5 px-2 py-0.5 bg-primary-container/30 rounded-full shrink-0">
+<span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold text-primary tracking-tight">VERIFIED</span>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant shrink-0">Yesterday</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant truncate">Thanks! I'll pick up the lab coat tomorrow near the gate.</p>
+</div>
+<div class="shrink-0 group-hover:scale-105 transition-transform">
+<div class="w-12 h-12 rounded-md overflow-hidden bg-surface-container">
+<img alt="Lab Coat" class="w-full h-full object-cover" data-alt="A crisp, white medical lab coat folded neatly on a light wood surface. The lighting is bright and airy, suggesting a clean, professional academic environment. This product image is part of a high-end student marketplace UI for reselling used university equipment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUDY5Iqi1O8oWCnfR7vOGfCNpK7lmbIQf0Vl1RwmvXKSeYQ_vKKYCjUCJUq29b79ADGg-TB4f_8JZoxglQ7-kh09IRTbQLzohIeH8kjPApkeuHNcR6v7HdUwK9swELPXv-dAcHP50JuQtb9Cvh9O9592THLHNtGj595Floi_uWXaBf6FQlLKBEYbbA5G_8VpkKJsqul7ybTixKNtW20MoXdVGxhuWxc9MDYhGogZ-4s3webKF3naEIhvs5jqNU6byPblrp14nX6A">
+</div>
+</div>
+</div>
+<!-- Chat Item 3 -->
+<div class="group flex items-center gap-4 p-4 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-all cursor-pointer shadow-sm">
+<div class="relative shrink-0">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="Sarah" class="w-full h-full object-cover" data-alt="A portrait of a stylish female student in a brightly lit coffee shop setting. She is wearing a modern mustard-colored top. The depth of field is shallow, creating a soft, warm bokeh effect in the background. The visual tone is optimistic and youth-oriented, matching a Gen Z community brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoATznjNMLeJxPeWSPv-7dmqF2x9lcWduYNzPagiFnUz4IpwbLWQ4x65Exhdrgoj3G_sn72goxJy3_CcU5BPEA5H9PIGxB57cog7lQIqhNue67DjNkcx4BBTTQ8HMyr51Nj9mzakG1Cu4HdavOYEXoJShHWFaEktbgAIeaML5DMeYZrS6-xBzmjgutComrq2_IAayNKXHFBR_mxpllwqLmqpg_V00iXrjKZC25t5ZfJ3EJPm3bZH940tQBmn0BSvv4t0ecQXqU5g">
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-0.5">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Sarah - ITB</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant shrink-0">Mon</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant truncate">I've sent the PDF notes to your email.</p>
+</div>
+<div class="shrink-0 group-hover:scale-105 transition-transform">
+<div class="w-12 h-12 rounded-md overflow-hidden bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-2xl">description</span>
+</div>
+</div>
+</div>
+<!-- Chat Item 4 -->
+<div class="group flex items-center gap-4 p-4 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-all cursor-pointer shadow-sm">
+<div class="relative shrink-0">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="Andi" class="w-full h-full object-cover" data-alt="A confident young man with a short beard and a bright smile, wearing a casual navy blue t-shirt. He is standing outdoors in soft evening light. The photograph is crisp and has a high-end, friendly feel, ideal for a peer-to-peer student marketplace platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-uOkMGwxi1JFBaspQK40JBKjP5nzThRCIID77Pm-pm3-Z78HRptlNToQU4KolP4rOIGhi9CZ1x9PECS4vaAuuDpH02uAIxyhUnZsSGM0icMB5YM53BIcEm5vX48-mswd4ttjLqiQ4C68oZ20123NyG2ly3-KsfBpkMR7WDODgI83dNEquMK1L9_W3_ad39hUXry6Xhw88OgRDlpTEvTYysBWt4ADkK5EHBeLt0oyYKwNbCRY63EY2E81_wTP88lR2cJub_4cPGA">
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-0.5">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Andi - UGM</span>
+<div class="flex items-center gap-0.5 px-2 py-0.5 bg-primary-container/30 rounded-full shrink-0">
+<span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[10px] font-bold text-primary tracking-tight">VERIFIED</span>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant shrink-0">2d ago</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant truncate">Is the calculator still available?</p>
+</div>
+<div class="shrink-0 group-hover:scale-105 transition-transform">
+<div class="w-12 h-12 rounded-md overflow-hidden bg-surface-container">
+<img alt="Calculator" class="w-full h-full object-cover" data-alt="A modern scientific graphing calculator with a large screen, placed on a clean white table. The lighting is direct and clear, highlighting the device's details. The image has a professional product photography style with a light, minimalist background appropriate for a student reselling app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8WdtZUeEqfs4e62538dT3yYRSOTj3WcvM07MNs6El8gruUMPzbJcuvZfTmynZFrT9JojxhVLD43xyex-3nt8RaCc235z-HGeBw05xNRwH7qagc_ql-ZeIUEZSj62Y8nSnMHsGGF00vy6supyHY4RW4P0V7CsuUULZ-Jh2RoJbZR567dd-4695Kj9Uz5KRSQgHcuhPSMkWkX7Kgl_7SI2D6e92To6RNJr7pVVIjocRQPY2Anyar5vvtcqinLxWjqEJjKST4-AMiw">
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State Filler / Future Chats -->
+<div class="mt-xl text-center space-y-sm">
+<div class="inline-flex items-center justify-center w-16 h-16 bg-surface-container rounded-full mb-2">
+<span class="material-symbols-outlined text-outline text-3xl">chat</span>
+</div>
+<p class="font-label-md text-label-md text-outline">Connect with more students to start trading!</p>
+<button class="mt-sm px-6 py-2 rounded-full border-2 border-primary text-primary font-label-md hover:bg-primary/5 transition-colors">
+                Explore Marketplace
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-lg bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-lg">
+<div class="flex justify-around items-center px-sm py-xs w-full h-16">
+<a id="nav-home" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-[10px]">Home</span>
+</a>
+<a id="nav-search" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-sm text-[10px]">Search</span>
+</a>
+<a id="nav-sell" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined text-primary scale-110">add_circle</span>
+<span class="font-label-sm text-[10px]">Sell</span>
+</a>
+<a id="nav-chat" class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 hover:bg-primary-container/20 rounded-xl transition-all p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="font-label-sm text-[10px]">Chat</span>
+</a>
+<a id="nav-profile" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-[10px]">Profile</span>
+</a>
+</div>
+</nav>
+<!-- FAB for New Chat -->
+<button class="fixed right-6 bottom-24 w-14 h-14 rounded-full bg-gradient-to-tr from-primary to-primary-container text-white shadow-xl flex items-center justify-center active:scale-95 transition-all z-40 group">
+<span class="material-symbols-outlined text-2xl group-hover:rotate-90 transition-transform duration-300">edit_square</span>
+</button>
+<script>
+        // Micro-interaction: Active state feedback for chat list
+        const chatItems = document.querySelectorAll('.group.cursor-pointer');
+        chatItems.forEach(item => {
+            item.addEventListener('touchstart', () => {
+                item.classList.add('bg-surface-container-high');
+            });
+            item.addEventListener('touchend', () => {
+                setTimeout(() => item.classList.remove('bg-surface-container-high'), 100);
+            });
+        });
+
+        // Search Bar focus effect
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('scale-[1.01]');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('scale-[1.01]');
+        });
+
+        // ===========================
+// Bottom Navigation
+// ===========================
+
+document.getElementById("nav-home").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const isVerified = localStorage.getItem("userVerified") === "true";
+
+    if (isVerified) {
+        window.location.href = "../home_student.html";
+    } else {
+        window.location.href = "../home.html";
+    }
+});
+
+document.getElementById("nav-search").addEventListener("click", function(e){
+    e.preventDefault();
+    window.location.href = "../marketplace/search.html";
+});
+
+document.getElementById("nav-sell").addEventListener("click", function(e){
+    e.preventDefault();
+    window.location.href = "../shop/add_product.html";
+});
+
+document.getElementById("nav-chat").addEventListener("click", function(e){
+    e.preventDefault();
+    // Sudah berada di halaman chat
+});
+
+document.getElementById("nav-profile").addEventListener("click", function(e){
+    e.preventDefault();
+
+    const verified = localStorage.getItem("userVerified");
+
+    if (verified === "true") {
+        window.location.href = "../profile/profile.html";
+    } else {
+        window.location.href = "../verify/verify.html";
+    }
+});
+    </script>
+</body></html>

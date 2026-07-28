@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Checkout - EduLoop</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e7e8e9",
+              "on-primary-container": "#00556f",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary-fixed": "#ffd9de",
+              "on-primary-fixed": "#001f2a",
+              "on-tertiary-container": "#743e48",
+              "tertiary-fixed-dim": "#fcb3be",
+              "primary-fixed-dim": "#75d2fc",
+              "on-tertiary-fixed-variant": "#6b3741",
+              "on-surface-variant": "#3f484e",
+              primary: "#006685",
+              "surface-dim": "#d9dadb",
+              "surface-container-highest": "#e1e3e4",
+              "inverse-surface": "#2e3132",
+              "surface-container": "#edeeef",
+              "secondary-fixed": "#ebdcff",
+              "on-primary": "#ffffff",
+              "inverse-primary": "#75d2fc",
+              tertiary: "#874e58",
+              surface: "#f8f9fa",
+              "surface-container-low": "#f3f4f5",
+              "surface-variant": "#e1e3e4",
+              "on-error-container": "#93000a",
+              "surface-tint": "#006685",
+              "primary-fixed": "#bfe8ff",
+              secondary: "#68548d",
+              "on-secondary-container": "#5d4a82",
+              "surface-bright": "#f8f9fa",
+              "secondary-container": "#d6beff",
+              "on-primary-fixed-variant": "#004d65",
+              "on-secondary": "#ffffff",
+              "on-surface": "#191c1d",
+              "on-error": "#ffffff",
+              "on-secondary-fixed": "#230f45",
+              "secondary-fixed-dim": "#d3bcfc",
+              "on-tertiary-fixed": "#360c17",
+              "on-background": "#191c1d",
+              "primary-container": "#6ecbf5",
+              "tertiary-container": "#f5adb8",
+              outline: "#6f787e",
+              background: "#f8f9fa",
+              "outline-variant": "#bec8cf",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed-variant": "#503d73",
+              "surface-container-lowest": "#ffffff",
+              "error-container": "#ffdad6",
+              error: "#ba1a1a",
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "2rem",
+              xl: "3rem",
+              full: "9999px",
+            },
+            spacing: {
+              xs: "4px",
+              md: "24px",
+              lg: "48px",
+              gutter: "24px",
+              "container-max": "1280px",
+              xl: "80px",
+              sm: "12px",
+              base: "8px",
+            },
+            fontFamily: {
+              "headline-md": ["Montserrat"],
+              "display-lg": ["Montserrat"],
+              "body-sm": ["Inter"],
+              "headline-lg": ["Montserrat"],
+              "label-sm": ["Inter"],
+              "label-md": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-lg-mobile": ["Montserrat"],
+              "display-lg-mobile": ["Montserrat"],
+              "body-lg": ["Inter"],
+            },
+            fontSize: {
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "headline-lg": [
+                "32px",
+                { lineHeight: "40px", fontWeight: "600" },
+              ],
+              "label-sm": ["12px", { lineHeight: "14px", fontWeight: "500" }],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "headline-lg-mobile": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "display-lg-mobile": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .glass-panel {
+        backdrop-filter: blur(20px);
+        background: rgba(248, 249, 250, 0.7);
+      }
+      .primary-gradient {
+        background: linear-gradient(90deg, #75d2fc 0%, #d6beff 100%);
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .selection-active {
+        border: 2px solid #006685 !important;
+        background-color: #e7e8e9;
+      }
+    </style>
+  </head>
+  <body class="bg-surface text-on-surface min-h-screen pb-32">
+    <!-- Top Navigation Bar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm"
+    >
+      <div
+        class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto"
+      >
+        <div class="flex items-center gap-sm">
+          <button
+            class="material-symbols-outlined text-primary p-xs active:scale-95 duration-200"
+            onclick="history.back()"
+          >
+            arrow_back
+          </button>
+          <h1 class="font-headline-md text-headline-md font-bold text-primary">
+            EduLoop
+          </h1>
+        </div>
+        <div class="flex items-center gap-sm">
+          <span
+            class="font-label-md text-label-md text-on-surface-variant hidden md:block"
+            >Step 2 of 2</span
+          >
+          <span class="material-symbols-outlined text-primary"
+            >location_on</span
+          >
+        </div>
+      </div>
+    </header>
+    <main class="pt-24 px-gutter max-w-4xl mx-auto">
+      <!-- Success/Safety Header -->
+      <div
+        class="mb-lg p-md bg-primary-container/20 rounded-lg flex items-start gap-md border border-primary-container/30"
+      >
+        <div
+          class="bg-primary text-on-primary p-xs rounded-full flex items-center justify-center"
+        >
+          <span
+            class="material-symbols-outlined"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >verified_user</span
+          >
+        </div>
+        <div>
+          <h3 class="font-label-md text-label-md text-primary mb-xs">
+            Verifikasi Mahasiswa
+          </h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">
+            This transaction is protected by our student-only safety policy.
+            Both parties have verified university IDs to ensure a secure
+            exchange.
+          </p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+        <!-- Left Column: Details -->
+        <div class="md:col-span-7 space-y-lg">
+          <!-- Product Overview -->
+          <section>
+            <h2
+              class="font-headline-md text-headline-md-mobile md:text-headline-md mb-md"
+            >
+              Purchase Summary
+            </h2>
+            <div
+              class="bg-surface-container-lowest p-md rounded-xl shadow-sm flex gap-md items-center"
+            >
+              <img
+                id="payment-image"
+                alt="Product Image"
+                class="w-24 h-32 object-cover rounded-md shadow-sm"
+                data-alt="A clean, professional macro shot of a 'Management Principles' textbook on a minimalist white desk. The book has a modern teal and white cover design. The lighting is soft and bright, creating a high-end minimalist aesthetic with gentle shadows, emphasizing a studious and organized Gen Z academic vibe."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcoheHI8DSICYjse1xbNaqrJDoOmlnvjju0M3CkFZJDq-BuSGpkLZg1O-MFGeSH8xr9b4TJQd4NRUjtYFDdh1n9R9Mxrjwv0Jm4Gqm6iCMgalGRDoJeb9NSXxQHoD1J_B7w00krCrGTQXwfm1RILQZKJr9QIScMxuEmanH9AsWgdgsg2qH_NOeQTU6q6JnnLlGr9ixFfb9VPq7wDAdhOqFOJ-g0gjyWCokb0SayGKEbWBe8B5lIaHNYX9lTUCT3TScBU7yLvA0_A"
+              />
+              <div class="flex-1">
+                <h4
+                  id="payment-name"
+                  class="font-headline-md text-headline-md-mobile text-on-surface"
+                ></h4>
+                <p
+                  id="payment-seller"
+                  class="font-label-md text-label-md text-primary mb-xs"
+                ></p>
+                <div class="flex items-center gap-xs">
+                  <span
+                    class="material-symbols-outlined text-primary text-[16px]"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >check_circle</span
+                  >
+                  <span
+                    class="font-label-sm text-label-sm text-on-surface-variant"
+                    >Verified Quality</span
+                  >
+                </div>
+              </div>
+              <div class="text-right">
+                <p
+                  id="payment-price"
+                  class="font-headline-md text-headline-md-mobile text-primary"
+                ></p>
+              </div>
+            </div>
+          </section>
+          <!-- Shipping Options -->
+          <section>
+            <h2
+              class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant mb-md"
+            >
+              Delivery Method
+            </h2>
+            <div class="grid grid-cols-1 gap-sm">
+              <!-- Option 1: Meet Point -->
+              <div id="meetpoint"
+                class="p-md rounded-lg flex items-center gap-md cursor-pointer transition-all hover:bg-surface-container-high border-2 border-transparent"
+              >
+                <span class="material-symbols-outlined text-primary"
+                  >groups</span
+                >
+                <div class="flex-1">
+                  <p class="font-label-md text-label-md text-on-surface">
+                    Student Meet Point
+                  </p>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Perpustakaan Pusat (UI Depok)
+                  </p>
+                </div>
+                <span class="font-label-md text-label-md text-primary"
+                  >Free</span
+                >
+              </div>
+              <!-- Option 2: Regular -->
+              <div id="delivery"
+                class="bg-surface-container-low p-md rounded-lg flex items-center gap-md cursor-pointer transition-all hover:bg-surface-container-high border-2 border-transparent border-outline-variant/30 selection-active"
+              >
+                <span class="material-symbols-outlined text-on-surface-variant"
+                  >local_shipping</span
+                >
+                <div class="flex-1">
+                  <p class="font-label-md text-label-md text-on-surface">
+                    JNE / GoSend
+                  </p>
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">
+                    Standard 2-3 Day Delivery
+                  </p>
+                </div>
+                <span
+                  class="font-label-md text-label-md text-on-surface-variant"
+                  >Rp 10.000</span
+                >
+              </div>
+            </div>
+          </section>
+          <!-- Payment Methods -->
+          <section>
+            <h2
+              class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant mb-md"
+            >
+              Payment Method
+            </h2>
+            <div class="grid grid-cols-2 gap-sm">
+              <div
+                ic="ewallet"
+                class="bg-surface-container-low p-md rounded-lg flex flex-col items-center gap-xs cursor-pointer border-2 border-transparent hover:border-primary transition-all"
+              >
+                <span class="material-symbols-outlined text-primary text-3xl"
+                  >account_balance_wallet</span
+                >
+                <span class="font-label-md text-label-md text-on-surface"
+                  >E-wallet</span
+                >
+              </div>
+              <div
+                id="bank"
+                class="bg-surface-container-low p-md rounded-lg flex flex-col items-center gap-xs cursor-pointer border-2 border-transparent hover:border-primary transition-all"
+              >
+                <span class="material-symbols-outlined text-primary text-3xl"
+                  >account_balance</span
+                >
+                <span class="font-label-md text-label-md text-on-surface"
+                  >Bank Transfer</span
+                >
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- Right Column: Checkout Summary (Desktop Only/Sticky) -->
+        <div class="md:col-span-5">
+          <div
+            class="sticky top-28 bg-surface-container-low p-md rounded-xl shadow-sm space-y-md"
+          >
+            <h3 class="font-headline-md text-headline-md text-on-surface">
+              Payment Detail
+            </h3>
+            <div class="space-y-xs border-b border-outline-variant/30 pb-md">
+              <div class="flex justify-between font-body-md text-body-md">
+                <span class="text-on-surface-variant">Product Price</span>
+                <span id="subtotal-price" class="text-on-surface">Rp 0</span>
+              </div>
+              <div class="flex justify-between font-body-md text-body-md">
+                <span class="text-on-surface-variant">Delivery Fee</span>
+                <span id="delivery-price" class="text-on-surface">Rp 0</span>
+              </div>
+              <div class="flex justify-between font-body-md text-body-md">
+                <span class="text-on-surface-variant">Platform Fee</span>
+                <span id="platform-price" class="text-on-surface"
+                  >Rp 2.000</span
+                >
+              </div>
+            </div>
+            <div class="flex justify-between items-center pt-xs">
+              <span class="font-headline-md text-headline-md text-on-surface"
+                >Total Pay</span
+              >
+              <span
+                id="total-price"
+                class="font-headline-lg text-headline-lg text-primary"
+              >
+              </span>
+            </div>
+            <button id="pay-button"
+              class="w-full primary-gradient py-md px-lg rounded-full font-headline-md text-on-primary shadow-lg hover:shadow-primary/20 active:scale-95 duration-200 transition-all text-center"
+            >
+              Bayar Sekarang
+            </button>
+            <div
+              class="flex items-center justify-center gap-xs text-on-surface-variant"
+            >
+              <span class="material-symbols-outlined text-[16px]">lock</span>
+              <span class="font-label-sm text-label-sm"
+                >Secure Encrypted Payment</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Bottom Navigation (Mobile Only) -->
+    <nav
+      class="md:hidden fixed bottom-0 w-full z-50 rounded-t-lg bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-lg"
+    >
+      <div class="flex justify-around items-center px-sm py-xs w-full h-16">
+        <div
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-xs"
+        >
+          <span class="material-symbols-outlined">home</span>
+          <span class="font-label-sm text-label-sm-mobile">Home</span>
+        </div>
+        <div
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-xs"
+        >
+          <span class="material-symbols-outlined">search</span>
+          <span class="font-label-sm text-label-sm-mobile">Search</span>
+        </div>
+        <div
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-xs"
+        >
+          <span class="material-symbols-outlined">add_circle</span>
+          <span class="font-label-sm text-label-sm-mobile">Sell</span>
+        </div>
+        <div
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-xs"
+        >
+          <span class="material-symbols-outlined">chat_bubble</span>
+          <span class="font-label-sm text-label-sm-mobile">Chat</span>
+        </div>
+        <div
+          class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 p-xs"
+        >
+          <span
+            class="material-symbols-outlined"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >person</span
+          >
+          <span class="font-label-sm text-label-sm-mobile">Profile</span>
+        </div>
+      </div>
+    </nav>
+    <script>
+      const cartProduct = JSON.parse(localStorage.getItem("eduloop_cart"));
+
+      const DELIVERY = 0;
+      const PLATFORM = 2000;
+
+      if (cartProduct) {
+        document.getElementById("payment-image").src = cartProduct.image;
+
+        document.getElementById("payment-name").textContent = cartProduct.name;
+
+        document.getElementById("payment-price").textContent =
+          cartProduct.price;
+
+        document.getElementById("payment-seller").textContent =
+          cartProduct.seller;
+      }
+
+      if (cartProduct) {
+        const harga = Number(
+          cartProduct.price.replace("Rp", "").replace(/\./g, "").trim(),
+        );
+
+        const total = harga + DELIVERY + PLATFORM;
+
+        document.getElementById("subtotal-price").textContent =
+          "Rp " + harga.toLocaleString("id-ID");
+
+        document.getElementById("delivery-price").textContent =
+          "Rp " + DELIVERY.toLocaleString("id-ID");
+
+        document.getElementById("platform-price").textContent =
+          "Rp " + PLATFORM.toLocaleString("id-ID");
+
+        document.getElementById("total-price").textContent =
+          "Rp " + total.toLocaleString("id-ID");
+      }
+      // Micro-interaction for payment method selection
+      const methods = document.querySelectorAll("#ewallet,#bank");
+
+      methods.forEach((method) => {
+        method.onclick = () => {
+          methods.forEach((m) => {
+            m.classList.remove("border-primary", "bg-surface-container-high");
+          });
+
+          method.classList.add("border-primary", "bg-surface-container-high");
+
+          localStorage.setItem("payment_method", method.id);
+        };
+      });
+
+      // Micro-interaction for shipping selection
+      const shipping = document.querySelectorAll("#meetpoint,#delivery");
+
+      shipping.forEach((item) => {
+        item.onclick = () => {
+          shipping.forEach((i) => {
+            i.classList.remove("selection-active");
+          });
+
+          item.classList.add("selection-active");
+
+          localStorage.setItem("shipping_method", item.id);
+        };
+      });
+
+      document.getElementById("pay-button").onclick = () => {
+        localStorage.setItem("last_order", JSON.stringify(cartProduct));
+
+        localStorage.removeItem("eduloop_cart");
+
+        window.location.href = "../transaction/order_status.html";
+      };
+    </script>
+  </body>
+</html>

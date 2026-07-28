@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="id"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EduLoop - Onboarding</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#503d73",
+                    "secondary-fixed": "#ebdcff",
+                    "surface-container-high": "#e7e8e9",
+                    "on-primary-fixed-variant": "#004d65",
+                    "background": "#f8f9fa",
+                    "on-tertiary-container": "#743e48",
+                    "on-primary-fixed": "#001f2a",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-surface-variant": "#3f484e",
+                    "on-surface": "#191c1d",
+                    "inverse-primary": "#75d2fc",
+                    "error": "#ba1a1a",
+                    "secondary": "#68548d",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#874e58",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#fcb3be",
+                    "tertiary-fixed": "#ffd9de",
+                    "tertiary-container": "#f5adb8",
+                    "surface-dim": "#d9dadb",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-container": "#5d4a82",
+                    "on-tertiary-fixed-variant": "#6b3741",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed-dim": "#75d2fc",
+                    "on-primary-container": "#00556f",
+                    "primary": "#006685",
+                    "on-tertiary-fixed": "#360c17",
+                    "inverse-surface": "#2e3132",
+                    "primary-container": "#6ecbf5",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-secondary-fixed": "#230f45",
+                    "secondary-container": "#d6beff",
+                    "outline-variant": "#bec8cf",
+                    "surface-bright": "#f8f9fa",
+                    "primary-fixed": "#bfe8ff",
+                    "surface-tint": "#006685",
+                    "surface": "#f8f9fa",
+                    "secondary-fixed-dim": "#d3bcfc",
+                    "surface-variant": "#e1e3e4",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#edeeef",
+                    "surface-container-low": "#f3f4f5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#191c1d",
+                    "outline": "#6f787e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "sm": "12px",
+                    "container-max": "1280px",
+                    "lg": "48px",
+                    "xl": "80px",
+                    "gutter": "24px",
+                    "md": "24px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Montserrat"],
+                    "body-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Montserrat"],
+                    "display-lg-mobile": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .gradient-button {
+            background: linear-gradient(135deg, #6ecbf5 0%, #d6beff 100%);
+        }
+        .gradient-button:active {
+            transform: scale(0.95);
+        }
+        .onboarding-image-container {
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+        #onboarding-image,
+        #onboarding-title,
+        #onboarding-description{
+        transition:all .35s ease;
+}
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md overflow-y-auto overflow-x-hidden"><!-- Top Navigation Suppression: Not shown on onboarding per rules -->
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-between relative max-w-container-max mx-auto w-full">
+<!-- Header Actions -->
+<div class="w-full flex justify-end px-gutter py-sm z-10">
+<button
+    id="btn-skip"
+    class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors py-2 px-4 rounded-full active:scale-95 duration-200">
+    Skip
+</button>
+</div>
+<!-- Content Section -->
+<div class="flex-grow flex flex-col items-center justify-center px-gutter w-full max-w-md">
+<!-- Illustration Section -->
+<div class="w-full mb-xl onboarding-image-container relative">
+<div class="absolute inset-0 bg-primary-container/10 rounded-full blur-3xl scale-125 -z-10"></div>
+<img
+id="onboarding-image"
+alt="Students trading items"
+class="w-full aspect-square object-cover rounded-xl shadow-lg border-4 border-surface-container-lowest transition-all duration-300"
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuBux9gMkQqLncalYfaWojurXtvo73jg7u7HNDSh-6FvNlbfDXbESCr3LuwnfkXNlvkne1JWG7hGkysOmmoZ1v0um6T2-iyK-jaVw3JF8f3QMGKw4a0fyvY5qFT8uQUQFUHINTpdE_hWbLbeisrzfYeXVvQXA9Rp-M5mh5mzWJURcWzFrgF3GN84hZu0ZzbzakTlP87412EcQzCcVTfG6cTe5akb0zMqZ2eiBrDicXgaorUeM64R4JQfRvlxEk5y-2A6OKSZsKWAbA"></div>
+<!-- Text Content -->
+<div class="text-center space-y-md animate-in fade-in slide-in-from-bottom-4 duration-700">
+<h1
+id="onboarding-title"
+class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary tracking-tight transition-all duration-300">
+<p
+id="onboarding-description"
+class="font-body-md text-body-md text-on-surface-variant max-w-sm mx-auto leading-relaxed transition-all duration-300">
+</div>
+</div>
+<!-- Bottom Controls -->
+<div class="w-full px-gutter pb-xl pt-lg flex flex-col items-center gap-xl">
+<!-- Progress Dots -->
+<div class="flex items-center gap-2">
+<div id="dot-0" class="w-2 h-2 rounded-full bg-primary transition-all"></div>
+<div id="dot-1" class="w-2 h-2 rounded-full bg-outline-variant transition-all"></div>
+<div id="dot-2" class="w-2 h-2 rounded-full bg-outline-variant transition-all"></div>
+</div>
+<!-- Primary Action -->
+<button
+    id="btn-next"
+    class="gradient-button w-full max-w-xs py-4 rounded-full font-headline-md text-label-md text-white shadow-md transition-all active:scale-95 duration-200">
+    Next
+</button>
+</div>
+</main>
+<!-- Visual Accents (Atmospheric) -->
+<div class="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-container/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+<div class="fixed bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary-container/20 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+<script src="../js/onboarding.js"></script>
+</body></html>

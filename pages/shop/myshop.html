@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>EduLoop - Campus Seller Profile</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e7e8e9",
+              "on-primary-container": "#00556f",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary-fixed": "#ffd9de",
+              "on-primary-fixed": "#001f2a",
+              "on-tertiary-container": "#743e48",
+              "tertiary-fixed-dim": "#fcb3be",
+              "primary-fixed-dim": "#75d2fc",
+              "on-tertiary-fixed-variant": "#6b3741",
+              "on-surface-variant": "#3f484e",
+              primary: "#006685",
+              "surface-dim": "#d9dadb",
+              "surface-container-highest": "#e1e3e4",
+              "inverse-surface": "#2e3132",
+              "surface-container": "#edeeef",
+              "secondary-fixed": "#ebdcff",
+              "on-primary": "#ffffff",
+              "inverse-primary": "#75d2fc",
+              tertiary: "#874e58",
+              surface: "#f8f9fa",
+              "surface-container-low": "#f3f4f5",
+              "surface-variant": "#e1e3e4",
+              "on-error-container": "#93000a",
+              "surface-tint": "#006685",
+              "primary-fixed": "#bfe8ff",
+              secondary: "#68548d",
+              "on-secondary-container": "#5d4a82",
+              "surface-bright": "#f8f9fa",
+              "secondary-container": "#d6beff",
+              "on-primary-fixed-variant": "#004d65",
+              "on-secondary": "#ffffff",
+              "on-surface": "#191c1d",
+              "on-error": "#ffffff",
+              "on-secondary-fixed": "#230f45",
+              "secondary-fixed-dim": "#d3bcfc",
+              "on-tertiary-fixed": "#360c17",
+              "on-background": "#191c1d",
+              "primary-container": "#6ecbf5",
+              "tertiary-container": "#f5adb8",
+              outline: "#6f787e",
+              background: "#f8f9fa",
+              "outline-variant": "#bec8cf",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed-variant": "#503d73",
+              "surface-container-lowest": "#ffffff",
+              "error-container": "#ffdad6",
+              error: "#ba1a1a",
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "2rem",
+              xl: "3rem",
+              full: "9999px",
+            },
+            spacing: {
+              xs: "4px",
+              md: "24px",
+              lg: "48px",
+              gutter: "24px",
+              "container-max": "1280px",
+              xl: "80px",
+              sm: "12px",
+              base: "8px",
+            },
+            fontFamily: {
+              "headline-md": ["Montserrat"],
+              "display-lg": ["Montserrat"],
+              "body-sm": ["Inter"],
+              "headline-lg": ["Montserrat"],
+              "label-sm": ["Inter"],
+              "label-md": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-lg-mobile": ["Montserrat"],
+              "display-lg-mobile": ["Montserrat"],
+              "body-lg": ["Inter"],
+            },
+            fontSize: {
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "headline-lg": [
+                "32px",
+                { lineHeight: "40px", fontWeight: "600" },
+              ],
+              "label-sm": ["12px", { lineHeight: "14px", fontWeight: "500" }],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "headline-lg-mobile": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "display-lg-mobile": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .glass-header {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .active-dot::after {
+        content: "";
+        width: 4px;
+        height: 4px;
+        background-color: currentColor;
+        border-radius: 50%;
+        margin-top: 2px;
+      }
+      .gradient-btn {
+        background: linear-gradient(135deg, #75d2fc 0%, #d6beff 100%);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background min-h-screen pb-24 md:pb-0">
+    <!-- Top AppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm"
+    >
+      <div
+        class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto"
+      >
+        <div class="flex items-center gap-sm">
+          <div
+            class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container"
+          >
+            <img
+              alt="User profile photo"
+              data-alt="A professional headshot of a smiling university student with a modern haircut, wearing a clean casual sweater. The lighting is soft and natural, coming from a large window. The background is a blurred academic library with soft pastel tones of light blue and lavender, matching a Gen Z aesthetic."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCafs5-E3VMhT5XMGJMshr6x_Et4TMKHgitFLrbnyR2vAkq9T5yEEgzqsJd7iOUX7u8dD8j8CYZ3Y8ARkiXr1x5xVEnmh3CSCR3XmhSPEg8dzDc8cdAwaZs-6vZWDRKBLELZmxIet1LZwC9nCVydjQwhqB3ZYZHQCGqj7hOG5YF4Zb97DUHS9HT8wyFW9Di1I07QKK-uQHHEgJK7QMci72tK_ylz6llS5BX_8vH8ORdsZOWn61MGDcpZ-3oyz85V89h-2aNwe-phw"
+              class=""
+            />
+          </div>
+          <h1 class="font-headline-md text-headline-md font-bold text-primary">
+            EduLoop
+          </h1>
+        </div>
+        <div class="flex items-center gap-md">
+          <span
+            class="material-symbols-outlined text-primary cursor-pointer active:scale-95 duration-200"
+            data-icon="location_on"
+            >location_on</span
+          >
+          <span
+            class="material-symbols-outlined text-primary cursor-pointer active:scale-95 duration-200"
+            data-icon="notifications"
+            >notifications</span
+          >
+        </div>
+      </div>
+    </header>
+    <main class="pt-24 px-gutter max-w-container-max mx-auto">
+      <!-- Seller Identity Section -->
+      <section class="mb-lg">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between gap-md"
+        >
+          <div class="flex flex-col gap-xs">
+            <div class="flex items-center gap-sm">
+              <h2
+                class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface"
+              >
+                Budi Santoso
+              </h2>
+              <span
+                class="flex items-center gap-xs px-sm py-1 bg-primary-container text-on-primary-container rounded-full font-label-md text-label-md"
+              >
+                <span
+                  class="material-symbols-outlined text-[16px]"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >verified</span
+                >
+                Campus Seller
+              </span>
+            </div>
+            <p class="font-body-md text-on-surface-variant">
+              Universitas Indonesia • Teknik Informatika
+            </p>
+          </div>
+          <button
+            id="btn-add-product"
+            class="gradient-btn text-white px-md py-sm rounded-full font-headline-md text-label-md shadow-lg flex items-center gap-sm active:scale-95 transition-transform"
+          >
+            <span class="material-symbols-outlined" data-icon="add_circle"
+              >add_circle</span
+            >
+            Tambah Produk
+          </button>
+        </div>
+      </section>
+      <!-- Stats Bento Grid -->
+      <section class="grid grid-cols-2 md:grid-cols-4 gap-sm mb-lg">
+        <div
+          class="bg-surface-container-low p-md rounded-xl shadow-sm flex flex-col items-center justify-center text-center"
+        >
+          <span
+            class="material-symbols-outlined text-primary mb-xs"
+            data-icon="star"
+            >star</span
+          >
+          <span class="font-headline-md text-primary">4.9</span>
+          <span class="font-label-sm text-on-surface-variant">Rating Toko</span>
+        </div>
+        <div
+          class="bg-surface-container-low p-md rounded-xl shadow-sm flex flex-col items-center justify-center text-center"
+        >
+          <span
+            class="material-symbols-outlined text-secondary mb-xs"
+            data-icon="bolt"
+            >bolt</span
+          >
+          <span class="font-headline-md text-secondary">98%</span>
+          <span class="font-label-sm text-on-surface-variant">Respon Chat</span>
+        </div>
+        <div
+          class="bg-surface-container-low p-md rounded-xl shadow-sm flex flex-col items-center justify-center text-center"
+        >
+          <span
+            class="material-symbols-outlined text-tertiary mb-xs"
+            data-icon="shopping_bag"
+            >shopping_bag</span
+          >
+          <span class="font-headline-md text-tertiary">124</span>
+          <span class="font-label-sm text-on-surface-variant"
+            >Produk Terjual</span
+          >
+        </div>
+        <div
+          class="bg-surface-container-low p-md rounded-xl shadow-sm flex flex-col items-center justify-center text-center"
+        >
+          <span
+            class="material-symbols-outlined text-on-primary-container mb-xs"
+            data-icon="schedule"
+            >schedule</span
+          >
+          <span class="font-headline-md text-on-primary-container">5mnt</span>
+          <span class="font-label-sm text-on-surface-variant">Waktu Kirim</span>
+        </div>
+      </section>
+      <!-- Penjualan Saya -->
+      <section class="mb-lg">
+        <h3
+          class="font-headline-md text-headline-md mb-md flex items-center gap-sm"
+        >
+          Penjualan Saya
+          <span class="w-2 h-2 bg-error rounded-full animate-pulse"></span>
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+          <!-- Order Status Card 1 -->
+          <div
+            class="bg-surface-container-lowest p-md rounded-lg shadow-sm flex items-center justify-between border-l-4 border-error"
+          >
+            <div class="flex items-center gap-md">
+              <div
+                class="w-12 h-12 bg-error-container text-on-error-container rounded-full flex items-center justify-center"
+              >
+                <span class="material-symbols-outlined" data-icon="new_releases"
+                  >new_releases</span
+                >
+              </div>
+              <div>
+                <p class="font-label-md text-on-surface">Pesanan Baru</p>
+                <p class="font-body-sm text-on-surface-variant">
+                  3 pesanan menunggu konfirmasi
+                </p>
+              </div>
+            </div>
+            <span
+              class="material-symbols-outlined text-on-surface-variant"
+              data-icon="chevron_right"
+              >chevron_right</span
+            >
+          </div>
+          <!-- Order Status Card 2 -->
+          <div
+            class="bg-surface-container-lowest p-md rounded-lg shadow-sm flex items-center justify-between border-l-4 border-primary"
+          >
+            <div class="flex items-center gap-md">
+              <div
+                class="w-12 h-12 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined"
+                  data-icon="local_shipping"
+                  >local_shipping</span
+                >
+              </div>
+              <div>
+                <p class="font-label-md text-on-surface">Siap Dikirim</p>
+                <p class="font-body-sm text-on-surface-variant">
+                  5 pesanan siap di pick-up
+                </p>
+              </div>
+            </div>
+            <span
+              class="material-symbols-outlined text-on-surface-variant"
+              data-icon="chevron_right"
+              >chevron_right</span
+            >
+          </div>
+        </div>
+      </section>
+      <!-- Toko Saya / Active Listings -->
+      <section class="mb-xl">
+        <div class="flex justify-between items-center mb-md">
+          <h3 class="font-headline-md text-headline-md">Toko Saya</h3>
+          <button
+            class="text-primary font-label-md hover:underline decoration-2"
+          >
+            Lihat Semua
+          </button>
+        </div>
+        <!-- Product Grid -->
+        <div
+          class="mb-md p-md rounded-xl bg-secondary-container/30 border border-secondary-container flex items-center justify-between gap-md"
+        >
+          <div class="flex items-center gap-md">
+            <div
+              class="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center"
+            >
+              <span class="material-symbols-outlined" data-icon="rocket_launch"
+                >rocket_launch</span
+              >
+            </div>
+            <div>
+              <p class="font-label-md text-on-surface">Boost Produk Anda</p>
+              <p class="font-body-sm text-on-surface-variant">
+                Dapatkan jangkauan 2x lebih luas ke pembeli di kampus.
+              </p>
+            </div>
+          </div>
+          <button
+            class="bg-secondary text-white px-sm py-1 rounded-full font-label-md text-[12px] active:scale-95 transition-transform"
+          >
+            Pelajari
+          </button>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-md">
+          <!-- Product Card 1 -->
+          <div
+            id="btn-add-item"
+            class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden group cursor-pointer transition-transform duration-300 hover:-translate-y-1"
+          >
+            <div class="relative aspect-square overflow-hidden">
+              <img
+                alt="Textbook"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                data-alt="A clean, minimalist photo of a hardcover academic textbook titled Advanced Calculus resting on a white wooden desk. Next to the book is a sleek modern coffee mug and a few scattered organic-looking notes. High-key lighting, bright and airy atmosphere with soft blue shadows."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMS9yNx1s-ZI9XIxUxPucAwwxxWJXH5XGyZNpc6BL5I0-brJZ8jsdSEbspEZybWBRyDnQJ1oBH-YSAaTBJp4GXC2Tvo6gM1IqHoY2c4cuzA9hBytKOJSevMZZfkSHfTOgxPOVezIapLixPp2t64qPboe2Pfq40nnjZCgMfuNsSOQ9TmF-dwVCRsjG1Wi-y9nI1ZVb07jkC2iP4dlprA_etu_KS394cJF1NpVkA8vsekbSpPtLfcqkXEEcpoC-RAKPtuZRCkreR8g"
+              />
+              <div
+                class="absolute top-2 right-2 bg-surface/90 backdrop-blur-md px-2 py-1 rounded-full flex items-center gap-xs"
+              >
+                <span
+                  class="material-symbols-outlined text-[14px] text-primary"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >visibility</span
+                >
+                <span class="font-label-sm text-on-surface">1.2k</span>
+              </div>
+            </div>
+            <div class="p-sm">
+              <h4 class="font-label-md text-on-surface truncate">
+                Kalkulus Lanjut - Purchell
+              </h4>
+              <p class="text-primary font-bold mt-1">Rp 20.000</p>
+              <div class="mt-2 flex items-center justify-between">
+                <button
+                  id="btn-boost-1"
+                  class="flex items-center gap-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-label-sm text-[10px] hover:bg-secondary-container/80 transition-all active:scale-95"
+                >
+                  <span
+                    class="material-symbols-outlined text-[14px]"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >rocket_launch</span
+                  >Boost
+                </button>
+                <span
+                  class="bg-surface-container text-on-surface-variant px-xs py-1 rounded-md text-[10px] font-bold"
+                  >STOK: 2</span
+                >
+                <span
+                  class="material-symbols-outlined text-on-surface-variant text-[20px]"
+                  data-icon="more_vert"
+                  >more_vert</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 2 -->
+          <div
+            id="btn-add-item"
+            class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden group cursor-pointer transition-transform duration-300 hover:-translate-y-1"
+          >
+            <div class="relative aspect-square overflow-hidden">
+              <img
+                alt="Desk Chair"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                data-alt="A contemporary ergonomic desk chair in a light grey fabric, positioned in a bright student dormitory room with white walls. Sunlight creates long, soft shadows. The overall aesthetic is clean, organized, and modern minimalist, featuring soft pastel accents in the background."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc5dVnjotkGCH306zGhDijhkFZT7To2buJhG-NeXWlonwvvFhdSNVPDoR4B8iXfTB9uDKwqjBo8irC79vBRoR3d0Jkh0yUahsgH_we_C4AXcTWXqVA9Zho4kLncU3caCZPEpIax3MQz_QSwXHLonSZd1rz0jb4eq4z-VymV0MY5RwqQW_ogKC6lDb6GgndlN-gGaBtcj14hSYmW-EOUeZGLoxPGxWjUAgHqz0hzowBgfHbUFuB26DYRgCeuFn_ZvmTWxQDCUDmpg"
+              />
+            </div>
+            <div class="p-sm">
+              <h4 class="font-label-md text-on-surface truncate">
+                Kursi Belajar Minimalis
+              </h4>
+              <p class="text-primary font-bold mt-1">Rp 200.000</p>
+              <div class="mt-2 flex items-center justify-between">
+                <button
+                  id="btn-boost-2"
+                  class="flex items-center gap-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-label-sm text-[10px] hover:bg-secondary-container/80 transition-all active:scale-95"
+                >
+                  <span
+                    class="material-symbols-outlined text-[14px]"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >rocket_launch</span
+                  >Boost
+                </button>
+                <span
+                  class="bg-surface-container text-on-surface-variant px-xs py-1 rounded-md text-[10px] font-bold"
+                  >STOK: 1</span
+                >
+                <span
+                  class="material-symbols-outlined text-on-surface-variant text-[20px]"
+                  data-icon="more_vert"
+                  >more_vert</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 3 -->
+          <div
+            id="btn-add-item"
+            class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden group cursor-pointer transition-transform duration-300 hover:-translate-y-1"
+          >
+            <div class="relative aspect-square overflow-hidden">
+              <img
+                alt="Headphones"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                data-alt="A pair of high-quality noise-canceling headphones placed neatly on a modern laptop. The laptop sits on a sleek desk surface. The scene is lit with warm, ambient light coming from a small desk lamp. The color scheme is dominated by soft greys and light blues, creating a focused study vibe."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQmeMUAMrjH7Kzuq-jlCaxDPVWCifMAOorRsoskpffWkk-XLT6lAXbh0Tt-9KBixG-TvWaXhOySHmyPHj8ytGIz0Ur_i8iqznBJzyXon_n9_mITrUrrY3a34qwuUZ_vOr-7erLEF2LjvDV_RAD_1RODSoQgo9LAVqWL65_dc4FQWqviZ3BL2Cbbby4XF86fU2kBACv0v8UUZ7zLDHq0qI8Er_C0AiC3xr-HfL0cTFHIcln6QM5A3Fb2zwQN3zuTHx2Z3XEu13vHw"
+              />
+            </div>
+            <div class="p-sm">
+              <h4 class="font-label-md text-on-surface truncate">
+                Sony WH-1000XM4 (Preloved)
+              </h4>
+              <p class="text-primary font-bold mt-1">Rp 300.000</p>
+              <div class="mt-2 flex items-center justify-between">
+                <button
+                  id="btn-boost-3"
+                  class="flex items-center gap-xs px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container font-label-sm text-[10px] hover:bg-secondary-container/80 transition-all active:scale-95"
+                >
+                  <span
+                    class="material-symbols-outlined text-[14px]"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >rocket_launch</span
+                  >Boost
+                </button>
+                <span
+                  class="bg-surface-container text-on-surface-variant px-xs py-1 rounded-md text-[10px] font-bold"
+                  >STOK: 1</span
+                >
+                <span
+                  class="material-symbols-outlined text-on-surface-variant text-[20px]"
+                  data-icon="more_vert"
+                  >more_vert</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Product Card 4 -->
+          <div
+            id="btn-add-item"
+            class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden group cursor-pointer transition-transform duration-300 hover:-translate-y-1 flex items-center justify-center border-2 border-dashed border-outline-variant min-h-[200px]"
+          >
+            <div
+              class="flex flex-col items-center gap-xs text-on-surface-variant"
+            >
+              <span
+                class="material-symbols-outlined text-lg"
+                data-icon="add_circle"
+                >add_circle</span
+              >
+              <span class="font-label-md">Tambah Item</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Bottom Navigation Bar -->
+    <nav
+      class="fixed bottom-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl rounded-t-lg shadow-lg"
+    >
+      <div
+        class="flex justify-around items-center px-sm py-xs w-full h-16 max-w-container-max mx-auto"
+      >
+        <a
+          id="nav-home"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
+          href="#"
+        >
+          <span class="material-symbols-outlined">home</span>
+          <span class="font-label-sm text-[10px]">Home</span>
+        </a>
+        <a
+          id="nav-search"
+          class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
+          href="#"
+        >
+          <span
+            class="material-symbols-outlined"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >search</span
+          >
+          <span class="font-label-sm text-[10px]">Search</span>
+        </a>
+        <a
+          id="nav-sell"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-primary text-3xl"
+            >add_circle</span
+          >
+          <span class="font-label-sm text-[10px]">Sell</span>
+        </a>
+        <a
+          id="nav-chat"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
+          href="#"
+        >
+          <span class="material-symbols-outlined">chat_bubble</span>
+          <span class="font-label-sm text-[10px]">Chat</span>
+        </a>
+        <a
+          id="nav-profile"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
+          href="#"
+        >
+          <span class="material-symbols-outlined">person</span>
+          <span class="font-label-sm text-[10px]">Profile</span>
+        </a>
+      </div>
+    </nav>
+    <script>
+      // Simple interaction for the "Sell" button or cards
+      document.querySelectorAll(".active\\:scale-95").forEach((el) => {
+        el.addEventListener("mousedown", () => {
+          el.style.transform = "scale(0.95)";
+        });
+        el.addEventListener("mouseup", () => {
+          el.style.transform = "scale(1)";
+        });
+        el.addEventListener("mouseleave", () => {
+          el.style.transform = "scale(1)";
+        });
+      });
+
+      document
+        .getElementById("btn-add-product")
+        .addEventListener("click", function () {
+          window.location.href = "add_product.html";
+        });
+
+      document.getElementById("btn-boost-1").onclick = () => {
+        window.location.href = "boost_product.html";
+      };
+
+      document.getElementById("btn-boost-2").onclick = () => {
+        window.location.href = "boost_product.html";
+      };
+
+      document.getElementById("btn-boost-3").onclick = () => {
+        window.location.href = "boost_product.html";
+      };
+
+      // =====================
+      // Bottom Navigation
+      // =====================
+      document
+        .getElementById("nav-home")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const isVerified = localStorage.getItem("userVerified") === "true";
+
+          if (isVerified) {
+            window.location.href = "../home_student.html";
+          } else {
+            window.location.href = "../home.html";
+          }
+        });
+
+      document.getElementById("nav-search").onclick = () => {
+        location.href = "./search.html";
+      };
+
+      document.getElementById("nav-sell").onclick = () => {
+        location.href = "../shop/add_product.html";
+      };
+
+      document.getElementById("nav-chat").onclick = () => {
+        location.href = "../chat/chat.html";
+      };
+
+      document
+        .getElementById("nav-profile")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const verified = localStorage.getItem("userVerified");
+
+          if (verified === "true") {
+            window.location.href = "../profile/profile.html";
+          } else {
+            window.location.href = "../verify/verify.html";
+          }
+        });
+    </script>
+  </body>
+</html>

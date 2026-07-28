@@ -1,0 +1,558 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>EduLoop - Search Results</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366f1",
+              "on-primary": "#ffffff",
+              "primary-container": "#e0e7ff",
+              "on-primary-container": "#1e1b4b",
+              surface: "#f8fafc",
+              "on-surface": "#0f172a",
+              "surface-variant": "#f1f5f9",
+              "on-surface-variant": "#475569",
+              "surface-dim": "#e2e8f0",
+              "surface-container-high": "#ffffff",
+              outline: "#cbd5e1",
+            },
+            borderRadius: {
+              DEFAULT: "0.75rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Public Sans"],
+              display: ["Public Sans"],
+              body: ["Public Sans"],
+              label: ["Public Sans"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Public Sans", sans-serif;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-header {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .aura-glow {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
+      }
+      .hidden-state {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body class="bg-surface text-on-surface">
+    <!-- TopAppBar -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl shadow-sm border-b border-outline/5"
+    >
+      <div
+        class="flex justify-between items-center px-4 py-3 max-w-container-max mx-auto"
+      >
+        <div class="flex items-center gap-3 w-full">
+          <button
+            id="back-button"
+            class="p-2 hover:bg-surface-container-high transition-colors active:scale-95 duration-200 rounded-full"
+          >
+            <span class="material-symbols-outlined text-primary">
+              arrow_back
+            </span>
+          </button>
+          <div class="flex-1 relative group">
+            <input
+              class="w-full bg-surface-variant/50 border-none rounded-full px-10 py-2 text-label-md font-medium focus:ring-2 focus:ring-primary/20 transition-all"
+              id="search-input"
+              type="text"
+              value="Laptop"
+            />
+            <span
+              class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm"
+              >search</span
+            >
+            <button
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm active:scale-90 cursor-pointer"
+              id="clear-search"
+            >
+              <span class="material-symbols-outlined">cancel</span>
+            </button>
+          </div>
+        </div>
+        <div class="ml-2 flex items-center">
+          <span class="material-symbols-outlined text-primary p-2"
+            >location_on</span
+          >
+        </div>
+      </div>
+    </nav>
+    <!-- Filter Section (Visible when results exist) -->
+    <div
+      class="mt-20 px-4 overflow-x-auto custom-scrollbar whitespace-nowrap flex gap-2 pb-2"
+      id="filter-bar"
+    >
+      <button
+        class="flex items-center gap-1 bg-primary text-on-primary px-4 py-2 rounded-full text-xs font-bold aura-glow"
+      >
+        <span class="material-symbols-outlined text-[16px]">tune</span>
+        Filters
+      </button>
+      <button
+        class="flex items-center gap-1 bg-surface-container-high border border-outline/30 px-4 py-2 rounded-full text-xs font-medium text-on-surface-variant hover:bg-surface-variant transition-colors"
+      >
+        Price
+        <span class="material-symbols-outlined text-[14px]">expand_more</span>
+      </button>
+      <button
+        class="flex items-center gap-1 bg-surface-container-high border border-outline/30 px-4 py-2 rounded-full text-xs font-medium text-on-surface-variant hover:bg-surface-variant transition-colors"
+      >
+        Condition
+        <span class="material-symbols-outlined text-[14px]">expand_more</span>
+      </button>
+      <button
+        class="flex items-center gap-1 bg-surface-container-high border border-outline/30 px-4 py-2 rounded-full text-xs font-medium text-on-surface-variant hover:bg-surface-variant transition-colors"
+      >
+        Location
+        <span class="material-symbols-outlined text-[14px]">expand_more</span>
+      </button>
+    </div>
+    <!-- Main Content -->
+    <main class="px-4 pb-32 pt-4">
+      <!-- Result State -->
+      <div id="results-content">
+        <div class="flex justify-between items-center mb-4">
+          <p
+            id="result-count"
+            class="text-xs font-bold text-on-surface-variant uppercase tracking-wider"
+          ></p>
+          <div
+            class="flex items-center gap-1 text-xs font-semibold text-primary"
+          >
+            Sorting: Best Match
+            <span class="material-symbols-outlined text-xs">sort</span>
+          </div>
+        </div>
+        <div id="product-container" class="product-grid"></div>
+      </div>
+      <!-- Empty State (Hidden by default) -->
+      <div
+        class="hidden-state py-16 px-6 flex flex-col items-center text-center animate-in fade-in duration-500"
+        id="empty-state"
+      >
+        <div class="w-48 h-48 mb-8 relative flex items-center justify-center">
+          <div
+            class="absolute inset-0 bg-primary/5 rounded-full scale-110 blur-xl"
+          ></div>
+          <div
+            class="relative bg-white/40 p-8 rounded-3xl backdrop-blur-md border border-white/50 aura-glow"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-[80px]"
+              style="font-variation-settings: &quot;wght&quot; 200"
+              >search_off</span
+            >
+          </div>
+        </div>
+        <h2
+          id="empty-title"
+          class="text-xl font-extrabold text-on-surface mb-2"
+        >
+          Oops, No Laptops Found
+        </h2>
+        <p
+          class="text-on-surface-variant text-sm leading-relaxed mb-8 max-w-[240px]"
+        >
+          We couldn't find anything matching your search. Try adjusting filters
+          or searching with different keywords.
+        </p>
+        <button
+          class="bg-primary text-on-primary px-8 py-3 rounded-full font-bold text-sm aura-glow active:scale-95 transition-transform"
+          id="reset-search"
+        >
+          Clear All Filters
+        </button>
+        <div class="mt-12 w-full pt-8 border-t border-outline/10">
+          <p
+            class="text-xs font-bold text-on-surface-variant uppercase mb-4 tracking-widest"
+          >
+            Related Categories
+          </p>
+          <div class="flex flex-wrap justify-center gap-2">
+            <span
+              class="bg-surface-variant px-4 py-2 rounded-full text-xs font-medium text-on-surface-variant"
+              >Tablets</span
+            >
+            <span
+              class="bg-surface-variant px-4 py-2 rounded-full text-xs font-medium text-on-surface-variant"
+              >Laptop Stands</span
+            >
+            <span
+              class="bg-surface-variant px-4 py-2 rounded-full text-xs font-medium text-on-surface-variant"
+              >Mouse</span
+            >
+          </div>
+        </div>
+        <button
+          class="mt-8 text-primary font-bold text-xs underline underline-offset-4"
+          id="back-to-results"
+        >
+          Back to sample results
+        </button>
+      </div>
+    </main>
+    <!-- Bottom Navigation Bar -->
+    <nav
+      class="fixed bottom-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl rounded-t-lg shadow-lg"
+    >
+      <div
+        class="flex justify-around items-center px-sm py-xs w-full h-16 max-w-container-max mx-auto"
+      >
+        <a
+          id="nav-home"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
+          href="#"
+        >
+          <span class="material-symbols-outlined">home</span>
+          <span class="font-label-sm text-[10px]">Home</span>
+        </a>
+        <a
+          id="nav-search"
+          class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
+          href="#"
+        >
+          <span
+            class="material-symbols-outlined"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >search</span
+          >
+          <span class="font-label-sm text-[10px]">Search</span>
+        </a>
+        <a
+          id="nav-sell"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
+          href="#"
+        >
+          <span class="material-symbols-outlined text-primary text-3xl"
+            >add_circle</span
+          >
+          <span class="font-label-sm text-[10px]">Sell</span>
+        </a>
+        <a
+          id="nav-chat"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
+          href="#"
+        >
+          <span class="material-symbols-outlined">chat_bubble</span>
+          <span class="font-label-sm text-[10px]">Chat</span>
+        </a>
+        <a
+          id="nav-profile"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
+          href="#"
+        >
+          <span class="material-symbols-outlined">person</span>
+          <span class="font-label-sm text-[10px]">Profile</span>
+        </a>
+      </div>
+    </nav>
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: "MacBook Pro M2",
+          category: "elektronik",
+          price: "Rp 14.500.000",
+          image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuAWA_6ZJI598sQICwEpg6khM-u8ncTTc7-bS4xXaRMETfnpOaf6xjOnFryMvDwQD9GxeThBnKEsvmg83HH6fiSf30urEA2CpMawuZBghbIb2bH907hdvL87EG2TTM33BdqDeBJ_D4rrx_DRvkK7V7Lfg9Q8O-Ka-2W0K4O-cHdDFW1RjQXXQ42RBpj-W1-MblAzi0aVPfIcakeZu5cvRsle9aczwQZElyeaVb8cdw3tZsU6w_BzS71BGKTF5jkQhT_Y-erXVYRLknJ0",
+        },
+
+        {
+          id: 2,
+          name: "ASUS Vivobook 14",
+          category: "elektronik",
+          price: "Rp 5.500.000",
+          image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuBpP62zlGMGdqnSJzic731Xhq7q1Rq8iN93iaSlYemmL0cmoid2F0QSyDte6Ph1V_LqvOhwRBMewElXeAvRHVsYLntzBi4xWK3tt4JzIzaC0KRQq_7C0SCvHsccsf-cW-02m3xwSzYD9oNnzio3d_a4Xvw9ad3DWJheVlHgKlCcDVu2qSPaaBVZHxwDPyYRbGvj3apImCJ1WbJELxWxrM_tDSn9TrtEWlcMZ4ZW36N7P8VESGMYCFtY3piSLatAVcPhjDSXoQRyykty",
+        },
+
+        {
+          id: 3,
+          name: "Buku Kalkulus",
+          category: "buku",
+          price: "Rp 120.000",
+          image: "link gambar",
+        },
+
+        {
+          id: 4,
+          name: "Jas Almamater UNIB",
+          category: "fashion",
+          price: "Rp 75.000",
+          image: "link gambar",
+        },
+        {
+          id: 5,
+          name: "Rice Cooker Mini",
+          category: "kos",
+          price: "Rp 90.000",
+          image: "...",
+        },
+        {
+          id: 6,
+          name: "Kipas Angin Mini",
+          category: "kos",
+          price: "Rp 50.000",
+          image: "...",
+        },
+      ];
+
+      const params = new URLSearchParams(window.location.search);
+
+      const keyword = params.get("keyword") || "";
+      const category = (params.get("category") || "").toLowerCase();
+      const searchInput = document.getElementById("search-input");
+
+      if (keyword) {
+        searchInput.value = keyword;
+      } else if (category) {
+        searchInput.value =
+          category.charAt(0).toUpperCase() + category.slice(1);
+      } else {
+        searchInput.value = "";
+      }
+      const clearBtn = document.getElementById("clear-search");
+      const resultsContent = document.getElementById("results-content");
+      const emptyState = document.getElementById("empty-state");
+      const filterBar = document.getElementById("filter-bar");
+      const backBtn = document.getElementById("back-to-results");
+      const resetSearchBtn = document.getElementById("reset-search");
+      const backButton = document.getElementById("back-button");
+
+      backButton.addEventListener("click", () => {
+        window.history.back();
+      });
+
+      function showEmptyState() {
+        resultsContent.classList.add("hidden-state");
+        filterBar.classList.add("opacity-0", "pointer-events-none");
+
+        emptyState.classList.remove("hidden-state");
+
+        document.getElementById("empty-title").innerText =
+          `Oops, No ${keyword || "Products"} Found`;
+      }
+
+      function showResults() {
+        resultsContent.classList.remove("hidden-state");
+        filterBar.classList.remove("opacity-0", "pointer-events-none");
+        emptyState.classList.add("hidden-state");
+        window.scrollTo(0, 0);
+      }
+
+      clearBtn.addEventListener("click", () => {
+        searchInput.value = "";
+        showEmptyState();
+      });
+
+      backBtn.addEventListener("click", showResults);
+      resetSearchBtn.addEventListener("click", () => {
+        window.location.href = "search_result.html";
+      });
+      // Simple micro-interaction for filter buttons
+      document.querySelectorAll("button").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          this.classList.add("scale-95");
+          setTimeout(() => this.classList.remove("scale-95"), 100);
+        });
+      });
+
+      // Favorite button toggle
+      document.querySelectorAll(".favorite-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const icon = btn.querySelector(".material-symbols-outlined");
+          e.preventDefault();
+          e.stopPropagation();
+          const isFilled =
+            icon.style.fontVariationSettings.includes("'FILL' 1");
+          icon.style.fontVariationSettings = isFilled ? "'FILL' 0" : "'FILL' 1";
+          icon.classList.toggle("text-red-500");
+          if (!isFilled) {
+            icon.classList.remove("text-on-surface-variant");
+          } else {
+            icon.classList.add("text-on-surface-variant");
+          }
+        });
+      });
+
+      function searchProduct(keyword, category) {
+        return products.filter((product) => {
+          const matchKeyword =
+            keyword === "" ||
+            product.name.toLowerCase().includes(keyword.toLowerCase());
+
+          const matchCategory =
+            category === "" ||
+            product.category.toLowerCase() === category.toLowerCase();
+
+          return matchKeyword && matchCategory;
+        });
+      }
+
+      searchInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          let value = this.value.trim();
+
+          window.location.href =
+            "search_result.html?keyword=" + encodeURIComponent(value);
+        }
+      });
+
+      const container = document.getElementById("product-container");
+
+      function renderProducts() {
+        const results = searchProduct(keyword, category);
+        const resultCount = document.getElementById("result-count");
+
+        let label = "Produk";
+
+        if (keyword) {
+          label = keyword;
+        } else if (category) {
+          label = category.charAt(0).toUpperCase() + category.slice(1);
+        }
+
+        resultCount.textContent = `${results.length} ${label} ditemukan`;
+        container.innerHTML = "";
+
+        if (results.length === 0) {
+          showEmptyState();
+          return;
+        }
+
+        results.forEach((product) => {
+          container.innerHTML += `
+
+        <div
+            class="product-card bg-white rounded-xl overflow-hidden cursor-pointer"
+            data-id="${product.id}">
+
+            <img
+                class="h-40 w-full object-cover"
+                src="${product.image}">
+
+            <div class="p-3">
+
+                <h3 class="font-bold text-sm">
+                    ${product.name}
+                </h3>
+
+                <p class="text-primary font-bold">
+                    ${product.price}
+                </p>
+
+            </div>
+
+        </div>
+
+        `;
+        });
+
+        // Event klik setelah card selesai dibuat
+        document.querySelectorAll(".product-card").forEach((card) => {
+          card.addEventListener("click", () => {
+            const id = card.dataset.id;
+
+            window.location.href = `detail_product.html?id=${id}`;
+          });
+        });
+      }
+
+      renderProducts();
+
+      document
+        .getElementById("nav-home")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const isVerified = localStorage.getItem("userVerified") === "true";
+
+          if (isVerified) {
+            window.location.href = "../home_student.html";
+          } else {
+            window.location.href = "../home.html";
+          }
+        });
+
+      document.getElementById("nav-search").onclick = () => {
+        location.href = "./search.html";
+      };
+
+      document.getElementById("nav-sell").onclick = () => {
+        location.href = "../shop/add_product.html";
+      };
+
+      document.getElementById("nav-chat").onclick = () => {
+        location.href = "../chat/chat.html";
+      };
+
+      document
+        .getElementById("nav-profile")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const verified = localStorage.getItem("userVerified");
+
+          if (verified === "true") {
+            window.location.href = "../profile/profile.html";
+          } else {
+            window.location.href = "../verify/verify.html";
+          }
+        });
+
+      document.querySelectorAll(".category-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          const category = card.dataset.category;
+
+          window.location.href = `search_result.html?category=${category}`;
+        });
+      });
+    </script>
+  </body>
+</html>

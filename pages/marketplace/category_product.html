@@ -1,0 +1,638 @@
+<!doctype html>
+<html class="light" lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>EduLoop - Cari Kebutuhan Kampus</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8f9fa;
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e7e8e9",
+              "on-primary-container": "#00556f",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary-fixed": "#ffd9de",
+              "on-primary-fixed": "#001f2a",
+              "on-tertiary-container": "#743e48",
+              "tertiary-fixed-dim": "#fcb3be",
+              "primary-fixed-dim": "#75d2fc",
+              "on-tertiary-fixed-variant": "#6b3741",
+              "on-surface-variant": "#3f484e",
+              primary: "#006685",
+              "surface-dim": "#d9dadb",
+              "surface-container-highest": "#e1e3e4",
+              "inverse-surface": "#2e3132",
+              "surface-container": "#edeeef",
+              "secondary-fixed": "#ebdcff",
+              "on-primary": "#ffffff",
+              "inverse-primary": "#75d2fc",
+              tertiary: "#874e58",
+              surface: "#f8f9fa",
+              "surface-container-low": "#f3f4f5",
+              "surface-variant": "#e1e3e4",
+              "on-error-container": "#93000a",
+              "surface-tint": "#006685",
+              "primary-fixed": "#bfe8ff",
+              secondary: "#68548d",
+              "on-secondary-container": "#5d4a82",
+              "surface-bright": "#f8f9fa",
+              "secondary-container": "#d6beff",
+              "on-primary-fixed-variant": "#004d65",
+              "on-secondary": "#ffffff",
+              "on-surface": "#191c1d",
+              "on-error": "#ffffff",
+              "on-secondary-fixed": "#230f45",
+              "secondary-fixed-dim": "#d3bcfc",
+              "on-tertiary-fixed": "#360c17",
+              "on-background": "#191c1d",
+              "primary-container": "#6ecbf5",
+              "tertiary-container": "#f5adb8",
+              outline: "#6f787e",
+              background: "#f8f9fa",
+              "outline-variant": "#bec8cf",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed-variant": "#503d73",
+              "surface-container-lowest": "#ffffff",
+              "error-container": "#ffdad6",
+              error: "#ba1a1a",
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "2rem",
+              xl: "3rem",
+              full: "9999px",
+            },
+            spacing: {
+              xs: "4px",
+              md: "24px",
+              lg: "48px",
+              gutter: "24px",
+              "container-max": "1280px",
+              xl: "80px",
+              sm: "12px",
+              base: "8px",
+            },
+            fontFamily: {
+              "headline-md": ["Montserrat"],
+              "display-lg": ["Montserrat"],
+              "body-sm": ["Inter"],
+              "headline-lg": ["Montserrat"],
+              "label-sm": ["Inter"],
+              "label-md": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-lg-mobile": ["Montserrat"],
+              "display-lg-mobile": ["Montserrat"],
+              "body-lg": ["Inter"],
+            },
+            fontSize: {
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "headline-lg": [
+                "32px",
+                { lineHeight: "40px", fontWeight: "600" },
+              ],
+              "label-sm": ["12px", { lineHeight: "14px", fontWeight: "500" }],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "headline-lg-mobile": [
+                "24px",
+                { lineHeight: "32px", fontWeight: "600" },
+              ],
+              "display-lg-mobile": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-background text-on-surface mb-20">
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl shadow-sm"
+    >
+      <div
+        class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto h-16"
+      >
+        <div class="flex items-center gap-sm">
+          <div
+            class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden"
+          >
+            <img
+              alt="Profile"
+              class="w-full h-full object-cover"
+              data-alt="A clean, professional headshot of a smiling young adult student, set against a soft-focus campus background. The lighting is bright and airy, reflecting a modern light-mode aesthetic. The color palette features soft primary blues and neutral whites, emphasizing a friendly and trustworthy community member vibe for a student marketplace."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuNtEs3rMVrkHQdu2eweO7cvR6OmfjCBg906OS1O47QCYudg7NDKQ75LfzUGnKnuJxypqYjKYxBp46L1yynfWWdQL-GwbTidTRZjkoJaYtCutjNDCasxME8zOuaudELBIfll5c4ybK6hOYC5_oiJCkZH2-VnsyHSIbsCjuQVFr5Ujb0jsI55bTOd_9ZNWnDsASZ5YK3aI6TR1paU3QQLyC_p8k6H_XXia3ltrlSXIMpBk0IzHaDG8TGMLalrCqMchIclZRpMHJfQ"
+            />
+          </div>
+        </div>
+        <h1
+          class="font-headline-md text-headline-md-mobile md:text-headline-md font-bold text-primary"
+        >
+          EduLoop
+        </h1>
+        <button
+          class="w-10 h-10 flex items-center justify-center text-primary active:scale-95 transition-transform"
+        >
+          <span class="material-symbols-outlined">location_on</span>
+        </button>
+      </div>
+    </header>
+    <main class="pt-24 px-gutter max-w-container-max mx-auto">
+      <!-- Hero Section -->
+      <section class="mb-lg">
+        <div
+          class="bg-gradient-to-br from-primary-container/30 to-secondary-container/30 rounded-lg p-md md:p-lg relative overflow-hidden"
+        >
+          <div class="relative z-10 max-w-2xl">
+            <h2
+              class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-sm leading-tight"
+            >
+              Temukan Semua Kebutuhan Kampusmu
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-md">
+              Mulai dari seragam, buku, hingga gadget. Belanja aman antar
+              mahasiswa.
+            </p>
+            <div
+              class="flex items-center bg-surface rounded-full px-sm py-xs shadow-sm border border-outline-variant max-w-md"
+            >
+              <span class="material-symbols-outlined text-outline">search</span>
+              <input
+                class="bg-transparent border-none focus:ring-0 w-full font-body-md text-body-md text-on-surface-variant px-sm"
+                placeholder="Cari buku atau gadget..."
+                type="text"
+              />
+            </div>
+          </div>
+          <!-- Decorative Elements -->
+          <div
+            class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
+          ></div>
+          <div class="absolute right-10 top-10 opacity-20 hidden md:block">
+            <span
+              class="material-symbols-outlined text-[120px] text-primary"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >shopping_bag</span
+            >
+          </div>
+        </div>
+      </section>
+      <!-- Categories Section -->
+      <section class="mb-lg">
+        <div class="flex justify-between items-end mb-md">
+          <div>
+            <h3
+              class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface"
+            >
+              Kategori Produk
+            </h3>
+            <p class="font-label-md text-label-md text-on-surface-variant">
+              Pilih kategori untuk melihat produk tersedia
+            </p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md">
+          <!-- Category 1: Pakaian & Seragam -->
+          <div
+            class="group relative category-card bg-surface-container-low rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer border border-transparent hover:border-primary-container/50"
+            onclick="openCategory('Pakaian')"
+            data-category="Pakaian"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="A curated arrangement of crisp university uniforms and stylish campus apparel neatly folded on a minimalist wooden surface. The scene is brightly lit with natural morning sunlight, highlighting fabric textures. The aesthetic is clean, modern, and professional, using a soft pastel blue and white color palette consistent with a high-end student marketplace."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQZBfdk4zDth1epYJb1HvHa4KF3OVXRheMZes620A-Cdv5k0mLgKCKC7ThpzE2i6Z9XIlin34x_JaebX3VZgXNmISbwGwiRqLPPPm1BF-QGbt1EYwSHxPmIrz_BSF3rbNwVIq9luX0FHFGPop937urBNUWaibPoPI0D2ayR2CLbNgLsSXthC79-cV_t6VirVWiWckK5RoQX3J32UHEIupdk3l-xmRKpSLlbMjMN_jBvqUd7oLD3mt2ZFy8TryxMKEAu_2nIcPq5A"
+              />
+            </div>
+            <div class="p-md">
+              <div class="flex items-center gap-xs mb-xs">
+                <span
+                  class="material-symbols-outlined text-primary text-sm"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >check_circle</span
+                >
+                <span class="font-label-sm text-label-sm text-primary"
+                  >Tersedia 45+ Item</span
+                >
+              </div>
+              <h4 class="font-headline-md text-headline-md text-on-surface">
+                Pakaian &amp; Seragam
+              </h4>
+              <p
+                class="font-body-sm text-body-sm text-on-surface-variant mt-xs"
+              >
+                Jas almamater, baju laboratorium, dan kemeja formal kampus.
+              </p>
+            </div>
+            <div
+              class="absolute bottom-4 right-4 bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300"
+            >
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+          </div>
+          <!-- Category 2: Buku & Modul -->
+          <div
+            class="group category-card relative bg-surface-container-low rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer border border-transparent hover:border-primary-container/50"
+            onclick="openCategory('Buku')"
+            data-category="buku"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="A collection of academic textbooks and colorful student modules stacked artistically in a bright, modern library setting. Soft, diffused lighting creates a warm and inspiring academic atmosphere. The composition emphasizes organized learning, featuring a palette of soft primary colors and clean whites, perfectly aligned with a professional education-focused marketplace design."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEU1Wiq9DP4C14-Md-MIqCUhagjuQKRohOLgV4QcBNjo2__1tjQJdrfIOKTSZI6aUVmQikpeVcCy8DT50UKlqjnk1fCAxFXAv5Bl5RaZAoSHwNgxj7kvuAnsSjhHUoyrgAeilIH9DAS7c5RAN3A0W-m9OLQYHjs9u6i4ROuB8a7yof3LOZl-HRq-o8uw3RC6QQqIhb-WwgoYOiXuT3Q5-1MP18tYEA3wfSXSUQhG9O28YGaxuKVwmPHayDDym441h6aXpDesSixQ"
+              />
+            </div>
+            <div class="p-md">
+              <div class="flex items-center gap-xs mb-xs">
+                <span
+                  class="material-symbols-outlined text-primary text-sm"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >check_circle</span
+                >
+                <span class="font-label-sm text-label-sm text-primary"
+                  >Tersedia 120+ Buku</span
+                >
+              </div>
+              <h4 class="font-headline-md text-headline-md text-on-surface">
+                Buku &amp; Modul
+              </h4>
+              <p
+                class="font-body-sm text-body-sm text-on-surface-variant mt-xs"
+              >
+                Buku teks akademik, diktat kuliah, dan modul praktikum bekas
+                berkualitas.
+              </p>
+            </div>
+            <div
+              class="absolute bottom-4 right-4 bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300"
+            >
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+          </div>
+          <!-- Category 3: Elektronik & Gadget -->
+          <div
+            class="group relative category-card bg-surface-container-low rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer border border-transparent hover:border-primary-container/50"
+            onclick="openCategory('Elektronik')"
+            data-category="elektronik"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="Modern electronic gadgets including a sleek laptop, a tablet with a stylus, and wireless headphones arranged on a clean white desk. The lighting is high-key and futuristic, using soft blue ambient glows. This high-tech scene represents premium pre-owned electronics for students, maintaining a minimalist and energetic aesthetic with vibrant pastel accents."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX2MyU5HPwtW-9aPlI89APnGqvIaLdr4EQtx4aljIiarV_Tb-0YqKUNJHSSWR4XCKB9ut9YbYoAeaaoxwYU0836k4GkgU6Dcmm6Uy0q8qXx5SrSUDP8lCnPSxePYJtHKY1Y3lYAktQWzbFzUvM5LhOx2Ux_W_xPYAzcKzVubMmocVmM-oN55XhlfSZ7DcsPlnqXpfAch-ML9bZhbNr4zbeFCURkTFMLW9Uz2FHgjhQtH-j9FZfd7NQMQlq8IiuCLgV0-Fm7jtjpA"
+              />
+            </div>
+            <div class="p-md">
+              <div class="flex items-center gap-xs mb-xs">
+                <span
+                  class="material-symbols-outlined text-primary text-sm"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >check_circle</span
+                >
+                <span class="font-label-sm text-label-sm text-primary"
+                  >Tersedia 28+ Produk</span
+                >
+              </div>
+              <h4 class="font-headline-md text-headline-md text-on-surface">
+                Elektronik &amp; Gadget
+              </h4>
+              <p
+                class="font-body-sm text-body-sm text-on-surface-variant mt-xs"
+              >
+                Kalkulator sains, laptop, tablet, dan perlengkapan IT lainnya.
+              </p>
+            </div>
+            <div
+              class="absolute bottom-4 right-4 bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300"
+            >
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+          </div>
+          <!-- Category 4: Kebutuhan Kos -->
+          <div
+            class="group relative category-card bg-surface-container-low rounded-xl overflow-hidden hover:shadow-md transition-all duration-300 cursor-pointer border border-transparent hover:border-primary-container/50"
+            onclick="openCategory('Kos')"
+            data-category="kos"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="A cozy, minimalist student dorm room corner featuring essentials like a small desk lamp, a portable fan, and decorative storage containers. The atmosphere is warm, organized, and inviting, with soft shadows and a light neutral color palette. The image evokes a sense of home and comfort for students looking to furnish their living spaces affordably."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjQAJzinrdCP_nvC5AlY4c5nI88CfEDVWQRBzHQHbb64DPAf1VrR4s3XN8HRk_wPsBJ8Im4DBXzNeiKUeEdlgiXLIVcmf8pXetdl8Mo1ozWiU00wxE89f-_w5WIIupwDRqY4Tbj2tRkUdGAvI-Sf6EOfb3bxjnbLCYSU6JVwkPdl3zusdw2EA6UIGaYh9-Ex9Kr0D7XUHvdzcTKxGpp19CUK8FuDvRYeD8DHydZgSyBz3mPMIbHuWkXfZvAhpVTll5ujO5qBItYA"
+              />
+            </div>
+            <div class="p-md">
+              <div class="flex items-center gap-xs mb-xs">
+                <span
+                  class="material-symbols-outlined text-primary text-sm"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >check_circle</span
+                >
+                <span class="font-label-sm text-label-sm text-primary"
+                  >Tersedia 60+ Item</span
+                >
+              </div>
+              <h4 class="font-headline-md text-headline-md text-on-surface">
+                Kebutuhan Kos
+              </h4>
+              <p
+                class="font-body-sm text-body-sm text-on-surface-variant mt-xs"
+              >
+                Rice cooker kecil, kipas angin, dispenser, dan furnitur praktis.
+              </p>
+            </div>
+            <div
+              class="absolute bottom-4 right-4 bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300"
+            >
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- New Arrivals / Trending -->
+      <section class="mb-xl">
+        <h3
+          class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-md"
+        >
+          Sedang Tren di Kampusmu
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+          <!-- Trending Item 1 -->
+          <div
+            class="bg-surface rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+          >
+            <div class="aspect-square relative">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="A high-quality close-up of a professional laboratory coat hanging in a bright, modern science lab. The fabric is pristine white, and the lighting is crisp, emphasizing the item's condition. The background features blurred lab equipment in soft blues and greys, maintaining a clean and trustworthy aesthetic for a student-led marketplace."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-cW-OGRQME8xerLUGaHwR5BuHveQ6mpqnKSrn4l6Y7DrexyrRgi9khN0rdY_Zh6buyfb3nn3mNYIQlORa6C4zEXVdUIbo-DOlXV1DEWpt4W45rpyLBWoB8Yqb8iuehGGKCh0uDH9lpoeo_GPZLoaEHWh2X823abIVY61YDvMKhiaVP-Pma-eLweGdvrLwSfxCiJFyLhsyCEkePp-4HHjiuniDx4Ig03mA7B7d53PRDm8gwKLpwGkUpDoHTZs1tV7CHTwIrox1Cw"
+              />
+              <div
+                class="absolute top-2 left-2 bg-primary-container text-on-primary-container px-2 py-1 rounded-full text-[10px] font-bold flex items-center gap-1"
+              >
+                <span
+                  class="material-symbols-outlined text-[12px]"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >verified</span
+                >
+                VERIFIED
+              </div>
+            </div>
+            <div class="p-sm">
+              <p class="font-label-sm text-label-sm text-on-surface-variant">
+                Pakaian
+              </p>
+              <h5 class="font-label-md text-label-md text-on-surface truncate">
+                Jas Lab Ukuran L
+              </h5>
+              <p class="font-headline-md text-headline-md text-primary mt-1">
+                Rp 35.000
+              </p>
+            </div>
+          </div>
+          <!-- Trending Item 2 -->
+          <div
+            class="bg-surface rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+          >
+            <div class="aspect-square relative">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="A thick medical textbook resting on a minimalist study desk next to a cup of coffee. The lighting is soft and focused, creating a studious yet comfortable atmosphere. The color palette is dominated by warm neutrals and soft blues, presenting the book as a valuable, well-maintained academic resource for medical students."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp4qWbgsbafWZBYn8nxEObnZ-f2Qdq7tWCmkc9QYzJD8cX-Vk4GrjL-T4Lj3jcr654ZjCjYRevhlTa3P-6C2PIglOF3oVMPsyNBYFjVCaHaIaE55G8oxBg0JYqVdLDt7uNSvvmSSONX0BSH_5Sr2xA8QvlMh4bXRuwlcwSoehB6bljLWhEh24Y7aqO1x6gn4v_HXtWco5DNfPWCN8zu3VDk194acfcu5t0FA59GvPsHXk9_1ZMYjgar5-LPuBqqBGcHyv8mV1K-Q"
+              />
+            </div>
+            <div class="p-sm">
+              <p class="font-label-sm text-label-sm text-on-surface-variant">
+                Buku
+              </p>
+              <h5 class="font-label-md text-label-md text-on-surface truncate">
+                Textbook Anatomi Gray
+              </h5>
+              <p class="font-headline-md text-headline-md text-primary mt-1">
+                Rp 50.000
+              </p>
+            </div>
+          </div>
+          <!-- Trending Item 3 -->
+          <div
+            class="bg-surface rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+          >
+            <div class="aspect-square relative">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="A modern scientific calculator and an engineering compass set laid out on a blueprint in a bright studio. The high-key lighting creates sharp, clean lines, emphasizing the precision of the tools. The aesthetic is professional and technical, featuring a crisp white and soft grey palette with subtle blue accents, perfect for engineering students."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaVQIWCSfIrOTQ2DdRZQSafF6Wt4fyexVM6aXU3P_VD87kQNXo1NyqCJW2Sw0ZmavTR8YtqTFL4ZrlKy3B695bkZaBR_Bl2pU2kEd74RJ91Xz0G0BIZbfXB3urSDdHA-_oALuCN_Fv4E5_ZpjsAL5jC0bG0KXAmUcBQXNUjeNsyARlTarOnV0pDYD61Vsy5mPC4N9FugAL9v0e8xZ604CYYb5KkF0PaKJaqf-rmOdPE2RrMNNb4AqeMYv4Yz3fkqPWlHKNgah7Bw"
+              />
+            </div>
+            <div class="p-sm">
+              <p class="font-label-sm text-label-sm text-on-surface-variant">
+                Elektronik
+              </p>
+              <h5 class="font-label-md text-label-md text-on-surface truncate">
+                Kalkulator Casio fx-991EX
+              </h5>
+              <p class="font-headline-md text-headline-md text-primary mt-1">
+                Rp 80.000
+              </p>
+            </div>
+          </div>
+          <!-- Trending Item 4 -->
+          <div
+            class="bg-surface rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+          >
+            <div class="aspect-square relative">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="A small, modern rice cooker and a set of nesting bowls in a bright, clean dorm kitchen area. The soft lighting and minimalist styling highlight the convenience and space-saving nature of the items. The scene is airy and positive, using a light mode aesthetic with pops of soft pastel colors to appeal to students living in close quarters."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqxiqpL-sdJVVmUx3tDAiJ0y3HbVjjQUnwPCv5ywbZF58N2RGwOawPcnxqFLUDfoA6byTYZYhoBB1UfKaRLDiUi6BBTfAnZvV5vD7Wnt_sKouxvs5bL6nBancG2n1rUEdSfpjOJ7-0XeGZKzk1-aGeN-dwRNDYeDydbKgV_P0CJB3bP7j2VCYb2KPSL-_sLJJza81QVNLsZ_Q6G5rzvLYD6FEYioIV3-TVSm4EycyLMU9crrCYTR9Tos16WMSniVVRxs7uNn-eDg"
+              />
+              <div
+                class="absolute top-2 left-2 bg-primary-container text-on-primary-container px-2 py-1 rounded-full text-[10px] font-bold flex items-center gap-1"
+              >
+                <span
+                  class="material-symbols-outlined text-[12px]"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >verified</span
+                >
+                VERIFIED
+              </div>
+            </div>
+            <div class="p-sm">
+              <p class="font-label-sm text-label-sm text-on-surface-variant">
+                Kos
+              </p>
+              <h5 class="font-label-md text-label-md text-on-surface truncate">
+                Rice Cooker Mini 0.6L
+              </h5>
+              <p class="font-headline-md text-headline-md text-primary mt-1">
+                Rp 80.000
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl rounded-t-lg shadow-lg">
+<div class="flex justify-around items-center px-sm py-xs w-full h-16 max-w-container-max mx-auto">
+<a id="nav-home" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-[10px]">Home</span>
+</a>
+<a id="nav-search" class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">search</span>
+<span class="font-label-sm text-[10px]">Search</span>
+</a>
+<a id="nav-sell" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2" href="#">
+<span class="material-symbols-outlined text-primary text-3xl">add_circle</span>
+<span class="font-label-sm text-[10px]">Sell</span>
+</a>
+<a id="nav-chat" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-sm text-[10px]">Chat</span>
+</a>
+<a id="nav-profile" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-[10px]">Profile</span>
+</a>
+</div>
+</nav>
+    <!-- Floating Action Button (Only on Mobile for quick sell) -->
+    <div class="fixed bottom-20 right-4 md:hidden">
+      <button
+        class="w-14 h-14 bg-gradient-to-tr from-primary to-primary-container text-on-primary rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-transform"
+      >
+        <span class="material-symbols-outlined text-2xl">add</span>
+      </button>
+    </div>
+    <script>
+      // Micro-interaction for category cards
+      document.querySelectorAll(".group").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          // Potential for more complex JS animations if needed
+        });
+      });
+
+      // Search bar focus effect
+      const searchInput = document.querySelector('input[type="text"]');
+      searchInput.addEventListener("focus", () => {
+        searchInput.parentElement.classList.add(
+          "border-primary",
+          "ring-2",
+          "ring-primary/20",
+        );
+      });
+      searchInput.addEventListener("blur", () => {
+        searchInput.parentElement.classList.remove(
+          "border-primary",
+          "ring-2",
+          "ring-primary/20",
+        );
+      });
+
+      function openCategory(category) {
+        window.location.href = `search_result.html?category=${encodeURIComponent(category)}`;
+      }
+
+      // =====================
+// Bottom Navigation
+// =====================
+document.getElementById("nav-home").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const isVerified = localStorage.getItem("userVerified") === "true";
+
+    if (isVerified) {
+        window.location.href = "../home_student.html";
+    } else {
+        window.location.href = "../home.html";
+    }
+});
+
+document.getElementById("nav-search").onclick = () => {
+    location.href = "./search.html";
+};
+
+document.getElementById("nav-sell").onclick = () => {
+    location.href = "../shop/add_product.html";
+};
+
+document.getElementById("nav-chat").onclick = () => {
+    location.href = "../chat/chat.html";
+};
+
+document.getElementById("nav-profile").addEventListener("click", function(e){
+    e.preventDefault();
+
+    const verified = localStorage.getItem("userVerified");
+
+    if (verified === "true") {
+        window.location.href = "../profile/profile.html";
+    } else {
+        window.location.href = "../verify/verify.html";
+    }
+});
+    </script>
+  </body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EduLoop - Marketplace Kampus</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-effect {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Inter', sans-serif;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed-variant": "#503d73",
+            "secondary-fixed": "#ebdcff",
+            "surface-container-high": "#e7e8e9",
+            "on-primary-fixed-variant": "#004d65",
+            "background": "#f8f9fa",
+            "on-tertiary-container": "#743e48",
+            "on-primary-fixed": "#001f2a",
+            "inverse-on-surface": "#f0f1f2",
+            "on-surface-variant": "#3f484e",
+            "on-surface": "#191c1d",
+            "inverse-primary": "#75d2fc",
+            "error": "#ba1a1a",
+            "secondary": "#68548d",
+            "on-error-container": "#93000a",
+            "tertiary": "#874e58",
+            "on-error": "#ffffff",
+            "tertiary-fixed-dim": "#fcb3be",
+            "tertiary-fixed": "#ffd9de",
+            "tertiary-container": "#f5adb8",
+            "surface-dim": "#d9dadb",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#5d4a82",
+            "on-tertiary-fixed-variant": "#6b3741",
+            "on-tertiary": "#ffffff",
+            "primary-fixed-dim": "#75d2fc",
+            "on-primary-container": "#00556f",
+            "primary": "#006685",
+            "on-tertiary-fixed": "#360c17",
+            "inverse-surface": "#2e3132",
+            "primary-container": "#6ecbf5",
+            "on-primary": "#ffffff",
+            "surface-container-highest": "#e1e3e4",
+            "on-secondary-fixed": "#230f45",
+            "secondary-container": "#d6beff",
+            "outline-variant": "#bec8cf",
+            "surface-bright": "#f8f9fa",
+            "primary-fixed": "#bfe8ff",
+            "surface-tint": "#006685",
+            "surface": "#f8f9fa",
+            "secondary-fixed-dim": "#d3bcfc",
+            "surface-variant": "#e1e3e4",
+            "error-container": "#ffdad6",
+            "surface-container": "#edeeef",
+            "surface-container-low": "#f3f4f5",
+            "surface-container-lowest": "#ffffff",
+            "on-background": "#191c1d",
+            "outline": "#6f787e"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "base": "8px",
+            "sm": "12px",
+            "container-max": "1280px",
+            "lg": "48px",
+            "xl": "80px",
+            "gutter": "24px",
+            "md": "24px",
+            "xs": "4px"
+          },
+          "fontFamily": {
+            "headline-md": ["Montserrat"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-lg-mobile": ["Montserrat"],
+            "headline-lg": ["Montserrat"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg": ["Montserrat"],
+            "display-lg-mobile": ["Montserrat"]
+          },
+          "fontSize": {
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+            "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- Top AppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm">
+<div class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto">
+<div class="flex items-center gap-xs">
+<span class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">EduLoop</span>
+</div>
+<div class="flex items-center gap-sm">
+<button class="material-symbols-outlined p-base rounded-full hover:bg-surface-container-high transition-colors text-primary" data-icon="location_on">location_on</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-primary-container">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXqbFZTbkDYVcDvGHr2ip255amhUO4L3cNltoCIVOFg4P3HdbYs83UalP1ha0ihpEkRHXzMDBIno8ZuV9s_NnEHjJgO3TlmBlISnOvAcPZ_nX9GDLja2EVWIuI4IIo1hvzx9Tq19sDmbdWg6aIYFVH1qBoEaG06Sjo6az0ccTKcMtj40mmKLz--ETka5hIqFliRHaym3RBdKMbK3AM4c2WPb1ys9yMuWJtz4sMvfZQRPfI6uFoMXrdJlAreAO0oZhOqoh4WmNr3w">
+</div>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-24 px-gutter max-w-container-max mx-auto">
+<!-- Search Bar Section -->
+<div class="mb-md">
+<div class="relative flex items-center group">
+<span class="material-symbols-outlined absolute left-4 text-outline group-focus-within:text-primary transition-colors">search</span>
+<input id="search-input" class="w-full h-14 pl-12 pr-4 bg-surface-container-low border-none rounded-full focus:ring-2 focus:ring-primary-container font-body-md placeholder:text-outline transition-all shadow-sm" placeholder="Cari di Universitas Bengkulu..." type="text">
+</div>
+</div>
+<!-- Filters Section -->
+<section class="space-y-sm mb-lg">
+<!-- Faculty Filter -->
+<div class="flex flex-col gap-xs">
+<span class="font-label-md text-label-md text-on-surface-variant px-1">Fakultas</span>
+<div class="flex gap-xs overflow-x-auto hide-scrollbar pb-xs">
+<button id="faculty-all" class="flex-shrink-0 px-md py-xs rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm active:scale-95 transition-transform">Semua</button>
+<button id="faculty-feb" class="flex-shrink-0 px-md py-xs rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-primary-container/20 active:scale-95 transition-all">FEB</button>
+<button id="faculty-teknik" class="flex-shrink-0 px-md py-xs rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-primary-container/20 active:scale-95 transition-all">Teknik</button>
+<button id="faculty-fkip" class="flex-shrink-0 px-md py-xs rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-primary-container/20 active:scale-95 transition-all">FKIP</button>
+<button id="faculty-hukum" class="flex-shrink-0 px-md py-xs rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-primary-container/20 active:scale-95 transition-all">Hukum</button>
+<button id="faculty-pertanian" class="flex-shrink-0 px-md py-xs rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md hover:bg-primary-container/20 active:scale-95 transition-all">Pertanian</button>
+</div>
+</div>
+<!-- Category Chips -->
+<div class="flex gap-xs overflow-x-auto hide-scrollbar pb-xs">
+<button class="flex items-center gap-xs px-md py-xs rounded-full border-2 border-primary-container text-primary font-label-md text-label-md bg-white">
+<span class="material-symbols-outlined text-[18px]">category</span>
+          Kategori
+        </button>
+<button id="category-books" class="flex items-center gap-xs px-md py-xs rounded-full bg-tertiary-container/30 text-on-tertiary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">book</span>
+          Buku &amp; Modul
+        </button>
+<button id="category-electronics" class="flex items-center gap-xs px-md py-xs rounded-full bg-secondary-container/30 text-on-secondary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">devices</span>
+          Elektronik
+        </button>
+</div>
+</section>
+<!-- Results Count & University Header -->
+<button id="sort-button"
+    class="flex items-center gap-xs text-primary font-label-md text-label-md">
+    Terbaru
+    <span class="material-symbols-outlined">expand_more</span>
+</button>
+<!-- Product Grid -->
+<div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-md">
+  <!-- Card 1 -->
+<div data-id="1" class="product-card group flex flex-col gap-xs bg-white rounded-xl overflow-hidden shadow-[0_12px_24px_-10px_rgba(0,102,133,0.08)] hover:shadow-lg transition-all duration-300">
+<div class="relative aspect-square overflow-hidden rounded-xl m-xs">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean, close-up photograph of a stack of academic textbooks on a minimalist desk. The scene is brightly lit with natural sunlight, highlighting the soft textures of the paper. The background is a clean white wall, creating a modern, organized aesthetic that feels scholarly and professional. Soft pastel blue shadows complement the EduLoop brand palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_hv9X51wj692tz80K89R5e2zLGZw_zK4SdcAzH8Wmlq-sbOPjF9r6cK4g8I-e0c9Ebnmg5YSDTnM5fClsY9skL1pH4ai-RdeM6jWUeY6ggVmqhcWPIEOHLAjAYAbjkStu6j55M421aFKpnKLsT8kMUHZAxm4zk6ueh7Isfb94POyrZVlLXBbEo8HHGL7qQByf05n5_ScycGLOnLalcdOLpI49zOGz_kYChSJNrB6C893Y7rJjh44eXWkKP8uS_s1Ldo9UBOb6Wg">
+<div class="absolute top-2 left-2 bg-primary-container/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-on-primary-container" data-weight="fill">verified</span>
+<span class="font-label-sm text-[10px] text-on-primary-container uppercase tracking-wider font-bold">Verified</span>
+</div>
+</div>
+<div class="px-md pb-md flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-primary">FEB • Semester 4</span>
+<h3 class="font-label-md text-label-md text-on-surface line-clamp-2">Principles of Economics - Mankiw</h3>
+<p class="font-headline-md text-primary mt-1">Rp 40.000</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div data-id="2" class="product-card group flex flex-col gap-xs bg-white rounded-xl overflow-hidden shadow-[0_12px_24px_-10px_rgba(0,102,133,0.08)] hover:shadow-lg transition-all duration-300">
+<div class="relative aspect-square overflow-hidden rounded-xl m-xs">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-quality studio photograph of a sleek, silver scientific calculator placed on a light grey textured surface. The lighting is soft and even, highlighting the technical buttons and liquid crystal display. The overall mood is precise and modern, featuring clean lines and a professional marketplace feel suitable for a university engineering student audience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_SlqMMnvkki3bdCy5YR2QJzzk-x37I0W-Rcv4Qx-fJSh8OIx3_hY3oPOyo4K9MALMGKGrptrvldPQAyJ6GL3T7q8IC1XFNRvW5L1vmyBwOXnIKo4vlUXxdlqKNbZfKZVXFR1lFAK2BIhLdR01IqM60uobro9qRC9wy7vkPXfdMjvK_HiEeBYA3YuKVDK9s7IO22M1e2BFYEg0S21PqzVAJe2LGGD9XxBEvZ5hCTc1sx_K6czcgug_2nX9c-OuJjQ8SIPoHmSaog">
+<div class="absolute top-2 left-2 bg-primary-container/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-on-primary-container" data-weight="fill">verified</span>
+<span class="font-label-sm text-[10px] text-on-primary-container uppercase tracking-wider font-bold">Verified</span>
+</div>
+</div>
+<div class="px-md pb-md flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-primary">Teknik • Sipil</span>
+<h3 class="font-label-md text-label-md text-on-surface line-clamp-2">Kalkulator Casio fx-991EX</h3>
+<p class="font-headline-md text-primary mt-1">Rp 200.000</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div data-id="3" class="product-card group flex flex-col gap-xs bg-white rounded-xl overflow-hidden shadow-[0_12px_24px_-10px_rgba(0,102,133,0.08)] hover:shadow-lg transition-all duration-300">
+<div class="relative aspect-square overflow-hidden rounded-xl m-xs">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An atmospheric photograph of a classic law book with gold lettering on the spine, resting on a polished wooden surface. Warm, soft ambient light creates a serious and academic mood. The composition is elegant and focused, emphasizing the prestige of the legal profession within a modern university campus context. Soft shadows and high-quality textures define the visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7UuZHcg_NW_lIihUWANOOdLUhTnEWVYNWwZg695U2pt3AzZHphE5PNdVLwMw1Fyck9JbiV9m78TZnrgszElQksD5q6RiJ10GlXa96hcovNwU36IWgMeqmJC7ume4JLrxPlcU-vXKbJptD2pjTDSg08JfX2mQrzVab3JsrOiZeb-qDNet9--4s-obZR7X2AdrkMmH5R3aBPMaCe_aoHpITZzJXDVti0KeSZBteF_WvlE8Y8Acx_mvPBu1S02JPDJn41KkiE48ThA">
+</div>
+<div class="px-md pb-md flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-primary">Hukum • Pidana</span>
+<h3 class="font-label-md text-label-md text-on-surface line-clamp-2">KUHP Lengkap Edisi 2023</h3>
+<p class="font-headline-md text-primary mt-1">Rp 30.000</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div data-id="4" class="product-card group flex flex-col gap-xs bg-white rounded-xl overflow-hidden shadow-[0_12px_24px_-10px_rgba(0,102,133,0.08)] hover:shadow-lg transition-all duration-300">
+<div class="relative aspect-square overflow-hidden rounded-xl m-xs">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean, high-key shot of a modern laptop on a white desk, surrounded by organized stationery and a small succulent. The image uses a soft-glass aesthetic with gentle reflections and a bright, airy atmosphere. The color palette is dominated by whites and soft grays with subtle blue accents, conveying a sense of productivity and professional student commerce." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM5AQsQ8zzxVFVSlJrPMpZY7pZ7CCpBQborEjO2TJjuBXD5yhUAfaJoKtXjteb5LQ7JJboCuP_OvLpLedl2Me2V-IXVD3TaSkwNn7fNc6dp7DhpUa2lzOb8LwjWno5oX3ydFjHXF2RnZ2Cjl0SWEeYRE5A0pLiFtSeFECzq1x8KYNmTak4ogQI0tITU3fMkq8aZw39Qjdpd3m1I7plyaY7GgunWOBXmAjP8vy8n2Lu8bVIfqzmGmXso3158Ei8WybQn3G5TPiYTQ">
+<div class="absolute top-2 left-2 bg-primary-container/90 backdrop-blur-md px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-on-primary-container" data-weight="fill">verified</span>
+<span class="font-label-sm text-[10px] text-on-primary-container uppercase tracking-wider font-bold">Verified</span>
+</div>
+</div>
+<div class="px-md pb-md flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-primary">Informatika • 2021</span>
+<h3 class="font-label-md text-label-md text-on-surface line-clamp-2">MacBook Air M1 2020 8/256</h3>
+<p class="font-headline-md text-primary mt-1">Rp 6.900.000</p>
+</div>
+</div>
+</div>
+<!-- Asymmetric Banner Section -->
+<div class="mt-xl relative rounded-xl overflow-hidden p-lg bg-gradient-to-br from-primary to-secondary text-on-primary">
+<div class="relative z-10 max-w-sm">
+<h3 class="font-display-lg-mobile text-display-lg-mobile mb-sm">Butuh Uang Tambahan?</h3>
+<p class="font-body-md text-body-md mb-md opacity-90">Jual barang tak terpakaimu ke teman se-fakultas hari ini juga.</p>
+<button class="bg-white text-primary px-lg py-sm rounded-full font-label-md text-label-md shadow-md active:scale-95 duration-200">Mulai Jual</button>
+</div>
+<div class="absolute -right-10 -bottom-10 opacity-20 transform rotate-12">
+<span class="material-symbols-outlined text-[200px]" style="font-variation-settings: &quot;FILL&quot; 1;">payments</span>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl rounded-t-lg shadow-lg">
+<div class="flex justify-around items-center px-sm py-xs w-full h-16 max-w-container-max mx-auto">
+<a id="nav-home" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-[10px]">Home</span>
+</a>
+<a id="nav-search" class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">search</span>
+<span class="font-label-sm text-[10px]">Search</span>
+</a>
+<a id="nav-sell" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2" href="#">
+<span class="material-symbols-outlined text-primary text-3xl">add_circle</span>
+<span class="font-label-sm text-[10px]">Sell</span>
+</a>
+<a id="nav-chat" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-sm text-[10px]">Chat</span>
+</a>
+<a id="nav-profile" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-[10px]">Profile</span>
+</a>
+</div>
+</nav>
+<script src="../../js/search.js"></script>
+
+
+</body></html>

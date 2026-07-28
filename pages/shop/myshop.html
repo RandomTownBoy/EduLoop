@@ -566,14 +566,10 @@
         </a>
         <a
           id="nav-search"
-          class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
           href="#"
         >
-          <span
-            class="material-symbols-outlined"
-            style="font-variation-settings: &quot;FILL&quot; 1"
-            >search</span
-          >
+          <span class="material-symbols-outlined"> search </span>
           <span class="font-label-sm text-[10px]">Search</span>
         </a>
         <a
@@ -596,10 +592,15 @@
         </a>
         <a
           id="nav-profile"
-          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
+          class="flex flex-col items-center justify-center text-primary after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
           href="#"
         >
-          <span class="material-symbols-outlined">person</span>
+          <span
+            class="material-symbols-outlined"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+          >
+            person
+          </span>
           <span class="font-label-sm text-[10px]">Profile</span>
         </a>
       </div>
@@ -654,7 +655,7 @@
         });
 
       document.getElementById("nav-search").onclick = () => {
-        location.href = "./search.html";
+        location.href = "../marketplace/search.html";
       };
 
       document.getElementById("nav-sell").onclick = () => {

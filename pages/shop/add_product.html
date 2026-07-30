@@ -589,7 +589,6 @@ Dijual MacBook Pro 14" M1 2021. Kondisi mulus 98%, pemakaian pribadi untuk kulia
       <a
         class="flex flex-col items-center justify-center text-primary font-bold relative after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1"
         href="javascript:void(0)"
-        onclick="goShop()"
       >
         <span
           class="material-symbols-outlined"
@@ -618,35 +617,65 @@ Dijual MacBook Pro 14" M1 2021. Kondisi mulus 98%, pemakaian pribadi untuk kulia
       </a>
     </nav>
     <script>
-      // Micro-interaction: Form input highlights
+      // =========================
+      // Input Micro Interaction
+      // =========================
+
       const inputs = document.querySelectorAll("input, select, textarea");
+
       inputs.forEach((input) => {
         input.addEventListener("focus", () => {
           input.parentElement.classList.add("scale-[1.01]");
         });
+
         input.addEventListener("blur", () => {
           input.parentElement.classList.remove("scale-[1.01]");
         });
       });
 
+      // =========================
+      // Publish Product
+      // =========================
+
       function publishProduct() {
         const btn = document.querySelector(".pastel-gradient-btn");
 
+        // Simpan status produk baru
+        localStorage.setItem("newProductAdded", "true");
+
+        // Loading button
+        btn.disabled = true;
+
         btn.innerHTML = `
-    <span class="animate-spin material-symbols-outlined">
-    refresh
-    </span>
-    Memproses...
+      <span class="animate-spin material-symbols-outlined">
+        refresh
+      </span>
+      Memproses...
     `;
 
+        // Show success modal
+
         setTimeout(() => {
-          document.getElementById("successModal").classList.remove("hidden");
+          const modal = document.getElementById("successModal");
+
+          if (modal) {
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+          }
         }, 1200);
       }
+
+      // =========================
+      // Back To My Shop
+      // =========================
 
       function backToShop() {
         window.location.href = "myshop.html";
       }
+
+      // =========================
+      // Bottom Navigation
+      // =========================
 
       function goHome() {
         const isVerified = localStorage.getItem("userVerified") === "true";
@@ -659,7 +688,7 @@ Dijual MacBook Pro 14" M1 2021. Kondisi mulus 98%, pemakaian pribadi untuk kulia
       }
 
       function goProfile() {
-        const verified = localStorage.getItem("verifiedUser");
+        const verified = localStorage.getItem("userVerified");
 
         if (verified === "true") {
           window.location.href = "../profile/profile.html";
@@ -676,9 +705,7 @@ Dijual MacBook Pro 14" M1 2021. Kondisi mulus 98%, pemakaian pribadi untuk kulia
         window.location.href = "../chat/chat.html";
       }
 
-      function goShop() {
-        window.location.href = "/myshop.html";
-      }
+      
     </script>
 
     <!-- Success Popup -->

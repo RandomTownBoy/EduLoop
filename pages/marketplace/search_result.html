@@ -292,57 +292,8 @@
         </a>
       </div>
     </nav>
+    <script src="../../js/product.js"></script>
     <script>
-      const products = [
-        {
-          id: 1,
-          name: "MacBook Pro M2",
-          category: "elektronik",
-          price: "Rp 14.500.000",
-          image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAWA_6ZJI598sQICwEpg6khM-u8ncTTc7-bS4xXaRMETfnpOaf6xjOnFryMvDwQD9GxeThBnKEsvmg83HH6fiSf30urEA2CpMawuZBghbIb2bH907hdvL87EG2TTM33BdqDeBJ_D4rrx_DRvkK7V7Lfg9Q8O-Ka-2W0K4O-cHdDFW1RjQXXQ42RBpj-W1-MblAzi0aVPfIcakeZu5cvRsle9aczwQZElyeaVb8cdw3tZsU6w_BzS71BGKTF5jkQhT_Y-erXVYRLknJ0",
-        },
-
-        {
-          id: 2,
-          name: "ASUS Vivobook 14",
-          category: "elektronik",
-          price: "Rp 5.500.000",
-          image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBpP62zlGMGdqnSJzic731Xhq7q1Rq8iN93iaSlYemmL0cmoid2F0QSyDte6Ph1V_LqvOhwRBMewElXeAvRHVsYLntzBi4xWK3tt4JzIzaC0KRQq_7C0SCvHsccsf-cW-02m3xwSzYD9oNnzio3d_a4Xvw9ad3DWJheVlHgKlCcDVu2qSPaaBVZHxwDPyYRbGvj3apImCJ1WbJELxWxrM_tDSn9TrtEWlcMZ4ZW36N7P8VESGMYCFtY3piSLatAVcPhjDSXoQRyykty",
-        },
-
-        {
-          id: 3,
-          name: "Buku Kalkulus",
-          category: "buku",
-          price: "Rp 120.000",
-          image: "link gambar",
-        },
-
-        {
-          id: 4,
-          name: "Jas Almamater UNIB",
-          category: "fashion",
-          price: "Rp 75.000",
-          image: "link gambar",
-        },
-        {
-          id: 5,
-          name: "Rice Cooker Mini",
-          category: "kos",
-          price: "Rp 90.000",
-          image: "...",
-        },
-        {
-          id: 6,
-          name: "Kipas Angin Mini",
-          category: "kos",
-          price: "Rp 50.000",
-          image: "...",
-        },
-      ];
-
       const params = new URLSearchParams(window.location.search);
 
       const keyword = params.get("keyword") || "";
@@ -422,7 +373,7 @@
       });
 
       function searchProduct(keyword, category) {
-        return products.filter((product) => {
+        return PRODUCTS.filter((product) => {
           const matchKeyword =
             keyword === "" ||
             product.name.toLowerCase().includes(keyword.toLowerCase());
@@ -484,7 +435,7 @@
                 </h3>
 
                 <p class="text-primary font-bold">
-                    ${product.price}
+                    ${product.priceText}
                 </p>
 
             </div>

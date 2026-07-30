@@ -282,7 +282,8 @@
             </h2>
             <div class="grid grid-cols-1 gap-sm">
               <!-- Option 1: Meet Point -->
-              <div id="meetpoint"
+              <div
+                id="meetpoint"
                 class="p-md rounded-lg flex items-center gap-md cursor-pointer transition-all hover:bg-surface-container-high border-2 border-transparent"
               >
                 <span class="material-symbols-outlined text-primary"
@@ -301,7 +302,8 @@
                 >
               </div>
               <!-- Option 2: Regular -->
-              <div id="delivery"
+              <div
+                id="delivery"
                 class="bg-surface-container-low p-md rounded-lg flex items-center gap-md cursor-pointer transition-all hover:bg-surface-container-high border-2 border-transparent border-outline-variant/30 selection-active"
               >
                 <span class="material-symbols-outlined text-on-surface-variant"
@@ -331,7 +333,7 @@
             </h2>
             <div class="grid grid-cols-2 gap-sm">
               <div
-                ic="ewallet"
+                id="ewallet"
                 class="bg-surface-container-low p-md rounded-lg flex flex-col items-center gap-xs cursor-pointer border-2 border-transparent hover:border-primary transition-all"
               >
                 <span class="material-symbols-outlined text-primary text-3xl"
@@ -389,7 +391,8 @@
               >
               </span>
             </div>
-            <button id="pay-button"
+            <button
+              id="pay-button"
               class="w-full primary-gradient py-md px-lg rounded-full font-headline-md text-on-primary shadow-lg hover:shadow-primary/20 active:scale-95 duration-200 transition-all text-center"
             >
               Bayar Sekarang
@@ -448,24 +451,35 @@
       </div>
     </nav>
     <script>
+      // =====================
+      // Load Cart Product
+      // =====================
+
       const cartProduct = JSON.parse(localStorage.getItem("eduloop_cart"));
 
       const DELIVERY = 0;
       const PLATFORM = 2000;
 
-      if (cartProduct) {
-        document.getElementById("payment-image").src = cartProduct.image;
+      // =====================
+      // Product Display
+      // =====================
 
-        document.getElementById("payment-name").textContent = cartProduct.name;
+      if (cartProduct) {
+        document.getElementById("payment-image").src = cartProduct.image || "";
+
+        document.getElementById("payment-name").textContent =
+          cartProduct.name || "";
 
         document.getElementById("payment-price").textContent =
-          cartProduct.price;
+          cartProduct.price || "";
 
         document.getElementById("payment-seller").textContent =
-          cartProduct.seller;
-      }
+          cartProduct.seller || "";
 
-      if (cartProduct) {
+        // =====================
+        // Price Calculation
+        // =====================
+
         const harga = Number(
           cartProduct.price.replace("Rp", "").replace(/\./g, "").trim(),
         );
@@ -484,7 +498,11 @@
         document.getElementById("total-price").textContent =
           "Rp " + total.toLocaleString("id-ID");
       }
-      // Micro-interaction for payment method selection
+
+      // =====================
+      // Payment Method
+      // =====================
+
       const methods = document.querySelectorAll("#ewallet,#bank");
 
       methods.forEach((method) => {
@@ -499,7 +517,10 @@
         };
       });
 
-      // Micro-interaction for shipping selection
+      // =====================
+      // Shipping Method
+      // =====================
+
       const shipping = document.querySelectorAll("#meetpoint,#delivery");
 
       shipping.forEach((item) => {
@@ -514,13 +535,105 @@
         };
       });
 
-      document.getElementById("pay-button").onclick = () => {
-        localStorage.setItem("last_order", JSON.stringify(cartProduct));
+      // =====================
+      // Pay Button
+      // =====================
 
-        localStorage.removeItem("eduloop_cart");
+      const payButton = document.getElementById("pay-button");
 
-        window.location.href = "../transaction/order_status.html";
-      };
+      if (payButton) {
+        payButton.onclick = () => {
+          if (!cartProduct) {
+            alert("Produk tidak ditemukan");
+
+            return;
+          }
+
+          // Simpan pesanan terakhir
+
+          localStorage.setItem("last_order", JSON.stringify(cartProduct));
+
+          // Simpan data untuk order status
+
+          localStorage.setItem("eduloop_checkout", JSON.stringify(cartProduct));
+
+          // Hapus cart
+
+          localStorage.removeItem("eduloop_cart");
+
+          // Tandai datang dari payment
+          localStorage.setItem("order_from", "payment");
+
+          // Masuk order status
+          window.location.href = "./order_status.html";
+        };
+      }
+
+      // =====================
+      // Back Button
+      // =====================
+
+      const backButton = document.getElementById("back-button");
+
+      if (backButton) {
+        backButton.onclick = () => {
+          history.back();
+        };
+      }
+
+      // =====================
+      // Bottom Navigation
+      // =====================
+
+      const navHome = document.getElementById("nav-home");
+
+      if (navHome) {
+        navHome.onclick = (e) => {
+          e.preventDefault();
+
+          const verified = localStorage.getItem("userVerified") === "true";
+
+          if (verified) {
+            window.location.href = "../home_student.html";
+          } else {
+            window.location.href = "../home.html";
+          }
+        };
+      }
+
+      const navSearch = document.getElementById("nav-search");
+
+      if (navSearch) {
+        navSearch.onclick = () => {
+          window.location.href = "../marketplace/search.html";
+        };
+      }
+
+      const navSell = document.getElementById("nav-sell");
+
+      if (navSell) {
+        navSell.onclick = () => {
+          window.location.href = "../shop/add_product.html";
+        };
+      }
+
+      const navChat = document.getElementById("nav-chat");
+
+      if (navChat) {
+        navChat.onclick = () => {
+          window.location.href = "../chat/chat.html";
+        };
+      }
+
+      const navProfile = document.getElementById("nav-profile");
+
+      if (navProfile) {
+        navProfile.onclick = (e) => {
+          e.preventDefault();
+
+          window.location.href = "../profile/profile.html";
+        };
+      }
     </script>
   </body>
 </html>

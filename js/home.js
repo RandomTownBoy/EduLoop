@@ -79,14 +79,82 @@ if(promoBtn){
     };
 }
 
+// ===============================
+// Render Produk dari product.js
+// ===============================
 
-// Product Detail
-const product1 = document.getElementById("product-1");
+const productGrid = document.getElementById("product-grid");
 
-if(product1){
-    product1.onclick = () => {
-        window.location.href = "marketplace/detail_product.html";
-    };
+if (productGrid && typeof PRODUCTS !== "undefined") {
+
+    productGrid.innerHTML = PRODUCTS.map(product => `
+
+        <div
+            onclick="window.location.href='marketplace/detail_product.html?id=${product.id}'"
+            class="flex flex-col bg-surface-container-lowest rounded-xl shadow-[0_12px_24px_rgba(0,102,133,0.05)] overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98]">
+
+            <div class="relative h-40 overflow-hidden">
+
+                <img
+                    class="w-full h-full object-cover"
+                    src="${product.image}"
+                    alt="${product.name}">
+
+                <div class="absolute top-2 left-2 bg-primary-container text-on-primary-container font-label-sm text-[10px] px-2 py-0.5 rounded-full flex items-center gap-xs">
+
+                    <span
+                        class="material-symbols-outlined text-[12px]"
+                        style="font-variation-settings:'FILL' 1;">
+                        auto_awesome
+                    </span>
+
+                    ${product.condition}
+
+                </div>
+
+            </div>
+
+            <div class="p-sm flex flex-col gap-xs">
+
+                <span
+                    class="bg-primary-fixed text-primary font-label-sm text-[10px] px-2 py-0.5 rounded-full w-fit flex items-center gap-xs">
+
+                    <span
+                        class="material-symbols-outlined text-[10px]"
+                        style="font-variation-settings:'FILL' 1;">
+                        verified
+                    </span>
+
+                    Verified Student
+
+                </span>
+
+                <h4 class="font-label-md text-label-md text-on-surface line-clamp-2 mt-xs">
+                    ${product.name}
+                </h4>
+
+                <p class="font-headline-md text-[18px] text-primary">
+                    ${product.priceText}
+                </p>
+
+                <div class="flex items-center gap-xs text-on-surface-variant mt-xs">
+
+                    <span class="material-symbols-outlined text-[14px]">
+                        location_on
+                    </span>
+
+                    <span class="font-label-sm text-[11px]">
+                        ${product.campus}
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `).join("");
+
 }
 
 

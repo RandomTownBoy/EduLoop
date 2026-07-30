@@ -276,17 +276,16 @@
                   <h3
                     id="seller-name"
                     class="font-headline-md text-[18px] text-on-surface"
-                  >
-                    Dimas Saputra
-                  </h3>
+                  ></h3>
                   <span
                     class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container text-[10px] font-bold uppercase tracking-wider"
                     >Seller</span
                   >
                 </div>
-                <p class="font-label-sm text-on-surface-variant">
-                  Fakultas Teknik UNIB • 4.9 ★
-                </p>
+                <p
+                  id="seller-info"
+                  class="font-label-sm text-on-surface-variant"
+                ></p>
               </div>
             </div>
             <div class="flex gap-sm">
@@ -359,7 +358,7 @@
                       Sedang Menuju Meet Point
                     </h4>
                     <p class="font-body-sm text-body-sm text-on-surface">
-                      Dimas sedang diperjalanan menuju Perpustakaan Pusat.
+                      Penjual sedang diperjalanan menuju Perpustakaan Pusat.
                     </p>
                     <p class="font-label-sm text-primary mt-1">
                       Hari ini, 14:12
@@ -413,10 +412,9 @@
                       Pesanan Dibuat
                     </h4>
                     <p
+                      id="order-created-text"
                       class="font-body-sm text-body-sm text-on-surface-variant"
-                    >
-                      Pesanan buku 'Calculus: Early Transcendentals' diterima.
-                    </p>
+                    ></p>
                     <p class="font-label-sm text-on-surface-variant mt-1">
                       Hari ini, 13:40
                     </p>
@@ -442,13 +440,12 @@
                 <div class="flex-1">
                   <h4
                     id="order-name"
-                    class="font-label-md text-label-md text-on-surface"
-                  >
-                    Calculus: Early Transcendentals
-                  </h4>
-                  <p class="font-label-sm text-on-surface-variant">
-                    Edisi ke-9 • Bekas seperti Baru
-                  </p>
+                    class="text-sm font-semibold text-on-surface leading-tight"
+                  ></h4>
+                  <p
+                    id="order-condition"
+                    class="font-label-sm text-on-surface-variant"
+                  ></p>
                   <div class="flex justify-between items-center mt-sm">
                     <span
                       id="order-price"
@@ -468,104 +465,410 @@
         </div>
       </div>
     </main>
-    <!-- Bottom Navigation (Mobile) -->
+    <!-- Bottom Navigation Bar -->
     <nav
-      class="md:hidden fixed bottom-0 w-full z-50 rounded-t-lg bg-surface/70 backdrop-blur-xl shadow-lg border-t border-surface-variant/20"
+      class="fixed bottom-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl rounded-t-lg shadow-lg"
     >
-      <div class="flex justify-around items-center px-sm py-xs w-full h-16">
+      <div
+        class="flex justify-around items-center px-sm py-xs w-full h-16 max-w-container-max mx-auto"
+      >
         <a
-          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2"
+          id="nav-home"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
           href="#"
         >
           <span class="material-symbols-outlined">home</span>
           <span class="font-label-sm text-[10px]">Home</span>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2"
+          id="nav-search"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
           href="#"
         >
-          <span class="material-symbols-outlined">search</span>
+          <span class="material-symbols-outlined"> search </span>
           <span class="font-label-sm text-[10px]">Search</span>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2"
+          id="nav-sell"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
           href="#"
         >
-          <span class="material-symbols-outlined">add_circle</span>
+          <span class="material-symbols-outlined text-primary text-3xl"
+            >add_circle</span
+          >
           <span class="font-label-sm text-[10px]">Sell</span>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-primary after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 p-2"
+          id="nav-chat"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
+          href="#"
+        >
+          <span class="material-symbols-outlined">chat_bubble</span>
+          <span class="font-label-sm text-[10px]">Chat</span>
+        </a>
+        <a
+          id="nav-profile"
+          class="flex flex-col items-center justify-center text-primary after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 hover:bg-primary-container/20 rounded-xl transition-all active:scale-90 duration-200 px-4 py-2"
           href="#"
         >
           <span
             class="material-symbols-outlined"
             style="font-variation-settings: &quot;FILL&quot; 1"
-            >chat_bubble</span
           >
-          <span class="font-label-sm text-[10px]">Chat</span>
-        </a>
-        <a
-          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2"
-          href="#"
-        >
-          <span class="material-symbols-outlined">person</span>
+            person
+          </span>
           <span class="font-label-sm text-[10px]">Profile</span>
         </a>
       </div>
     </nav>
     <script>
-      // Simple micro-interaction for the track items
-      document.querySelectorAll(".flex.gap-md").forEach((item) => {
-        item.addEventListener("mouseenter", () => {
-          if (!item.querySelector(".animate-pulse")) {
-            item.style.transform = "translateX(4px)";
-            item.style.transition = "transform 0.2s ease-out";
-          }
-        });
-        item.addEventListener("mouseleave", () => {
-          item.style.transform = "translateX(0)";
-        });
-      });
+  // =====================
+  // Simple micro-interaction for timeline
+  // =====================
 
-      // Background atmosphere: subtle moving gradient in corner
-      const deco = document.createElement("div");
-      deco.className =
-        "fixed -top-32 -left-32 w-96 h-96 rounded-full opacity-20 blur-[100px] pointer-events-none z-[-1] pastel-gradient";
-      document.body.appendChild(deco);
-
-      const deco2 = document.createElement("div");
-      deco2.className =
-        "fixed bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-10 blur-[120px] pointer-events-none z-[-1] bg-primary-container";
-      document.body.appendChild(deco2);
-      const product = JSON.parse(localStorage.getItem("eduloop_checkout"));
-
-      if (product) {
-        document.getElementById("order-name").textContent = product.name;
-
-        document.getElementById("order-price").textContent = product.price;
-
-        document.getElementById("order-image").src = product.image;
-
-        document.getElementById("seller-name").textContent = product.seller;
+  document.querySelectorAll(".flex.gap-md").forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      if (!item.querySelector(".animate-pulse")) {
+        item.style.transform = "translateX(4px)";
+        item.style.transition = "transform 0.2s ease-out";
       }
+    });
 
-      document.getElementById("back-button").addEventListener("click", () => {
-        history.back();
-      });
-      document.getElementById("call-button").onclick = () => {
-        alert("Memanggil penjual...");
-      };
+    item.addEventListener("mouseleave", () => {
+      item.style.transform = "translateX(0)";
+    });
+  });
 
-      document.getElementById("chat-button").onclick = () => {
-        window.location.href = "../chat/chat.html";
-      };
-      const orderNumber = "EL-" + Math.floor(10000 + Math.random() * 90000);
 
-      document.querySelector(
-        ".font-label-md.text-label-md.text-on-surface-variant",
-      ).textContent = "Order #" + orderNumber;
-    </script>
+  // =====================
+  // Background atmosphere
+  // =====================
+
+  const deco = document.createElement("div");
+
+  deco.className =
+    "fixed -top-32 -left-32 w-96 h-96 rounded-full opacity-20 blur-[100px] pointer-events-none z-[-1] pastel-gradient";
+
+  document.body.appendChild(deco);
+
+
+  const deco2 = document.createElement("div");
+
+  deco2.className =
+    "fixed bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-10 blur-[120px] pointer-events-none z-[-1] bg-primary-container";
+
+  document.body.appendChild(deco2);
+
+
+
+  // =====================
+  // Dynamic Order Data
+  // =====================
+
+  const product = JSON.parse(
+    localStorage.getItem("eduloop_checkout")
+  );
+
+
+  if (product) {
+
+
+    const orderName =
+      document.getElementById("order-name");
+
+    if(orderName){
+      orderName.textContent =
+        product.name || "";
+    }
+
+
+
+    const orderPrice =
+      document.getElementById("order-price");
+
+    if(orderPrice){
+      orderPrice.textContent =
+        product.price || "";
+    }
+
+
+
+    const orderImage =
+      document.getElementById("order-image");
+
+    if(orderImage){
+      orderImage.src =
+        product.image || "";
+    }
+
+
+
+    const sellerName =
+      document.getElementById("seller-name");
+
+    if(sellerName){
+      sellerName.textContent =
+        product.seller || "";
+    }
+
+
+
+    const sellerInfo =
+      document.getElementById("seller-info");
+
+    if(sellerInfo){
+
+      sellerInfo.textContent =
+        `${product.faculty || ""}${
+          product.rating
+          ? " • " + product.rating + " ★"
+          : ""
+        }`;
+
+    }
+
+
+
+    const condition =
+      document.getElementById("order-condition");
+
+    if(condition){
+
+      condition.textContent =
+        product.condition || "";
+
+    }
+
+
+
+    const orderText =
+      document.getElementById("order-created-text");
+
+
+    if(orderText){
+
+      orderText.textContent =
+        `Pesanan ${product.name || "produk"} diterima.`;
+
+    }
+
+
+
+    const deliveryLocation =
+      document.getElementById("delivery-location");
+
+
+    if(deliveryLocation){
+
+      deliveryLocation.textContent =
+        product.location || "";
+
+    }
+
+
+
+    const deliveryTime =
+      document.getElementById("delivery-time");
+
+
+    if(deliveryTime){
+
+      deliveryTime.textContent =
+        product.eta || "";
+
+    }
+
+
+
+    const deliveryDistance =
+      document.getElementById("delivery-distance");
+
+
+    if(deliveryDistance){
+
+      deliveryDistance.textContent =
+        product.distance || "";
+
+    }
+
+  }
+
+
+
+  // =====================
+  // Back Button
+  // =====================
+
+  // =====================
+// Back Button Logic
+// =====================
+
+// =====================
+// Back Button
+// =====================
+
+const backButton = document.getElementById("back-button");
+
+if (backButton) {
+
+  backButton.onclick = () => {
+
+    window.location.href =
+      "../profile/profile.html";
+
+  };
+
+}
+
+
+
+  // =====================
+  // Seller Action
+  // =====================
+
+  document
+  .getElementById("call-button")
+  .onclick = () => {
+
+    alert("Memanggil penjual...");
+
+  };
+
+
+
+  document
+  .getElementById("chat-button")
+  .onclick = () => {
+
+    window.location.href =
+      "../chat/chat.html";
+
+  };
+
+
+
+  // =====================
+  // Order Number
+  // =====================
+
+  const orderNumber =
+    "EL-" + Math.floor(10000 + Math.random() * 90000);
+
+
+
+  const orderLabel =
+    document.querySelector(
+      ".font-label-md.text-label-md.text-on-surface-variant"
+    );
+
+
+  if(orderLabel){
+
+    orderLabel.textContent =
+      "Order #" + orderNumber;
+
+  }
+
+
+
+  // =====================
+  // Bottom Navigation
+  // =====================
+
+
+  document
+  .getElementById("nav-home")
+  .addEventListener("click", function(e){
+
+    e.preventDefault();
+
+
+    const verified =
+      localStorage.getItem("userVerified") === "true";
+
+
+
+    if(verified){
+
+      window.location.href =
+        "../home_student.html";
+
+    }else{
+
+      window.location.href =
+        "../home.html";
+
+    }
+
+  });
+
+
+
+  document
+  .getElementById("nav-search")
+  .onclick = () => {
+
+    location.href =
+      "../marketplace/search.html";
+
+  };
+
+
+
+  document
+  .getElementById("nav-sell")
+  .onclick = () => {
+
+    location.href =
+      "../shop/add_product.html";
+
+  };
+
+
+
+  document
+  .getElementById("nav-chat")
+  .onclick = () => {
+
+    location.href =
+      "../chat/chat.html";
+
+  };
+
+
+
+  document
+  .getElementById("nav-profile")
+  .addEventListener("click", function(e){
+
+
+    e.preventDefault();
+
+
+    const verified =
+      localStorage.getItem("userVerified");
+
+
+
+    if(verified === "true"){
+
+      window.location.href =
+        "../profile/profile.html";
+
+
+    } else {
+
+
+      window.location.href =
+        "../verify/verify.html";
+
+
+    }
+
+
+  });
+
+</script>
     <div
       class="fixed -top-32 -left-32 w-96 h-96 rounded-full opacity-20 blur-[100px] pointer-events-none z-[-1] pastel-gradient"
     ></div>

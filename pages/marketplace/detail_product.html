@@ -486,115 +486,136 @@
     <div class="md:hidden">
       <!-- Managed by the sticky CTA which overrides the generic bottom bar for product screens -->
     </div>
+    <script src="../../js/product.js"></script>
     <script>
-      const products = [
-        {
-          id: 1,
-          name: "MacBook Pro M2",
-          price: "Rp 14.500.000",
-          image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAWA_6ZJI598sQICwEpg6khM-u8ncTTc7-bS4xXaRMETfnpOaf6xjOnFryMvDwQD9GxeThBnKEsvmg83HH6fiSf30urEA2CpMawuZBghbIb2bH907hdvL87EG2TTM33BdqDeBJ_D4rrx_DRvkK7V7Lfg9Q8O-Ka-2W0K4O-cHdDFW1RjQXXQ42RBpj-W1-MblAzi0aVPfIcakeZu5cvRsle9aczwQZElyeaVb8cdw3tZsU6w_BzS71BGKTF5jkQhT_Y-erXVYRLknJ0",
-          description: "Laptop mulus, charger original, baterai sehat.",
-          seller: "Aditya Wijaya",
-          campus: "Universitas Bengkulu",
-          meetPoint: "Perpustakaan Pusat",
-        },
-        {
-          id: 2,
-          name: "ASUS Vivobook 14",
-          price: "Rp 5.500.000",
-          image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBpP62zlGMGdqnSJzic731Xhq7q1Rq8iN93iaSlYemmL0cmoid2F0QSyDte6Ph1V_LqvOhwRBMewElXeAvRHVsYLntzBi4xWK3tt4JzIzaC0KRQq_7C0SCvHsccsf-cW-02m3xwSzYD9oNnzio3d_a4Xvw9ad3DWJheVlHgKlCcDVu2qSPaaBVZHxwDPyYRbGvj3apImCJ1WbJELxWxrM_tDSn9TrtEWlcMZ4ZW36N7P8VESGMYCFtY3piSLatAVcPhjDSXoQRyykty",
-          description: "Laptop bekas kuliah, kondisi sangat baik.",
-          seller: "Rizky",
-          campus: "Universitas Bengkulu",
-          meetPoint: "Gedung Dekanat",
-        },
-      ];
+      // =========================
+      // Load Product
+      // =========================
 
       const defaultProduct = {
-        name: "MacBook Air M1 2020 Space Grey",
-        price: "Rp 5.500.000",
+        name: "Produk EduLoop",
+        priceText: "Rp -",
         image:
           "https://lh3.googleusercontent.com/aida-public/AB6AXuALflyWDeOjGjKFZ9KvYBs381vwLBxZ4H-x8TlqzRa0LcnPxWNN8enn99-nqA49i1QPnRjGPW7_ZVZTG8SgH8RomB_18pKIS5mPlCJss2gvlMOQn-to2ITa1GUWt9qWUPgqaOVO1aWBZkJT9gz2b6-dL3VadCHmgzxrtjq0ApsgCugnxAuAMbvKn--oYwZsK3tDm6ovn3Fo-C8uEEKIlxVJnDQg_4m1rTffJEo9E4xnsTsJZpjsrlZCliAE5Z0jc984RQd7aFigWQ",
-        description:
-          "Laptop jarang dipakai, hanya untuk tugas kuliah ringan. Semua port normal. Fullset box dan charger original.",
-        seller: "Aditya Wijaya",
+        description: "Belum ada deskripsi.",
+        seller: "EduLoop Seller",
         campus: "Universitas Bengkulu",
         meetPoint: "Perpustakaan Pusat",
+        originalPrice: "",
       };
+
       const params = new URLSearchParams(window.location.search);
       const productId = Number(params.get("id"));
 
-      let product = products.find((item) => item.id === productId);
+      let product = defaultProduct;
 
-      if (!product) {
-        product = products[0]; // default product
+      if (typeof PRODUCTS !== "undefined") {
+        product =
+          PRODUCTS.find((item) => item.id === productId) ||
+          PRODUCTS[0] ||
+          defaultProduct;
       }
 
-      if (product) {
-        document.getElementById("product-name").textContent = product.name;
+      // =========================
+      // Render Product
+      // =========================
 
-        document.getElementById("product-price").textContent = product.price;
+      document.getElementById("product-name").textContent =
+        product.name || defaultProduct.name;
 
-        document.getElementById("product-image").src = product.image;
+      document.getElementById("product-price").textContent =
+        product.priceText || product.price || defaultProduct.priceText;
 
-        document.getElementById("product-description").textContent =
-          product.description;
+      document.getElementById("product-image").src =
+        product.image || defaultProduct.image;
 
-        document.getElementById("seller-name").textContent = product.seller;
+      document.getElementById("product-description").textContent =
+        product.description || defaultProduct.description;
 
-        document.getElementById("seller-campus").textContent = product.campus;
+      document.getElementById("seller-name").textContent =
+        product.seller || defaultProduct.seller;
 
-        document.getElementById("meet-point").textContent = product.meetPoint;
+      document.getElementById("seller-campus").textContent =
+        product.campus || defaultProduct.campus;
+
+      document.getElementById("meet-point").textContent =
+        product.meetPoint || defaultProduct.meetPoint;
+
+      const originalPrice = document.getElementById("product-original-price");
+
+      if (product.originalPrice) {
+        originalPrice.textContent = product.originalPrice;
+        originalPrice.classList.remove("hidden");
+      } else {
+        originalPrice.classList.add("hidden");
       }
 
-      // Micro-interaction for the back button
-      document.getElementById("back-button").onclick = () => {
+      // =========================
+      // Back Button
+      // =========================
+
+      document.getElementById("back-button").addEventListener("click", () => {
         history.back();
-      };
+      });
 
-      // Subtle parallax effect on scroll for the hero image
+      // =========================
+      // Hero Parallax
+      // =========================
+
       window.addEventListener("scroll", () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('img[data-alt*="laptop"]');
+        const hero = document.getElementById("product-image");
+
         if (hero) {
-          hero.style.transform = `translateY(${scrolled * 0.1}px)`;
+          hero.style.transform = `translateY(${window.scrollY * 0.1}px)`;
         }
       });
 
-      // Button active state pulse
+      // =========================
+      // Button Animation
+      // =========================
+
       document.querySelectorAll("button").forEach((btn) => {
         btn.addEventListener("mousedown", () => {
           btn.classList.add("scale-95");
         });
+
         btn.addEventListener("mouseup", () => {
+          btn.classList.remove("scale-95");
+        });
+
+        btn.addEventListener("mouseleave", () => {
           btn.classList.remove("scale-95");
         });
       });
 
+      // =========================
+      // Chat
+      // =========================
 
-      document.getElementById("chat-button").onclick = () => {
+      document.getElementById("chat-button").addEventListener("click", () => {
         window.location.href = "../chat/chat.html";
-      };
+      });
 
-      // Tambah ke keranjang
-      document.getElementById("add-cart-button").onclick = () => {
-        // Simpan produk sementara
-        const cartProduct = {
-          name: document.getElementById("product-name").textContent,
-          price: document.getElementById("product-price").textContent,
-          image: document.getElementById("product-image").src,
-          seller: document.getElementById("seller-name").textContent,
-        };
+      // =========================
+      // Add to Cart
+      // =========================
 
-        localStorage.setItem("eduloop_cart", JSON.stringify(cartProduct));
+      document
+        .getElementById("add-cart-button")
+        .addEventListener("click", () => {
+          const cartProduct = {
+            id: product.id,
+            name: product.name,
+            price: product.priceText || product.price,
+            image: product.image,
+            seller: product.seller,
+            campus: product.campus,
+          };
 
-        // pindah ke cart
-        window.location.href = "../transaction/cart.html";
-      };
+          localStorage.setItem("eduloop_cart", JSON.stringify(cartProduct));
+
+          window.location.href = "../transaction/cart.html";
+        });
     </script>
   </body>
 </html>
-> >
->

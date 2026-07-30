@@ -161,72 +161,127 @@
     <!-- Bottom Nav Bar (Shared Component Context) -->
     <!-- Suppressed due to being a Transactional/Linear task page focused on Cart -->
     <script>
-      // Micro-interaction for quantity buttons
+      // =========================
+      // Load Cart Data
+      // =========================
+
       const product = JSON.parse(localStorage.getItem("eduloop_cart"));
 
       const cartItems = document.getElementById("cart-items");
 
+      const subtotal = document.getElementById("subtotal");
+
+      const itemCount = document.querySelector(
+        "header span.text-on-surface-variant",
+      );
+
+      // =========================
+      // Render Cart
+      // =========================
+
       if (product) {
         cartItems.innerHTML = `
+
     <div class="glass-card shadow-soft rounded-2xl p-4 flex gap-4 items-center">
 
+
         <img
-            src="${product.image}"
-            class="w-24 h-24 rounded-xl object-cover">
+        src="${product.image}"
+        class="w-24 h-24 rounded-xl object-cover">
+
 
         <div class="flex-1">
 
-            <h3 class="font-bold">
+
+            <h3 class="font-bold text-on-surface">
                 ${product.name}
             </h3>
 
-            <p class="text-sm text-gray-500">
-                ${product.seller}
+
+            <p class="text-sm text-gray-500 mt-1">
+                ${product.seller || "Mahasiswa EduLoop"}
             </p>
 
+
+
             <div class="mt-3 flex justify-between items-center">
+
 
                 <span class="font-bold text-primary">
                     ${product.price}
                 </span>
 
+
                 <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">
                     Qty 1
                 </span>
 
+
             </div>
+
 
         </div>
 
+
     </div>
+
     `;
+
+        subtotal.textContent = product.price;
+
+        if (itemCount) {
+          itemCount.textContent = "1 Item";
+        }
       } else {
         cartItems.innerHTML = `
+
     <div class="text-center py-16">
+
 
         <span class="material-symbols-outlined text-6xl text-gray-300">
             shopping_cart
         </span>
 
+
         <p class="mt-4 text-gray-500">
             Keranjang masih kosong
         </p>
 
+
     </div>
+
     `;
+
+        subtotal.textContent = "Rp 0";
       }
 
-      document.getElementById("back-button").onclick = () => {
-        window.history.back();
+      // =========================
+      // Back Button
+      // =========================
+
+      document.getElementById("back-button").onclick = function () {
+        window.location.href = "../marketplace/detail_product.html";
       };
 
-      document.getElementById("checkout-button").onclick = () => {
-        window.location.href = "./payment.html";
-      };
+      // =========================
+      // Checkout Button
+      // =========================
 
-      if (product) {
-        document.getElementById("subtotal").textContent = product.price;
-      }
+      document.getElementById("checkout-button").onclick = function () {
+        if (!product) {
+          alert("Keranjang masih kosong");
+
+          return;
+        }
+
+        // Simpan data checkout
+
+        localStorage.setItem("eduloop_checkout", JSON.stringify(product));
+
+        // menuju pembayaran
+
+        window.location.href = "payment.html";
+      };
     </script>
   </body>
 </html>

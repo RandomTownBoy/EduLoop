@@ -165,7 +165,11 @@
 <div class="flex gap-sm">
 <div class="flex-1 bg-surface-container-low rounded-full px-4 py-3 flex items-center gap-2 border-2 border-transparent focus-within:border-pastel-blue focus-within:shadow-[0_0_15px_rgba(110,203,245,0.3)] transition-all">
 <span class="material-symbols-outlined text-outline">search</span>
-<input class="bg-transparent border-none focus:ring-0 w-full text-body-sm placeholder:text-outline-variant" placeholder="Cari buku, laptop, almamater..." type="text"/>
+<input 
+id="search-input"
+class="bg-transparent border-none focus:ring-0 w-full text-body-sm placeholder:text-outline-variant" 
+placeholder="Cari buku, laptop, almamater..." 
+type="text"/>
 </div>
 <button class="bg-surface-container-high p-3 rounded-2xl active:scale-95 transition-transform">
 <span class="material-symbols-outlined text-on-surface-variant">tune</span>
@@ -268,71 +272,22 @@
 </section>
 <!-- Khusus Kampusmu Horizontal Scroll -->
 <section>
-<div class="flex justify-between items-center mb-md">
-<h3 class="font-headline-md text-headline-md">Universitas Bengkulu</h3>
-<button class="text-primary font-label-md text-label-md">Lihat Semua</button>
-</div>
-<div class="flex gap-4 overflow-x-auto hide-scrollbar -mx-gutter px-gutter pb-4">
-<!-- Product Card 1 -->
-<div 
-onclick="window.location.href='marketplace/detail_product.html'"
-class="min-w-[160px] bg-white rounded-lg shadow-sm group cursor-pointer">
-<div class="relative rounded-t-lg overflow-hidden h-40">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="A clean photograph of a slightly used midnight blue laptop, shown from a front angle on a minimalist white desk, soft afternoon lighting, high-quality professional marketplace product photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj1laAUNOxx_DmWvsFVkiWkZeUCqlZQfDLGGvx79ZqTyzZk7-24kNSfuHDsQWJ2Il_nNGtLkYnHwvbLak_Fceq-dsd1muXQyLEij759Qg8tHdXVS1bU763TcAOQDNAFqolTl0Evl3YFy7Z6i7eA9YzbsMoAO0JXaOhp-dNCSaPUz-9pynn5RWYPkcTCNdz7w2GGcmaTZh1PbHd-lnyTOWWe35ns5Ivdwb4oTtxljHV5_lCAxQPA-1aUFFyPbsMWiKiHuCDjVLBKw"/>
-<div class="absolute top-2 right-2 bg-white/80 backdrop-blur-md p-1.5 rounded-full">
-<span class="material-symbols-outlined text-xs text-error">favorite</span>
-</div>
-</div>
-<div class="p-3">
-<div class="flex items-center gap-1 mb-1">
-<span class="bg-pastel-blue/20 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold">Bekas</span>
-<span class="material-symbols-outlined text-primary text-[12px] fill-icon">verified</span>
-</div>
-<h4 class="font-label-md text-label-md truncate mb-1">Laptop Acer Swift 3</h4>
-<p class="font-label-md text-label-md text-primary mb-1">Rp 4.500.000</p>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Fakultas Teknik</p>
-</div>
-</div>
-<!-- Product Card 2 -->
-<div 
-onclick="window.location.href='marketplace/detail_product.html'"
-class="min-w-[160px] bg-white rounded-lg shadow-sm group cursor-pointer">
-<div class="relative rounded-t-lg overflow-hidden h-40">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="A collection of engineering textbooks neatly stacked, vibrant covers visible, soft focus educational background, professional studio lighting with pastel accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEXFhVcfj0oAoU7ZNTAIjGnglgxpYTjoOtyvJzNtnFd7DTt9Acg0EbZIB5D9C6UjvExLq957_H4uKE3Wsza-tqcNWGs27FQd9EmGC9KFtDbXLFT46zoUpIRYNp16mx2O0r-GGV4aIavjBi_9nwM75ye_0SRUSMxIi5WMgk8iit1g5KbU3mSjf4yHX05En5BKT0dB09EPYTi4vNFIj4Mh-6wzyh2U05PGvjf3tsOwTDWrNRcDE4sgOYnYF_SVid2qrkl9OJ0q5dtQ"/>
-<div class="absolute top-2 right-2 bg-white/80 backdrop-blur-md p-1.5 rounded-full">
-<span class="material-symbols-outlined text-xs text-on-surface-variant">favorite</span>
-</div>
-</div>
-<div class="p-3">
-<div class="flex items-center gap-1 mb-1">
-<span class="bg-pastel-yellow/20 text-[#B8860B] text-[10px] px-2 py-0.5 rounded-full font-bold">Baru</span>
-<span class="material-symbols-outlined text-primary text-[12px] fill-icon">verified</span>
-</div>
-<h4 class="font-label-md text-label-md truncate mb-1">Paket Buku Kalkulus</h4>
-<p class="font-label-md text-label-md text-primary mb-1">Rp 120.000</p>
-<p class="font-label-sm text-label-sm text-on-surface-variant">MIPA</p>
-</div>
-</div>
-<!-- Product Card 3 -->
-<div 
-onclick="window.location.href='marketplace/detail_product.html'"
-class="min-w-[160px] bg-white rounded-lg shadow-sm group cursor-pointer">
-<div class="relative rounded-t-lg overflow-hidden h-40">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="A clean, folded navy blue blazer for a university, professionally presented on a marble surface with soft shadows, minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXKjOu_HFl2qbfUpb5w6WjW7_TAKX1arYvzffky3uyWErCs54Q2GG6ztKsZGfh9ty91Mpy9zqRh3a752D5Ury1obn2yfDMBrsa8woRR5B3xTJAVavKRn3Ns0rix-vES3MJasrdU0ACAdBSZPH9MIn32wxezruEOIQQLfuu_l0Pyl6wS2aooHuI2eWryP8tapODo9Vw3jh0EvC6iCMwD72lnJ5p9jsuydJ-ifcV2X8yWBKvO7H7M5Q7_ZZ2jvRM3mJDrMFvXPgzhg"/>
-<div class="absolute top-2 right-2 bg-white/80 backdrop-blur-md p-1.5 rounded-full">
-<span class="material-symbols-outlined text-xs text-on-surface-variant">favorite</span>
-</div>
-</div>
-<div class="p-3">
-<div class="flex items-center gap-1 mb-1">
-<span class="bg-pastel-blue/20 text-primary text-[10px] px-2 py-0.5 rounded-full font-bold">Bekas</span>
-</div>
-<h4 class="font-label-md text-label-md truncate mb-1">Jas Almamater UNIB</h4>
-<p class="font-label-md text-label-md text-primary mb-1">Rp 75.000</p>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Semua Fakultas</p>
-</div>
-</div>
-</div>
+    <div class="flex justify-between items-center mb-md">
+        <h3 class="font-headline-md text-headline-md">
+            Universitas Bengkulu
+        </h3>
+
+        <button
+            id="btn-campus-products"
+            class="text-primary font-label-md text-label-md">
+            Lihat Semua
+        </button>
+    </div>
+
+    <div
+        id="campus-product-list"
+        class="flex gap-4 overflow-x-auto hide-scrollbar -mx-gutter px-gutter pb-4">
+    </div>
 </section>
 <!-- Bundle Packs Large Cards -->
 <section>
@@ -409,46 +364,14 @@ class="min-w-[160px] bg-white rounded-lg shadow-sm group cursor-pointer">
 </section>
 <!-- Rekomendasi Grid -->
 <section class="pb-8">
-<h3 class="font-headline-md text-headline-md mb-md">Rekomendasi Untukmu</h3>
-<div class="grid grid-cols-2 gap-4">
-<!-- Product 1 -->
-<div 
-onclick="window.location.href='marketplace/detail_product.html'"
-class="bg-white rounded-lg shadow-sm group cursor-pointer">
-<div class="relative h-44 rounded-t-lg overflow-hidden">
-<img class="w-full h-full object-cover" data-alt="A pair of clean white sneakers displayed on a pastel background, soft studio lighting, minimalist aesthetic for a student marketplace listing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrmF5lCdoFvJtzWAeV1wH6HdOV3OI2KbboQ4vMz_HF9zDOL63Bn_MBKjnQ15r4yDV9bBLKq98uSXZuxoTHVcH-CrS2_z2rgBKhWhX_-l8nfp5HPyr4pbsVF4HrK7INwWqwXT4be5gm-JxUqgP1_mNuDocut_BIgGxznMockRMTA-6XmOZTWCQnikwaifC7jeXJdRQskM28bJ6jx4HMMjmJRFQMJm1gibJqJXcfTdy_RuGZw8GnorWQ7Noirnb1T5CQRUCAf67-7g"/>
-<div class="absolute bottom-2 left-2 flex gap-1">
-<span class="bg-primary/90 text-white text-[8px] px-1.5 py-0.5 rounded backdrop-blur-sm">Like 12</span>
-</div>
-</div>
-<div class="p-3">
-<h4 class="font-label-md text-label-md truncate">Sneakers Putih Canvas</h4>
-<p class="font-label-md text-label-md text-primary">Rp 150.000</p>
-<div class="mt-2 flex items-center gap-1">
-<span class="material-symbols-outlined text-primary text-[14px] fill-icon">verified</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Verified</span>
-</div>
-</div>
-</div>
-<!-- Product 2 -->
-<div 
-onclick="window.location.href='marketplace/detail_product.html'"class="bg-white rounded-lg shadow-sm group cursor-pointer">
-<div class="relative h-44 rounded-t-lg overflow-hidden">
-<img class="w-full h-full object-cover" data-alt="An ergonomic office chair in a bright study area, sleek design, high-quality photograph for a student home office setup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlimyVHjIBV6SCljL9fcwn4KKvr9mDzGYwOmQ0ERReipp-RdS35g2JdR9qj6FMkG_0a76_gRT3OmwucFQoeuLBSz8duSiNLRrsG5ljVAf1Wt3E2FtFJHs3oi_YiB5HiDbEWAa5LGX4lvEFR4_GmqVzt9QAiNjRGMYA1IXgoT5IS1pT1VYD8Le6PAjDOckVVnVSRMSW4NWUNhcePxJyx0Vm_Wfe__364zrhd8SXvOsUWmK1n17M_kD2eGubFxw_DflF92L1cifvEw"/>
-<div class="absolute top-2 right-2 p-1.5 rounded-full bg-white/60">
-<span class="material-symbols-outlined text-xs">favorite</span>
-</div>
-</div>
-<div class="p-3">
-<h4 class="font-label-md text-label-md truncate">Kursi Belajar Ergonomis</h4>
-<p class="font-label-md text-label-md text-primary">Rp 350.000</p>
-<div class="mt-2 flex items-center gap-1">
-<span class="material-symbols-outlined text-primary text-[14px] fill-icon">verified</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Verified</span>
-</div>
-</div>
-</div>
-</div>
+    <h3 class="font-headline-md text-headline-md mb-md">
+        Rekomendasi Untukmu
+    </h3>
+
+    <div
+        id="recommendation-grid"
+        class="grid grid-cols-2 gap-4">
+    </div>
 </section>
 </main>
 <!-- BottomNavBar -->
@@ -481,5 +404,23 @@ onclick="window.location.href='marketplace/detail_product.html'"class="bg-white 
 </a>
 </div>
 </nav>
+<script src="../js/product.js"></script>
 <script src="../js/home_student.js"></script>
+<script>
+const searchInput = document.getElementById("search-input");
+
+searchInput.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){
+
+        const keyword = this.value.trim();
+
+        if(keyword){
+            window.location.href =
+            "../marketplace/search_result.html?keyword=" 
+            + encodeURIComponent(keyword);
+        }
+
+    }
+});
+</script>
 </body></html>

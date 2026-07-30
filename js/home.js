@@ -97,7 +97,7 @@ if (productGrid && typeof PRODUCTS !== "undefined") {
 
                 <img
                     class="w-full h-full object-cover"
-                    src="${product.image}"
+                    src="${product.image.replace("../../", "../")}"
                     alt="${product.name}">
 
                 <div class="absolute top-2 left-2 bg-primary-container text-on-primary-container font-label-sm text-[10px] px-2 py-0.5 rounded-full flex items-center gap-xs">

@@ -178,7 +178,7 @@ if (recommendationGrid && window.PRODUCTS) {
             <div class="relative h-44 rounded-t-lg overflow-hidden">
 
                 <img
-                    src="${product.image}"
+                    src="${product.image.replace("../../", "../")}"
                     alt="${product.name}"
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform">
 
@@ -239,7 +239,7 @@ if (campusProductList && typeof PRODUCTS !== "undefined") {
                 <div class="relative rounded-t-lg overflow-hidden h-40">
 
                     <img
-                        src="${product.image}"
+                        src="${product.image.replace("../../", "../")}"
                         alt="${product.name}"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform">
 

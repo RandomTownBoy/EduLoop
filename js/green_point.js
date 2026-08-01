@@ -242,7 +242,7 @@ document
 
     });
 
-    function closeFailedModal() {
+function closeFailedModal() {
 
     document
         .getElementById("failed-modal")
@@ -253,3 +253,53 @@ document
         .classList.remove("flex");
 
 }
+
+// =====================
+// Bottom Navigation
+// =====================
+
+document
+    .getElementById("nav-home")
+    .addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const isVerified = localStorage.getItem("userVerified") === "true";
+
+        if (isVerified) {
+            window.location.href = "../home_student.html";
+        } else {
+            window.location.href = "../home.html";
+        }
+    });
+
+document
+    .getElementById("nav-search")
+    .addEventListener("click", function (e) {
+        e.preventDefault();
+
+        window.location.href = "../marketplace/search.html";
+    });
+
+document
+    .getElementById("nav-sell")
+    .addEventListener("click", function (e) {
+        e.preventDefault();
+
+        window.location.href = "../shop/add_product.html";
+    });
+
+document
+    .getElementById("nav-chat")
+    .addEventListener("click", function (e) {
+        e.preventDefault();
+
+        window.location.href = "../chat/chat.html";
+    });
+
+document
+    .getElementById("nav-profile")
+    .addEventListener("click", function (e) {
+        e.preventDefault();
+
+        // sudah di profile
+    });

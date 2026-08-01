@@ -348,49 +348,57 @@
         </div>
       </section>
     </main>
-    <!-- Bottom Navigation Shell -->
+    <!-- Bottom Navigation Bar (Mobile) -->
     <nav
-      class="fixed bottom-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-lg rounded-t-lg"
+      class="fixed bottom-0 w-full z-50 rounded-t-lg bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-lg border-t border-surface-variant/30"
     >
-      <div
-        class="flex justify-around items-center px-2 py-1 w-full h-16 max-w-lg mx-auto"
-      >
-        <button
-          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2"
+      <div class="flex justify-around items-center px-sm py-xs w-full h-16">
+        <a
+          id="nav-home"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2 active:scale-90 duration-200"
+          href="#"
         >
           <span class="material-symbols-outlined">home</span>
-          <span class="text-[10px] font-medium mt-0.5">Home</span>
-        </button>
-        <button
-          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2"
+          <span class="font-label-sm text-[10px]">Home</span>
+        </a>
+        <a
+          id="nav-search"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2 active:scale-90 duration-200"
+          href="#"
         >
           <span class="material-symbols-outlined">search</span>
-          <span class="text-[10px] font-medium mt-0.5">Search</span>
-        </button>
-        <button
-          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2"
+          <span class="font-label-sm text-[10px]">Search</span>
+        </a>
+        <a
+          id="nav-sell"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2 active:scale-90 duration-200"
+          href="#"
         >
-          <span class="material-symbols-outlined text-3xl text-primary"
+          <span class="material-symbols-outlined text-primary text-3xl"
             >add_circle</span
           >
-          <span class="text-[10px] font-medium mt-0.5">Sell</span>
-        </button>
-        <button
-          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2"
+          <span class="font-label-sm text-[10px]">Sell</span>
+        </a>
+        <a
+          id="nav-chat"
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2 active:scale-90 duration-200"
+          href="#"
         >
           <span class="material-symbols-outlined">chat_bubble</span>
-          <span class="text-[10px] font-medium mt-0.5">Chat</span>
-        </button>
-        <button
-          class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 p-2"
+          <span class="font-label-sm text-[10px]">Chat</span>
+        </a>
+        <a
+          id="nav-profile"
+          class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 hover:bg-primary-container/20 rounded-xl transition-all p-2 active:scale-90 duration-200 font-bold"
+          href="#"
         >
           <span
             class="material-symbols-outlined"
             style="font-variation-settings: &quot;FILL&quot; 1"
             >person</span
           >
-          <span class="text-[10px] font-bold mt-0.5">Profile</span>
-        </button>
+          <span class="font-label-sm text-[10px]">Profile</span>
+        </a>
       </div>
     </nav>
 

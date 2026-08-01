@@ -245,24 +245,25 @@
             </p>
             <div class="flex flex-wrap justify-center md:justify-start gap-sm">
               <div
-                class="bg-surface-container-low px-4 py-2 rounded-lg text-center min-w-[100px]"
+                id="green-point-card"
+                onclick="window.location.href = 'green_point.html'"
+                class="cursor-pointer bg-green-50 hover:bg-green-100 transition-colors px-4 py-2 rounded-lg text-center min-w-[110px] active:scale-95"
               >
                 <p
-                  class="font-label-sm text-on-surface-variant uppercase tracking-wider"
+                  class="font-label-sm text-green-700 uppercase tracking-wider"
                 >
-                  Points
+                  Green Points
                 </p>
-                <p class="font-headline-md text-primary">2,450</p>
+
+                <p class="font-headline-md text-green-600">20</p>
               </div>
               <div
-                class="bg-surface-container-low px-4 py-2 rounded-lg text-center min-w-[100px]"
+                class="bg-primary-container/20 px-4 py-2 rounded-lg text-center min-w-[100px]"
               >
-                <p
-                  class="font-label-sm text-on-surface-variant uppercase tracking-wider"
-                >
+                <p class="font-label-sm text-primary uppercase tracking-wider">
                   Saldo
                 </p>
-                <p class="font-headline-md text-secondary">Rp 125k</p>
+                <p class="font-headline-md text-primary">Rp 125k</p>
               </div>
             </div>
           </div>
@@ -524,8 +525,16 @@
         </a>
       </div>
     </nav>
+    <script src="../../js/gift.js"></script>
+    <script src="../../js/profile.js"></script>
     <script src="../../js/product.js"></script>
     <script>
+      
+      const greenPointValue = document.getElementById("green-point-value");
+
+      if (greenPointValue && window.GREEN_POINT) {
+        greenPointValue.textContent = window.GREEN_POINT.point;
+      }
       // =====================
       // Recently Viewed
       // =====================
@@ -562,257 +571,134 @@
           .join("");
       }
 
-
       function openProduct(id) {
-        window.location.href =
-          "../marketplace/detail_product.html?id=" + id;
+        window.location.href = "../marketplace/detail_product.html?id=" + id;
       }
-
-
 
       // =====================
       // Point Counter
       // =====================
 
       document.addEventListener("DOMContentLoaded", () => {
-
         const pointEl = document.querySelector(
           ".text-primary.font-headline-md",
         );
 
         if (pointEl) {
-
           const target = 2450;
           let current = 2000;
 
-          const increment =
-            Math.ceil((target - current) / 20);
-
+          const increment = Math.ceil((target - current) / 20);
 
           const timer = setInterval(() => {
-
             current += increment;
 
-
             if (current >= target) {
-
-              pointEl.textContent =
-                target.toLocaleString();
+              pointEl.textContent = target.toLocaleString();
 
               clearInterval(timer);
-
             } else {
-
-              pointEl.textContent =
-                current.toLocaleString();
-
+              pointEl.textContent = current.toLocaleString();
             }
-
           }, 50);
-
         }
-
       });
-
-
-
 
       // =====================
       // Bottom Navigation
       // =====================
 
-
       document
         .getElementById("nav-home")
         .addEventListener("click", function (e) {
-
           e.preventDefault();
 
-
-          const isVerified =
-            localStorage.getItem("userVerified") === "true";
-
+          const isVerified = localStorage.getItem("userVerified") === "true";
 
           if (isVerified) {
-
-            window.location.href =
-              "../home_student.html";
-
+            window.location.href = "../home_student.html";
           } else {
-
-            window.location.href =
-              "../home.html";
-
+            window.location.href = "../home.html";
           }
-
         });
-
-
-
 
       document
         .getElementById("nav-search")
         .addEventListener("click", function (e) {
-
           e.preventDefault();
 
-          window.location.href =
-            "../marketplace/search.html";
-
+          window.location.href = "../marketplace/search.html";
         });
-
-
-
 
       document
         .getElementById("nav-sell")
         .addEventListener("click", function (e) {
-
           e.preventDefault();
 
-          window.location.href =
-            "../shop/add_product.html";
-
+          window.location.href = "../shop/add_product.html";
         });
-
-
-
 
       document
         .getElementById("nav-chat")
         .addEventListener("click", function (e) {
-
           e.preventDefault();
 
-          window.location.href =
-            "../chat/chat.html";
-
+          window.location.href = "../chat/chat.html";
         });
-
-
-
 
       document
         .getElementById("nav-profile")
         .addEventListener("click", function (e) {
-
           e.preventDefault();
 
           // sudah di profile
-
         });
-
-
-
-
 
       // =====================
       // Profile Navigation
       // =====================
 
-
       document
         .getElementById("btn-history")
         .addEventListener("click", function () {
+          localStorage.setItem("order_from", "profile");
 
-
-          localStorage.setItem(
-            "order_from",
-            "profile"
-          );
-
-
-          window.location.href =
-            "../transaction/order_status.html";
-
-
+          window.location.href = "../transaction/order_status.html";
         });
-
-
-
 
       document
         .getElementById("btn-unpaid")
         .addEventListener("click", function () {
-
-
-          window.location.href =
-            "../transaction/payment.html";
-
-
+          window.location.href = "../transaction/payment.html";
         });
-
-
-
 
       document
         .getElementById("btn-shipping")
         .addEventListener("click", function () {
+          localStorage.setItem("order_from", "profile");
 
-
-          localStorage.setItem(
-            "order_from",
-            "profile"
-          );
-
-
-          window.location.href =
-            "../transaction/order_status.html";
-
-
+          window.location.href = "../transaction/order_status.html";
         });
-
-
-
 
       document
         .getElementById("btn-completed")
         .addEventListener("click", function () {
+          localStorage.setItem("order_from", "profile");
 
-
-          localStorage.setItem(
-            "order_from",
-            "profile"
-          );
-
-
-          window.location.href =
-            "../transaction/order_status.html";
-
-
+          window.location.href = "../transaction/order_status.html";
         });
-
-
-
 
       document
         .getElementById("btn-myshop")
         .addEventListener("click", function () {
-
-
-          window.location.href =
-            "../shop/myshop.html";
-
-
+          window.location.href = "../shop/myshop.html";
         });
-
-
-
 
       document
         .getElementById("recent-product")
         .addEventListener("click", function () {
-
-
-          window.location.href =
-            "../marketplace/detail_product.html";
-
-
+          window.location.href = "../marketplace/detail_product.html";
         });
-
-
-
-
 
       // =====================
       // Order Status Source
@@ -820,26 +706,13 @@
 
       // fallback jika tombol dipanggil dari element lain
 
-      window.addEventListener("beforeunload",()=>{
+      window.addEventListener("beforeunload", () => {
+        const path = window.location.pathname;
 
-        const path =
-          window.location.pathname;
-
-
-        if(
-          path.includes("/profile/")
-        ){
-
-          localStorage.setItem(
-            "order_from",
-            "profile"
-          );
-
+        if (path.includes("/profile/")) {
+          localStorage.setItem("order_from", "profile");
         }
-
       });
-
-
-</script>
+    </script>
   </body>
 </html>

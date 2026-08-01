@@ -1,0 +1,496 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Green Point - EduLoop</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1A56DB",
+              "on-primary": "#FFFFFF",
+              "primary-container": "#D6E4FF",
+              "on-primary-container": "#001648",
+              secondary: "#4CAF50",
+              "on-secondary": "#FFFFFF",
+              "secondary-container": "#DCFCE7",
+              "on-secondary-container": "#064E3B",
+              surface: "#F9FAFB",
+              "on-surface": "#111827",
+              "surface-variant": "#E5E7EB",
+              "on-surface-variant": "#4B5563",
+              outline: "#9CA3AF",
+              "surface-dim": "#F3F4F6",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              "2xl": "1.5rem",
+              "3xl": "2rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Public Sans"],
+              display: ["Public Sans"],
+              body: ["Public Sans"],
+              label: ["Public Sans"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .green-gradient {
+        background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+      }
+      body {
+        font-family: "Public Sans", sans-serif;
+        background-color: #f9fafb;
+      }
+    </style>
+  </head>
+  <body class="text-on-surface mb-20">
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm"
+    >
+      <div class="flex justify-between items-center px-6 py-4 max-w-lg mx-auto">
+        <div class="flex items-center gap-4">
+          <button
+            onclick="history.back()"
+            class="active:scale-95 duration-200 p-2 -ml-2 hover:bg-surface-container-high rounded-full transition-colors"
+          >
+            <span class="material-symbols-outlined text-primary">
+              arrow_back
+            </span>
+          </button>
+          <h1 class="font-headline text-xl font-bold text-primary">
+            Green Point
+          </h1>
+        </div>
+        <div class="flex items-center gap-2">
+          <span
+            class="material-symbols-outlined text-primary"
+            data-icon="location_on"
+            >location_on</span
+          >
+          <span
+            id="redeem-location"
+            class="text-sm font-medium text-on-surface-variant"
+          >
+          </span>
+        </div>
+      </div>
+    </header>
+    <main class="pt-20 px-6 max-w-lg mx-auto space-y-8">
+      <!-- Points Summary Card -->
+      <section class="animate-in fade-in slide-in-from-bottom-4 duration-700">
+        <div
+          class="green-gradient rounded-3xl p-8 text-white shadow-xl relative overflow-hidden"
+        >
+          <div
+            class="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-2xl"
+          ></div>
+
+          <div
+            class="absolute -left-4 -bottom-4 w-24 h-24 bg-secondary-container/20 rounded-full blur-xl"
+          ></div>
+
+          <div class="relative z-10">
+            <div class="flex items-center gap-2 mb-2 opacity-90">
+              <span
+                class="material-symbols-outlined text-sm"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+              >
+                eco
+              </span>
+              <p class="text-sm font-medium uppercase tracking-wider">
+                Saldo Poin Kamu
+              </p>
+            </div>
+
+            <div class="flex items-baseline gap-2">
+              <span
+                id="green-point"
+                class="text-5xl font-extrabold tracking-tight"
+              >
+                0
+              </span>
+              <span class="text-xl font-semibold opacity-90">
+                Green Points
+              </span>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-white/20">
+              <div class="mb-4">
+                <div class="flex justify-between items-end mb-1.5">
+                  <span class="text-xs font-medium opacity-90">
+                    Progres Hadiah Berikutnya
+                  </span>
+
+                  <span id="progress-text" class="text-xs font-bold">
+                    0/0
+                  </span>
+                </div>
+
+                <div
+                  class="w-full h-1.5 bg-white/20 rounded-full overflow-hidden"
+                >
+                  <div
+                    id="progress-bar"
+                    class="bg-white h-full rounded-full transition-all duration-500"
+                    style="width: 0%"
+                  ></div>
+                </div>
+
+                <p id="next-gift-info" class="text-[10px] mt-1.5 opacity-80">
+                  -
+                </p>
+              </div>
+
+              <p
+                id="transaction-info"
+                class="text-sm font-medium leading-relaxed opacity-90"
+              ></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Weekly Specials -->
+      <section class="space-y-4">
+        <div class="flex justify-between items-end">
+          <h2 class="text-xl font-bold text-on-surface">Hadiah Mingguan</h2>
+
+          <span class="text-sm font-semibold text-primary"> Lihat Semua </span>
+        </div>
+
+        <div
+          class="relative group overflow-hidden rounded-3xl bg-white shadow-md border border-surface-variant shadow-xl"
+        >
+          <div class="aspect-[16/9] w-full relative">
+            <img
+              id="weekly-gift-image"
+              src=""
+              alt=""
+              class="w-full h-full object-cover"
+            />
+
+            <div
+              class="absolute top-4 right-4 bg-secondary text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg"
+            >
+              SPESIAL
+            </div>
+          </div>
+
+          <div class="p-6 flex justify-between items-center bg-white">
+            <div>
+              <h3
+                id="weekly-gift-name"
+                class="text-lg font-bold text-on-surface"
+              ></h3>
+
+              <div class="flex items-center gap-1 text-secondary mt-1">
+                <span
+                  class="material-symbols-outlined text-sm"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                >
+                  eco
+                </span>
+
+                <span id="weekly-gift-point" class="font-bold"> </span>
+              </div>
+
+              <p
+                id="weekly-gift-description"
+                class="text-sm text-on-surface-variant mt-2"
+              ></p>
+            </div>
+
+            <button
+              id="weekly-gift-button"
+              class="bg-primary text-white px-6 py-2.5 rounded-xl font-bold text-sm shadow-md active:scale-95 transition-transform"
+            >
+              Tukar
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- Rewards Catalog -->
+      <section class="space-y-4">
+        <h2 class="text-xl font-bold text-on-surface">Katalog Hadiah</h2>
+        <div id="gift-grid" class="grid grid-cols-2 gap-4"></div>
+      </section>
+      <!-- Redemption History -->
+      <section class="space-y-4 pb-12">
+        <div class="flex justify-between items-center">
+          <h2 class="text-xl font-bold text-on-surface">Riwayat Penukaran</h2>
+          <span class="material-symbols-outlined text-on-surface-variant"
+            >history</span
+          >
+        </div>
+        <div
+          class="bg-white rounded-2xl border border-surface-variant overflow-hidden"
+        >
+          <!-- History Item -->
+          <div
+            class="flex items-center gap-4 p-4 border-b border-surface-variant"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center"
+            >
+              <span
+                class="material-symbols-outlined text-on-secondary-container"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >redeem</span
+              >
+            </div>
+            <div class="flex-1">
+              <h4 class="text-sm font-bold text-on-surface">Gantungan Kunci</h4>
+              <p class="text-xs text-on-surface-variant">
+                12 Okt 2023 • 10 Poin
+              </p>
+            </div>
+            <span
+              class="text-xs font-bold text-secondary px-2 py-1 bg-secondary/10 rounded"
+              >Sukses</span
+            >
+          </div>
+          <div
+            class="flex items-center gap-4 p-4 border-b border-surface-variant"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center"
+            >
+              <span
+                class="material-symbols-outlined text-on-secondary-container"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >redeem</span
+              >
+            </div>
+            <div class="flex-1">
+              <h4 class="text-sm font-bold text-on-surface">Snack Ringan</h4>
+              <p class="text-xs text-on-surface-variant">
+                05 Okt 2023 • 5 Poin
+              </p>
+            </div>
+            <span
+              class="text-xs font-bold text-secondary px-2 py-1 bg-secondary/10 rounded"
+              >Sukses</span
+            >
+          </div>
+          <div
+            class="flex items-center gap-4 p-4 border-b border-surface-variant"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center"
+            >
+              <span
+                class="material-symbols-outlined text-on-secondary-container"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >redeem</span
+              >
+            </div>
+            <div class="flex-1">
+              <h4 class="text-sm font-bold text-on-surface">Snack Ringan</h4>
+              <p class="text-xs text-on-surface-variant">
+                28 Sep 2023 • 5 Poin
+              </p>
+            </div>
+            <span
+              class="text-xs font-bold text-secondary px-2 py-1 bg-secondary/10 rounded"
+              >Sukses</span
+            >
+          </div>
+          <!-- Footer Info -->
+          <div class="p-4 bg-surface-dim/50">
+            <div class="flex gap-3 items-start">
+              <span
+                class="material-symbols-outlined text-primary text-sm mt-0.5"
+                >info</span
+              >
+              <p class="text-xs text-on-surface-variant leading-relaxed">
+                Tunjukkan kode
+                <span class="font-bold text-primary">EL-12345</span> di
+                <span class="font-bold">Kopmart Unib</span> untuk mengambil
+                hadiah Anda.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Bottom Navigation Shell -->
+    <nav
+      class="fixed bottom-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-lg rounded-t-lg"
+    >
+      <div
+        class="flex justify-around items-center px-2 py-1 w-full h-16 max-w-lg mx-auto"
+      >
+        <button
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2"
+        >
+          <span class="material-symbols-outlined">home</span>
+          <span class="text-[10px] font-medium mt-0.5">Home</span>
+        </button>
+        <button
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2"
+        >
+          <span class="material-symbols-outlined">search</span>
+          <span class="text-[10px] font-medium mt-0.5">Search</span>
+        </button>
+        <button
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2"
+        >
+          <span class="material-symbols-outlined text-3xl text-primary"
+            >add_circle</span
+          >
+          <span class="text-[10px] font-medium mt-0.5">Sell</span>
+        </button>
+        <button
+          class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-2"
+        >
+          <span class="material-symbols-outlined">chat_bubble</span>
+          <span class="text-[10px] font-medium mt-0.5">Chat</span>
+        </button>
+        <button
+          class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 p-2"
+        >
+          <span
+            class="material-symbols-outlined"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >person</span
+          >
+          <span class="text-[10px] font-bold mt-0.5">Profile</span>
+        </button>
+      </div>
+    </nav>
+
+    <div
+      id="redeem-modal"
+      class="fixed inset-0 bg-black/50 hidden items-center justify-center z-[999]"
+    >
+      <div class="bg-white rounded-3xl w-[90%] max-w-sm p-6">
+        <div class="flex justify-center mb-4">
+          <span class="material-symbols-outlined text-green-600 text-6xl">
+            redeem
+          </span>
+        </div>
+
+        <h3 class="text-xl font-bold text-center">Tukar Hadiah</h3>
+
+        <p
+          id="redeem-message"
+          class="text-sm text-center text-gray-500 mt-3"
+        ></p>
+
+        <div class="flex gap-3 mt-6">
+          <button
+            onclick="closeRedeemModal()"
+            class="flex-1 border rounded-xl py-3"
+          >
+            Batal
+          </button>
+
+          <button
+            id="confirm-redeem"
+            class="flex-1 bg-primary text-white rounded-xl py-3"
+          >
+            Tukar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="success-modal"
+      class="fixed inset-0 bg-black/50 hidden items-center justify-center z-[999]"
+    >
+      <div class="bg-white rounded-3xl w-[90%] max-w-sm p-6 text-center">
+        <span class="material-symbols-outlined text-green-600 text-7xl">
+          check_circle
+        </span>
+
+        <h3 class="text-xl font-bold mt-3">Penukaran Berhasil</h3>
+
+        <p class="text-sm text-gray-500 mt-2">
+          Silakan ambil hadiah di Kopmart Universitas Bengkulu.
+        </p>
+
+        <button
+          onclick="closeSuccessModal()"
+          class="mt-6 w-full bg-primary text-white rounded-xl py-3"
+        >
+          Selesai
+        </button>
+      </div>
+    </div>
+
+    <!-- Failed Modal -->
+    <div
+      id="failed-modal"
+      class="fixed inset-0 bg-black/50 hidden items-center justify-center z-[999]"
+    >
+      <div class="bg-white rounded-3xl w-[90%] max-w-sm p-6 text-center">
+        <span class="material-symbols-outlined text-red-500 text-7xl">
+          cancel
+        </span>
+
+        <h3 class="text-xl font-bold mt-3">Penukaran Gagal</h3>
+
+        <p class="text-sm text-gray-500 mt-2">
+          Green Point kamu belum mencukupi untuk menukar hadiah ini.
+        </p>
+
+        <button
+          onclick="closeFailedModal()"
+          class="mt-6 w-full bg-primary text-white rounded-xl py-3"
+        >
+          Mengerti
+        </button>
+      </div>
+    </div>
+    <script src="../../js/gift.js"></script>
+    <script src="../../js/green_point.js"></script>
+    <script>
+      // Micro-interaction for buttons
+      document.querySelectorAll("button").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const originalScale = this.style.transform;
+          this.style.transform = "scale(0.95)";
+          setTimeout(() => {
+            this.style.transform = originalScale;
+          }, 100);
+        });
+      });
+    </script>
+  </body>
+</html>

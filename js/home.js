@@ -196,21 +196,9 @@ document.getElementById("nav-chat").onclick = () => {
 
 
 // Navbar Profile
-document.getElementById("nav-profile").addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    if(localStorage.getItem("userVerified") === "true"){
-
-        window.location.href = "profile/profile.html";
-
-    }else{
-
-        window.location.href = "verify/verify.html";
-
-    }
-
-});
+document.getElementById("nav-profile").onclick = () => {
+    window.location.href = "profile/profile.html";
+};
 
 
 // Navbar Sell

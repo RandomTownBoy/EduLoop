@@ -142,22 +142,32 @@
 <img alt="EduLoop Logo" class="h-8 w-8 object-contain" src="../assets/img/logo.png"/>
 <span class="font-headline-md text-headline-md font-bold text-primary">EduLoop</span>
 </div>
-<div class="flex items-center gap-4">
-<button class="p-2 hover:bg-surface-container-high transition-colors rounded-full relative">
-<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
-<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
-</button>
-<button id="btn-cart" class="p-2 hover:bg-surface-container-high transition-colors rounded-full"><span class="material-symbols-outlined text-on-surface-variant">shopping_cart</span></button>
-<div class="w-8 h-8 rounded-full bg-primary-fixed overflow-hidden">
-<img alt="Profile" class="w-full h-full object-cover" data-alt="A close-up portrait of a young, friendly-looking male university student with a warm smile and approachable expression. He is photographed in a brightly lit, modern campus setting with soft architectural bokeh in the background. The aesthetic is clean and professional, with high-key lighting that emphasizes a trustworthy persona within a Gen Z marketplace app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBExh6Un1ne4R7W3pA--uMXpwGf3zl92XQniWPyPcCBgSCknMVNcVJ3A4xOnMWxmryzarI_y72vVqq9-eojqQhx36gVL3Pzn-Uxhh_MhC3dfWMvx_oPRGyBwIp3-ADFNxmVSYyjEejEIeF5T6kbdCyBiUAFyllrc6cshZJYYwY6ucgg3MnA6r7ks_W7cAspi3wYQikA4nm-3MkFF2ts8XySXVmQZ_QCR1qRSCVTG-ow8homSMZ6-4H9wyRN91MYLFCSJ0T0ObzPQ">
-</div>
+<div class="flex items-center gap-2">
+    <button
+        class="relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-high transition-colors">
+        <span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+        <span class="absolute top-2.5 right-2.5 w-2 h-2 bg-error rounded-full"></span>
+    </button>
+
+    <button
+        id="btn-cart"
+        class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container-high transition-colors">
+        <span class="material-symbols-outlined text-on-surface-variant">shopping_cart</span>
+    </button>
+
+    <div class="w-10 h-10 rounded-full overflow-hidden bg-primary-fixed flex items-center justify-center">
+        <img
+            class="user-profile w-full h-full object-cover"
+            src=""
+            alt="Profile">
+    </div>
 </div>
 </div>
 </header>
 <main class="pt-20 px-gutter space-y-lg max-w-container-max mx-auto">
 <!-- Welcome Greeting -->
 <section class="mt-4">
-<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Halo, Alex 👋</h1>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Halo, Yola 👋</h1>
 <p class="font-body-sm text-on-surface-variant">Selamat datang kembali di EduLoop.</p>
 </section>
 <!-- Search Bar -->
@@ -404,6 +414,7 @@ type="text"/>
 </a>
 </div>
 </nav>
+<script src="../js/photo_profile.js"></script>
 <script src="../js/product.js"></script>
 <script src="../js/home_student.js"></script>
 <script>

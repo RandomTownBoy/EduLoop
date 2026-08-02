@@ -11,7 +11,7 @@ const interval = setInterval(() => {
         progressPercent.textContent = "Selesai!";
 
         setTimeout(() => {
-            window.location.href = "pages/onboarding.html";
+            window.location.href = "pages/verify/verify.html";
         }, 800);
 
         return;

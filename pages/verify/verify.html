@@ -121,28 +121,12 @@
     </script>
 </head>
 <body class="bg-background text-on-background font-body-md min-h-screen pb-20">
-<!-- Top Navigation Bar -->
-<header class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm">
-<div class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto">
-<div class="flex items-center gap-md">
-<button class="active:scale-95 duration-200" onclick="window.history.back()">
-<span class="material-symbols-outlined text-primary">arrow_back</span>
-</button>
-<h1 class="font-headline-md text-headline-md font-bold text-primary">EduLoop</h1>
-</div>
-<div class="flex items-center gap-sm">
-<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
-<img alt="User" class="w-full h-full object-cover" data-alt="A professional and friendly portrait of a young college student with a warm smile, wearing a casual denim jacket. The background is a soft-focus university campus with green foliage and modern architectural elements. The lighting is natural and bright, echoing a clean and trustworthy atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWrfN8_k4loQnYjiHIk6T8ZiWvZd-ZhM-ku7vrSJ-guY8m4_IHhfCDioRwTPQM9auds6vlEXRtxDbLn0K3_TrKv_oUXgwPZqAG9q-7w_tX-YkXPUwjqlgnYfeYd_rRXQHyYXMP7dxetp0uVAlznJMTqs-Vz-r_oO18Q7GBPh63-e-HAmhbQ8sCK2rMErkU3lsFK2XVLH8MFZVynLfH3PpvF4vs5CNjJR3l6PpXh7LLv1JmLHDmckghW7rHpZbTFGdCslvapfN1dg"/>
-</div>
-</div>
-</div>
-</header>
 <main class="pt-24 px-gutter max-w-2xl mx-auto">
 <!-- Progress Indicator -->
 <div class="mb-lg">
 <div class="flex justify-between items-end mb-sm">
 <div>
-<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Select Account Type</h2>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Login Sebagai</h2>
 <p class="font-body-md text-on-surface-variant">Step <span id="current-step-text">1</span> of 3</p>
 </div>
 <div class="bg-primary-container text-on-primary-container px-sm py-xs rounded-full flex items-center gap-xs">
@@ -162,7 +146,7 @@
 <p class="font-body-sm text-on-surface-variant">Verified students build 3x more trust in the marketplace. Unlock priority listing, lower transaction fees, and the 'Verified Student' badge on your profile.</p>
 </div>
 </div><div class="mb-lg">
-<p class="font-label-md text-on-surface-variant mb-md">Choose how you want to use EduLoop:</p>
+<p class="font-label-md text-on-surface-variant mb-md">Pilih jenis akun untuk melanjutkan.</p>
 <div class="grid grid-cols-1 gap-md">
 <!-- Student Card -->
 <div id="student-card" class="group relative p-md rounded-xl border-2 border-primary-container bg-surface-container-low hover:bg-primary-container/20 transition-all cursor-pointer shadow-sm">
@@ -172,7 +156,7 @@
 </div>
 <div>
 <h4 class="font-headline-md text-on-surface">Mahasiswa (Student)</h4>
-<p class="font-body-sm text-on-surface-variant">Verifikasi KTM untuk akses penuh</p>
+<p class="font-body-sm text-on-surface-variant">Login menggunakan akun mahasiswa.</p>
 </div>
 </div>
 <div class="absolute top-4 right-4">
@@ -186,8 +170,8 @@
 <span class="material-symbols-outlined text-3xl">person</span>
 </div>
 <div>
-<h4 class="font-headline-md text-on-surface">Umum / Non-Mahasiswa</h4>
-<p class="font-body-sm text-on-surface-variant">Akses terbatas untuk kebutuhan umum</p>
+<h4 class="font-headline-md text-on-surface">Mitra Ekosistem Kampus</h4>
+<p class="font-body-sm text-on-surface-variant">Untuk UMKM, koperasi, alumni, dan mitra kampus.</p>
 </div>
 </div>
 </div>
@@ -195,199 +179,15 @@
 </div>
 </div>
 </main>
-<!-- Bottom Navigation (Shared Component) -->
-<nav class="fixed bottom-0 w-full z-50 rounded-t-lg bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-lg md:hidden">
-    <div class="flex justify-around items-center px-sm py-xs w-full h-16">
 
-        <a id="nav-home"
-           class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-xs"
-           href="#">
-            <span class="material-symbols-outlined">home</span>
-            <span class="font-label-sm text-label-sm-mobile">Home</span>
-        </a>
-
-        <a id="nav-search"
-           class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-xs"
-           href="#">
-            <span class="material-symbols-outlined">search</span>
-            <span class="font-label-sm text-label-sm-mobile">Search</span>
-        </a>
-
-        <a id="nav-sell"
-           class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-xs"
-           href="#">
-            <span class="material-symbols-outlined">add_circle</span>
-            <span class="font-label-sm text-label-sm-mobile">Sell</span>
-        </a>
-
-        <a id="nav-chat"
-           class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-primary-container/20 rounded-xl transition-all p-xs"
-           href="#">
-            <span class="material-symbols-outlined">chat_bubble</span>
-            <span class="font-label-sm text-label-sm-mobile">Chat</span>
-        </a>
-
-        <a id="nav-profile"
-           class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 p-xs"
-           href="#">
-            <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">person</span>
-            <span class="font-label-sm text-label-sm-mobile">Profile</span>
-        </a>
-
-    </div>
-</nav>
 <script>
-// ===========================
-// Account Type Navigation
-// ===========================
-document.getElementById("student-card").addEventListener("click", () => {
+
+document.getElementById("student-card").onclick = () => {
     window.location.href = "./verify_student.html";
-});
+};
 
-document.getElementById("nonstudent-card").addEventListener("click", () => {
+document.getElementById("nonstudent-card").onclick = () => {
     window.location.href = "./verify_nonstudent.html";
-});
-
-// ===========================
-// Bottom Navigation
-// ===========================
-
-document.getElementById("nav-home").addEventListener("click", function(e){
-    e.preventDefault();
-    window.location.href = "../home.html";
-});
-
-document.getElementById("nav-search").addEventListener("click", function(e){
-    e.preventDefault();
-    window.location.href = "../marketplace/search.html";
-});
-
-document.getElementById("nav-sell").addEventListener("click", function(e){
-    e.preventDefault();
-    window.location.href = "../shop/add_product.html";
-});
-
-document.getElementById("nav-chat").addEventListener("click", function(e){
-    e.preventDefault();
-    window.location.href = "../chat/chat.html";
-});
-
-document.getElementById("nav-profile").addEventListener("click", function(e){
-    e.preventDefault();
-    window.location.href = "../profile/profile.html";
-});
-
-// ===========================
-// Upload Preview
-// ===========================
-function handleUpload(input, previewId) {
-
-    if (input.files && input.files[0]) {
-
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-
-            document.getElementById(previewId).innerHTML =
-            `<img src="${e.target.result}" class="w-full h-full object-cover rounded-lg">`;
-
-            const btn = document.getElementById("btn-next-1");
-
-            if(btn){
-                btn.disabled = false;
-                btn.classList.remove("opacity-50","cursor-not-allowed");
-            }
-        }
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-// ===========================
-// Camera Simulation
-// ===========================
-function simulateCamera(){
-
-    const placeholder = document.getElementById("camera-placeholder");
-
-    if(!placeholder) return;
-
-    placeholder.innerHTML = `
-        <div class="relative w-full h-full">
-            <img
-            src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=600"
-            class="w-full h-full object-cover">
-
-            <div class="absolute inset-0 border-4 border-primary rounded-full"></div>
-        </div>
-    `;
-
-    const overlay = document.getElementById("camera-overlay");
-
-    if(overlay){
-        overlay.classList.remove("hidden");
-    }
-
-    const btn = document.getElementById("btn-next-2");
-
-    if(btn){
-        btn.disabled = false;
-        btn.classList.remove("opacity-50","cursor-not-allowed");
-    }
-
-}
-
-// ===========================
-// Email Validation
-// ===========================
-function validateEmail(input){
-
-    const email = input.value;
-
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    const valid =
-        regex.test(email) &&
-        (email.endsWith(".edu") || email.endsWith(".ac.id"));
-
-    const btn = document.getElementById("btn-next-3");
-
-    if(!btn) return;
-
-    if(valid){
-
-        btn.disabled = false;
-        btn.classList.remove("opacity-50","cursor-not-allowed");
-        input.classList.add("border-primary-container");
-
-    }else{
-
-        btn.disabled = true;
-        btn.classList.add("opacity-50","cursor-not-allowed");
-        input.classList.remove("border-primary-container");
-
-    }
-
-}
-
-// ===========================
-// Finish Verification
-// ===========================
-function finishVerification(){
-
-    document.querySelectorAll("section").forEach(section=>{
-        section.classList.add("hidden");
-    });
-
-    const success = document.getElementById("step-success");
-
-    if(success){
-        success.classList.remove("hidden");
-    }
-
-    document.getElementById("progress-bar").style.width = "100%";
-    document.getElementById("current-step-text").innerText = "3";
-
-}
+};
 </script>
 </body></html>

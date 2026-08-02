@@ -177,34 +177,38 @@
   </head>
   <body class="bg-surface text-on-surface mb-24 md:mb-0">
     <!-- Top Navigation Bar -->
-    <header
-      class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm"
-    >
-      <div
-        class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto"
+   <header
+  class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm"
+>
+  <div
+    class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto"
+  >
+
+    <!-- Logo -->
+    <h1 class="font-headline-md text-headline-md font-bold text-primary">
+      EduLoop
+    </h1>
+
+    <!-- Right Side -->
+    <div class="flex items-center gap-sm">
+      <button
+        class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high p-xs rounded-full transition-colors active:scale-95 duration-200"
       >
-        <h1 class="font-headline-md text-headline-md font-bold text-primary">
-          2,023
-        </h1>
-        <div class="flex items-center gap-sm">
-          <button
-            class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high p-xs rounded-full transition-colors active:scale-95 duration-200"
-          >
-            location_on
-          </button>
-          <div
-            class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-fixed-dim"
-          >
-            <img
-              alt="Profile"
-              class="w-full h-full object-cover"
-              data-alt="A close-up portrait of a young, friendly-looking male university student with a warm smile and approachable expression. He is photographed in a brightly lit, modern campus setting with soft architectural bokeh in the background. The aesthetic is clean and professional, with high-key lighting that emphasizes a trustworthy persona within a Gen Z marketplace app."
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBExh6Un1ne4R7W3pA--uMXpwGf3zl92XQniWPyPcCBgSCknMVNcVJ3A4xOnMWxmryzarI_y72vVqq9-eojqQhx36gVL3Pzn-Uxhh_MhC3dfWMvx_oPRGyBwIp3-ADFNxmVSYyjEejEIeF5T6kbdCyBiUAFyllrc6cshZJYYwY6ucgg3MnA6r7ks_W7cAspi3wYQikA4nm-3MkFF2ts8XySXVmQZ_QCR1qRSCVTG-ow8homSMZ6-4H9wyRN91MYLFCSJ0T0ObzPQ"
-            />
-          </div>
-        </div>
+        location_on
+      </button>
+
+      <div
+        class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-fixed-dim"
+      >
+        <img
+          class="user-profile w-full h-full object-cover"
+          alt="Profile"
+        />
       </div>
-    </header>
+    </div>
+
+  </div>
+</header>
     <main class="pt-24 pb-12 px-gutter max-w-container-max mx-auto space-y-md">
       <!-- Profile Header Section (Asymmetric Bento Style) -->
       <section class="grid grid-cols-1 md:grid-cols-3 gap-md">
@@ -215,9 +219,8 @@
           <div class="relative">
             <img
               alt="User Avatar"
-              class="w-24 h-24 md:w-32 md:h-32 rounded-xl object-cover shadow-md"
+              class="user-profile w-24 h-24 md:w-32 md:h-32 rounded-xl object-cover shadow-md"
               data-alt="A studio portrait of a Gen Z male student, featuring a modern haircut and stylish glasses, looking directly at the camera with a confident yet friendly gaze. The lighting is soft and even, highlighting a clear complexion and professional vibe. The background is a minimalist light grey, ensuring the subject stands out in a high-end UI profile context."
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnSVyKL1w7cEqxrcKbGO3B1ki4FQ2VfNdL6-LxXrypUNBT5LNvcseIFf_P7v32sEZ1jpw1BqwdfobL7ZjDeN8YM28MykQ2C7JR1DxZZHa03X6mMRUhQRc3dhYVWFpRthW0Q5_0sjCYTuOQsmHX4qFsV5K5UCLEbQgnDAd5qxJrZP_SHP1T0L4y05eIe-dgZH76lCweFdPgNnCXjXULkuBgUUauT-bs_PzJPmfrte6f605Ffjz4drhswuMvLfKadrh7ZBg5uusByw"
             />
             <div
               class="absolute -bottom-2 -right-2 bg-primary-fixed-dim text-on-primary-fixed-variant p-1 rounded-lg flex items-center gap-1 shadow-sm"
@@ -232,7 +235,7 @@
           <div class="text-center md:text-left flex-1">
             <div class="flex flex-col md:flex-row md:items-center gap-xs mb-xs">
               <h2 class="font-headline-md text-headline-md text-on-surface">
-                Alex Rivera
+                Dia Ayu Yolanda
               </h2>
               <span
                 class="inline-flex items-center px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm w-fit mx-auto md:mx-0"
@@ -241,30 +244,40 @@
               </span>
             </div>
             <p class="font-body-md text-on-surface-variant mb-md">
-              UINFAS • Angkatan 2021
+              UNIB • Angkatan 2024
             </p>
             <div class="flex flex-wrap justify-center md:justify-start gap-sm">
               <div
-                id="green-point-card"
-                onclick="window.location.href = 'green_point.html'"
-                class="cursor-pointer bg-green-50 hover:bg-green-100 transition-colors px-4 py-2 rounded-lg text-center min-w-[110px] active:scale-95"
-              >
-                <p
-                  class="font-label-sm text-green-700 uppercase tracking-wider"
-                >
-                  Green Points
-                </p>
+  id="green-point-card"
+  onclick="window.location.href='green_point.html'"
+  class="cursor-pointer bg-gradient-to-r from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 transition-all duration-300 rounded-xl px-4 py-3 flex items-center justify-between active:scale-95 shadow-sm border border-green-200"
+>
 
-                <p class="font-headline-md text-green-600">20</p>
-              </div>
-              <div
-                class="bg-primary-container/20 px-4 py-2 rounded-lg text-center min-w-[100px]"
-              >
-                <p class="font-label-sm text-primary uppercase tracking-wider">
-                  Saldo
-                </p>
-                <p class="font-headline-md text-primary">Rp 125k</p>
-              </div>
+  <div class="flex items-center gap-3">
+    <div class="w-11 h-11 rounded-full bg-green-500 flex items-center justify-center shadow-sm">
+      <span class="material-symbols-outlined text-white text-[22px]"
+        style="font-variation-settings:'FILL' 1;">
+        eco
+      </span>
+    </div>
+
+    <div>
+      <p class="text-[11px] uppercase tracking-wider font-semibold text-green-700">
+        Green Points
+      </p>
+
+      <div class="flex items-center gap-1">
+        <span class="text-2xl font-bold text-green-700">20</span>
+        <span class="text-xl font-medium text-green-600">GP</span>
+      </div>
+    </div>
+  </div>
+
+  <span class="material-symbols-outlined text-green-600">
+    chevron_right
+  </span>
+
+</div>
             </div>
           </div>
         </div>
@@ -525,11 +538,11 @@
         </a>
       </div>
     </nav>
+    <script src="../../js/photo_profile.js"></script>
     <script src="../../js/gift.js"></script>
     <script src="../../js/profile.js"></script>
     <script src="../../js/product.js"></script>
     <script>
-      
       const greenPointValue = document.getElementById("green-point-value");
 
       if (greenPointValue && window.GREEN_POINT) {
@@ -575,35 +588,7 @@
         window.location.href = "../marketplace/detail_product.html?id=" + id;
       }
 
-      // =====================
-      // Point Counter
-      // =====================
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const pointEl = document.querySelector(
-          ".text-primary.font-headline-md",
-        );
-
-        if (pointEl) {
-          const target = 2450;
-          let current = 2000;
-
-          const increment = Math.ceil((target - current) / 20);
-
-          const timer = setInterval(() => {
-            current += increment;
-
-            if (current >= target) {
-              pointEl.textContent = target.toLocaleString();
-
-              clearInterval(timer);
-            } else {
-              pointEl.textContent = current.toLocaleString();
-            }
-          }, 50);
-        }
-      });
-
+   
       // =====================
       // Bottom Navigation
       // =====================

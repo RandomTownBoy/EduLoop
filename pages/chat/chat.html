@@ -126,20 +126,37 @@
 </head>
 <body class="bg-background text-on-background font-body-md antialiased min-h-screen">
 <!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm">
-<div class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto">
-<div class="flex items-center gap-sm">
-<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
-<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a young student with a friendly expression, set against a blurred academic library background. The lighting is soft and natural, emphasizing a clean and approachable aesthetic. The color palette features soft blues and warm skin tones, perfectly aligned with a modern Gen Z marketplace interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB72_KvXOuodAlBUxi73284CndnpadWtDW_kDo84oOSGbIcYrcsLKBQIgB1po0eX0_kkesEw12p-_ddSDPQlkwDvJUPKQXoDqKxdMrtKA4JV_FQ-1EHnVoxNO8Cl1NcmLqdrFrURZu51FuFsnkNkxfaFF8QawSzAU9p5sJ8EPO7Z0q0IyFIPMZDeYc8LWUTcAnD9x5MCa8gNRRbpeOmeQe68TwO1klOKhx1cSToH4qFCZVEaQq1WWBc4Jdr4pv1n5PnyrFkD3Kliw">
-</div>
-<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">EduLoop</h1>
-</div>
-<div class="flex items-center gap-base">
-<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 duration-200">
-<span class="material-symbols-outlined text-primary">location_on</span>
-</button>
-</div>
-</div>
+<header
+  class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl shadow-sm"
+>
+  <div
+    class="flex justify-between items-center px-gutter py-sm max-w-container-max mx-auto"
+  >
+
+    <!-- Logo -->
+    <h1 class="font-headline-md text-headline-md font-bold text-primary">
+      EduLoop
+    </h1>
+
+    <!-- Right Side -->
+    <div class="flex items-center gap-sm">
+      <button
+        class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-high p-xs rounded-full transition-colors active:scale-95 duration-200"
+      >
+        location_on
+      </button>
+
+      <div
+        class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-fixed-dim"
+      >
+        <img
+          class="user-profile w-full h-full object-cover"
+          alt="Profile"
+        />
+      </div>
+    </div>
+
+  </div>
 </header>
 <main class="pt-24 pb-20 px-4 md:px-gutter max-w-container-max mx-auto">
 <!-- Search & Filter -->
@@ -157,8 +174,7 @@
 <!-- Avatar -->
 <div class="relative shrink-0">
 <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm">
-<img alt="Budi" class="w-full h-full object-cover" data-alt="Close up of a cheerful student with short dark hair, wearing a casual collegiate sweatshirt. The background is a soft-focus campus courtyard in daylight. High-quality digital photography with a vibrant yet natural color tone that matches a premium Gen Z social commerce platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHhpkdMGlcu44jG_eTVEBfcxzIPTSmySMstXKTDVIQJwLIMV6sRQN4Z5QxLdnsVVPZGzfp6ycVRMFu7h_lOcioTYnwFum6CKoGpaf9fEmX8zc7BbUscKGn3GalxO-ZNdByCU0cAnxCdP1w7wlYdmL6TheTl9E4Xv0Tlt0-G78ozeqBKoHd6UK8Bb0wfYzdCtzQ5_JWZ6aeZg4RFKG1yxkUTHSuF-cTzLp9oS-R7gXejsXvbe4p7ZplAmP7pUFZi3umHDokDxSiIg">
-</div>
+<img class="chat-profile w-full h-full object-cover" data-profile="2"></div>
 <div class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
 </div>
 <!-- Content -->
@@ -174,26 +190,24 @@
 </div>
 <span class="text-label-sm font-label-sm text-primary shrink-0">12:45 PM</span>
 </div>
-<p class="text-body-sm font-semibold text-on-surface-variant truncate">Is the price negotiable for the Calculus textbook?</p>
+<p class="text-body-sm font-semibold text-on-surface-variant truncate">Halo kak, buku Matematika Ekonominya masih tersedia?</p>
 </div>
 <!-- Product Thumbnail -->
 <div class="shrink-0 group-hover:scale-105 transition-transform">
 <div class="w-12 h-12 rounded-md overflow-hidden bg-surface-container relative">
-<img alt="Calculus Textbook" class="w-full h-full object-cover" data-alt="A thick university-level Calculus textbook lying on a minimalist white desk. The cover is colorful and modern. Soft, bright lighting creates a clean, academic vibe. Part of a marketplace listing interface with a focus on student-to-student commerce." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc3v6fqWmV9mvOpbomf0inYgFiP2wBsEkHoXqOUbfPuECGgOEccG89HXoLmEujf6j6haCwJNE8PDvEBj5ySHxF2CVGnZ9Iwa9utD03BTuN3p2PqaMNGr9zhhrfW9Qudnqkfu4IJDBSTTLEXVkk3fr_xrWrusMCJIaTGrAGDCLQCS5V9ni-JaF9dcyNPItbnbNaeZh7zU5-llF3nKLKx_lWS6I7wiXR7t1eCnHMeQ51FcLKCqvaWAh2QCeBgxCL161akXemonWxWw">
-</div>
+<img class="chat-product w-full h-full object-cover" data-product="6"></div>
 </div>
 </div>
 <!-- Chat Item 2 -->
 <div class="group flex items-center gap-4 p-4 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-all cursor-pointer shadow-sm">
 <div class="relative shrink-0">
 <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm">
-<img alt="Siti" class="w-full h-full object-cover" data-alt="A portrait of a male university student smiling, wearing glasses and a denim jacket. Neutral gray background with professional studio lighting that feels modern and approachable. The aesthetic is clean and minimalist, suitable for a trustworthy peer-to-peer marketplace user profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF0JSoPAaNarCxxkFsbZ1II1kPzaXsCIpEuQC7wzCmaoSkU2kwxQdRgvlfD78fn70ygsTXoYoJHuz5u92SNieeVw-APk9b-NHoV7xaVye_Lv7gPMGYJcM18bqTltgnRlcHq3ntg3cLNUuMUdI68IFwt1OkLvi4AEl5-qZSINkWUHx888OnlMMkfMydGVDjkbdYNsTH3LrNFru4P2kAk2utW30LspkwAu9wkl9kIwQCSlHV9uDU8a_UfU7d_5pyQrFVKmjVUPtuhg">
-</div>
+<img class="chat-profile w-full h-full object-cover" data-profile="3"></div>
 </div>
 <div class="flex-1 min-w-0">
 <div class="flex justify-between items-start mb-0.5">
 <div class="flex items-center gap-1.5 min-w-0">
-<span class="font-label-md text-label-md text-on-surface truncate">Dewi - UI</span>
+<span class="font-label-md text-label-md text-on-surface truncate">Dewi - UNIB</span>
 <div class="flex items-center gap-0.5 px-2 py-0.5 bg-primary-container/30 rounded-full shrink-0">
 <span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
 <span class="text-[10px] font-bold text-primary tracking-tight">VERIFIED</span>
@@ -201,33 +215,31 @@
 </div>
 <span class="text-label-sm font-label-sm text-on-surface-variant shrink-0">Yesterday</span>
 </div>
-<p class="text-body-sm font-body-sm text-on-surface-variant truncate">Thanks! I'll pick up the lab coat tomorrow near the gate.</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant truncate">Laptopnya masih bisa nego sedikit nggak kak?</p>
 </div>
 <div class="shrink-0 group-hover:scale-105 transition-transform">
 <div class="w-12 h-12 rounded-md overflow-hidden bg-surface-container">
-<img alt="Lab Coat" class="w-full h-full object-cover" data-alt="A crisp, white medical lab coat folded neatly on a light wood surface. The lighting is bright and airy, suggesting a clean, professional academic environment. This product image is part of a high-end student marketplace UI for reselling used university equipment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUDY5Iqi1O8oWCnfR7vOGfCNpK7lmbIQf0Vl1RwmvXKSeYQ_vKKYCjUCJUq29b79ADGg-TB4f_8JZoxglQ7-kh09IRTbQLzohIeH8kjPApkeuHNcR6v7HdUwK9swELPXv-dAcHP50JuQtb9Cvh9O9592THLHNtGj595Floi_uWXaBf6FQlLKBEYbbA5G_8VpkKJsqul7ybTixKNtW20MoXdVGxhuWxc9MDYhGogZ-4s3webKF3naEIhvs5jqNU6byPblrp14nX6A">
-</div>
+<img class="chat-product w-full h-full object-cover" data-product="1"></div>
 </div>
 </div>
 <!-- Chat Item 3 -->
 <div class="group flex items-center gap-4 p-4 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-all cursor-pointer shadow-sm">
 <div class="relative shrink-0">
 <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm">
-<img alt="Sarah" class="w-full h-full object-cover" data-alt="A portrait of a stylish female student in a brightly lit coffee shop setting. She is wearing a modern mustard-colored top. The depth of field is shallow, creating a soft, warm bokeh effect in the background. The visual tone is optimistic and youth-oriented, matching a Gen Z community brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoATznjNMLeJxPeWSPv-7dmqF2x9lcWduYNzPagiFnUz4IpwbLWQ4x65Exhdrgoj3G_sn72goxJy3_CcU5BPEA5H9PIGxB57cog7lQIqhNue67DjNkcx4BBTTQ8HMyr51Nj9mzakG1Cu4HdavOYEXoJShHWFaEktbgAIeaML5DMeYZrS6-xBzmjgutComrq2_IAayNKXHFBR_mxpllwqLmqpg_V00iXrjKZC25t5ZfJ3EJPm3bZH940tQBmn0BSvv4t0ecQXqU5g">
-</div>
+<img class="chat-profile w-full h-full object-cover" data-profile="4"></div>
 </div>
 <div class="flex-1 min-w-0">
 <div class="flex justify-between items-start mb-0.5">
 <div class="flex items-center gap-1.5 min-w-0">
-<span class="font-label-md text-label-md text-on-surface truncate">Sarah - ITB</span>
+<span class="font-label-md text-label-md text-on-surface truncate">Sarah - UINFAS</span>
 </div>
 <span class="text-label-sm font-label-sm text-on-surface-variant shrink-0">Mon</span>
 </div>
-<p class="text-body-sm font-body-sm text-on-surface-variant truncate">I've sent the PDF notes to your email.</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant truncate">Ready Kak?</p>
 </div>
 <div class="shrink-0 group-hover:scale-105 transition-transform">
 <div class="w-12 h-12 rounded-md overflow-hidden bg-surface-container flex items-center justify-center">
-<span class="material-symbols-outlined text-outline text-2xl">description</span>
+<img class="chat-product w-full h-full object-cover" data-product="7"></div>
 </div>
 </div>
 </div>
@@ -235,13 +247,12 @@
 <div class="group flex items-center gap-4 p-4 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-all cursor-pointer shadow-sm">
 <div class="relative shrink-0">
 <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm">
-<img alt="Andi" class="w-full h-full object-cover" data-alt="A confident young man with a short beard and a bright smile, wearing a casual navy blue t-shirt. He is standing outdoors in soft evening light. The photograph is crisp and has a high-end, friendly feel, ideal for a peer-to-peer student marketplace platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-uOkMGwxi1JFBaspQK40JBKjP5nzThRCIID77Pm-pm3-Z78HRptlNToQU4KolP4rOIGhi9CZ1x9PECS4vaAuuDpH02uAIxyhUnZsSGM0icMB5YM53BIcEm5vX48-mswd4ttjLqiQ4C68oZ20123NyG2ly3-KsfBpkMR7WDODgI83dNEquMK1L9_W3_ad39hUXry6Xhw88OgRDlpTEvTYysBWt4ADkK5EHBeLt0oyYKwNbCRY63EY2E81_wTP88lR2cJub_4cPGA">
-</div>
+<img class="chat-profile w-full h-full object-cover" data-profile="5"></div>
 </div>
 <div class="flex-1 min-w-0">
 <div class="flex justify-between items-start mb-0.5">
 <div class="flex items-center gap-1.5 min-w-0">
-<span class="font-label-md text-label-md text-on-surface truncate">Andi - UGM</span>
+<span class="font-label-md text-label-md text-on-surface truncate">Rani - DEHASEN</span>
 <div class="flex items-center gap-0.5 px-2 py-0.5 bg-primary-container/30 rounded-full shrink-0">
 <span class="material-symbols-outlined text-[12px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
 <span class="text-[10px] font-bold text-primary tracking-tight">VERIFIED</span>
@@ -249,12 +260,11 @@
 </div>
 <span class="text-label-sm font-label-sm text-on-surface-variant shrink-0">2d ago</span>
 </div>
-<p class="text-body-sm font-body-sm text-on-surface-variant truncate">Is the calculator still available?</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant truncate">Speaker masih normal semua? Saya mau ambil besok.</p>
 </div>
 <div class="shrink-0 group-hover:scale-105 transition-transform">
 <div class="w-12 h-12 rounded-md overflow-hidden bg-surface-container">
-<img alt="Calculator" class="w-full h-full object-cover" data-alt="A modern scientific graphing calculator with a large screen, placed on a clean white table. The lighting is direct and clear, highlighting the device's details. The image has a professional product photography style with a light, minimalist background appropriate for a student reselling app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8WdtZUeEqfs4e62538dT3yYRSOTj3WcvM07MNs6El8gruUMPzbJcuvZfTmynZFrT9JojxhVLD43xyex-3nt8RaCc235z-HGeBw05xNRwH7qagc_ql-ZeIUEZSj62Y8nSnMHsGGF00vy6supyHY4RW4P0V7CsuUULZ-Jh2RoJbZR567dd-4695Kj9Uz5KRSQgHcuhPSMkWkX7Kgl_7SI2D6e92To6RNJr7pVVIjocRQPY2Anyar5vvtcqinLxWjqEJjKST4-AMiw">
-</div>
+<img class="chat-product w-full h-full object-cover" data-product="14"></div>
 </div>
 </div>
 </div>
@@ -298,7 +308,34 @@
 <button class="fixed right-6 bottom-24 w-14 h-14 rounded-full bg-gradient-to-tr from-primary to-primary-container text-white shadow-xl flex items-center justify-center active:scale-95 transition-all z-40 group">
 <span class="material-symbols-outlined text-2xl group-hover:rotate-90 transition-transform duration-300">edit_square</span>
 </button>
+<script src="../../js/photo_profile.js"></script>
+<script src="../../js/product.js"></script>
 <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+    const isRoot =
+        location.pathname.endsWith("/pages/home.html") ||
+        location.pathname.endsWith("/pages/home_student.html");
+
+    const assetPath = isRoot ? "../assets/img/" : "../../assets/img/";
+
+    // Foto profile chat (2-5)
+    document.querySelectorAll(".chat-profile").forEach(img => {
+        const no = img.dataset.profile;
+        img.src = `${assetPath}profile_${no}.jpeg`;
+    });
+
+    // Thumbnail produk
+    document.querySelectorAll(".chat-product").forEach(img => {
+        const id = Number(img.dataset.product);
+        const product = PRODUCTS.find(p => p.id === id);
+
+        if (product) {
+            img.src = product.image;
+        }
+    });
+
+});
         // Micro-interaction: Active state feedback for chat list
         const chatItems = document.querySelectorAll('.group.cursor-pointer');
         chatItems.forEach(item => {

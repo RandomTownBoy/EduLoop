@@ -5,24 +5,26 @@ const logo = document.querySelector(".logo-float");
 let width = 0;
 
 const interval = setInterval(() => {
-    if (width >= 100) {
-        clearInterval(interval);
 
-        progressPercent.textContent = "Selesai!";
+    width += Math.floor(Math.random() * 20) + 10; // lebih cepat
+
+    if (width >= 100) {
+        width = 100;
+
+        progressBar.style.width = "100%";
+        progressPercent.textContent = "100%";
+
+        clearInterval(interval);
 
         setTimeout(() => {
             window.location.href = "pages/verify/verify.html";
-        }, 800);
-
-        return;
+        }, 300); // dulu 800
+    } else {
+        progressBar.style.width = `${width}%`;
+        progressPercent.textContent = `${width}%`;
     }
 
-    width += Math.floor(Math.random() * 15) + 5;
-    if (width > 100) width = 100;
-
-    progressBar.style.width = `${width}%`;
-    progressPercent.textContent = `${width}%`;
-}, 400);
+}, 180); // dulu 400
 
 document.addEventListener("mousemove", (e) => {
     const xAxis = (window.innerWidth / 2 - e.pageX) / 45;

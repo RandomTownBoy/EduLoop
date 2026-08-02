@@ -220,7 +220,7 @@
               <h2
                 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface"
               >
-                Alex Rivera
+                Dia Ayu Yolanda
               </h2>
               <span
                 class="flex items-center gap-xs px-sm py-1 bg-primary-container text-on-primary-container rounded-full font-label-md text-label-md"
@@ -234,7 +234,7 @@
               </span>
             </div>
             <p class="font-body-md text-on-surface-variant">
-              Universitas Indonesia • Teknik Informatika
+              Universitas Bengkulu • Ekonomi Pembangunan
             </p>
           </div>
           <button
@@ -372,27 +372,35 @@
         </div>
         <!-- Product Grid -->
         <div
-          class="mb-md p-md rounded-xl bg-secondary-container/30 border border-secondary-container flex items-center justify-between gap-md"
+          class="mb-md p-3 rounded-xl bg-secondary-container/30 border border-secondary-container flex items-center gap-3"
         >
-          <div class="flex items-center gap-md">
-            <div
-              class="w-12 h-12 bg-secondary-container text-on-secondary-container rounded-full flex items-center justify-center"
-            >
-              <span class="material-symbols-outlined" data-icon="rocket_launch"
-                >rocket_launch</span
-              >
-            </div>
-            <div>
-              <p class="font-label-md text-on-surface">Boost Produk Anda</p>
-              <p class="font-body-sm text-on-surface-variant">
-                Dapatkan jangkauan 2x lebih luas ke pembeli di kampus.
-              </p>
-            </div>
-          </div>
-          <button
-            class="bg-secondary text-white px-sm py-1 rounded-full font-label-md text-[12px] active:scale-95 transition-transform"
+          <!-- Icon -->
+          <div
+            class="w-9 h-9 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0"
           >
-            Pelajari
+            <span
+              class="material-symbols-outlined text-[18px] text-on-secondary-container"
+            >
+              rocket_launch
+            </span>
+          </div>
+
+          <!-- Text -->
+          <div class="flex-1 min-w-0">
+            <p class="font-label-md text-[13px] leading-4 text-on-surface">
+              Boost Produk
+            </p>
+            <p class="text-[11px] leading-4 text-on-surface-variant truncate">
+              Jangkau lebih banyak pembeli kampus.
+            </p>
+          </div>
+
+          <!-- Button -->
+          <button
+            onclick="location.href = 'boost_product.html'"
+            class="px-3 py-1.5 rounded-full bg-secondary text-white text-[11px] font-medium active:scale-95 whitespace-nowrap"
+          >
+            Boost
           </button>
         </div>
         <div
@@ -459,8 +467,8 @@
     </nav>
     <script src="../../js/photo_profile.js"></script>
     <script src="../../js/product.js"></script>
-   <script>
-     // Simple interaction for the "Sell" button or cards
+    <script>
+      // Simple interaction for the "Sell" button or cards
       document.querySelectorAll(".active\\:scale-95").forEach((el) => {
         el.addEventListener("mousedown", () => {
           el.style.transform = "scale(0.95)";
@@ -479,7 +487,7 @@
           window.location.href = "add_product.html";
         });
 
-          // =====================
+      // =====================
       // Bottom Navigation
       // =====================
       document
@@ -534,14 +542,14 @@
 
         // Hanya tampilkan produk Alex Rivera
         const alexProducts = PRODUCTS.filter(
-          (product) => product.seller === "Alex Rivera"
+          (product) => product.seller === "Dia Ayu Yolanda",
         );
 
         alexProducts.forEach((product) => {
           sellerGrid.innerHTML += `
 
 <div 
-class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden group cursor-pointer transition-transform duration-300 hover:-translate-y-1"
+class="bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden group cursor-pointer transition-transform duration-300 hover:-translate-y-1"
 data-id="${product.id}"
 >
 
@@ -623,41 +631,25 @@ STOK: ${product.stock || 0}
         attachProductEvent();
       }
 
-
       function attachProductEvent() {
-
         document
-        .querySelectorAll("#seller-product-grid > div")
-        .forEach((card) => {
+          .querySelectorAll("#seller-product-grid > div")
+          .forEach((card) => {
+            card.onclick = () => {
+              window.location.href = `../marketplace/detail_product.html?id=${card.dataset.id}`;
+            };
+          });
 
-          card.onclick = () => {
-            window.location.href =
-            `../marketplace/detail_product.html?id=${card.dataset.id}`;
-          };
-
-        });
-
-
-        document
-        .querySelectorAll(".boost-btn")
-        .forEach((btn) => {
-
+        document.querySelectorAll(".boost-btn").forEach((btn) => {
           btn.onclick = (e) => {
-
             e.stopPropagation();
 
-            window.location.href =
-            `boost_product.html?id=${btn.dataset.id}`;
-
+            window.location.href = `boost_product.html?id=${btn.dataset.id}`;
           };
-
         });
-
       }
 
-
       renderMyShop();
-
-</script>
+    </script>
   </body>
 </html>

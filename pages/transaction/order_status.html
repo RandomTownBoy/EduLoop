@@ -839,34 +839,12 @@ if (backButton) {
 
   document
   .getElementById("nav-profile")
-  .addEventListener("click", function(e){
+  .onclick = () => {
 
+    location.href =
+      "../profile/profile.html";
 
-    e.preventDefault();
-
-
-    const verified =
-      localStorage.getItem("userVerified");
-
-
-
-    if(verified === "true"){
-
-      window.location.href =
-        "../profile/profile.html";
-
-
-    } else {
-
-
-      window.location.href =
-        "../verify/verify.html";
-
-
-    }
-
-
-  });
+  };
 
 </script>
     <div

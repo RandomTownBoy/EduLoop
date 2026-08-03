@@ -502,34 +502,7 @@ document.getElementById("nav-profile");
 
 if(navProfile){
 
-navProfile.addEventListener("click",(e)=>{
-
-
-    e.preventDefault();
-
-
-    const verified =
-    localStorage.getItem("userVerified");
-
-
-    if(verified==="true"){
-
-
-        window.location.href =
-        "../profile/profile.html";
-
-
-    }else{
-
-
-        window.location.href =
-        "../verify/verify.html";
-
-
-    }
-
-
-});
-
-
+navProfile.onclick=()=>{ 
+    location.href = "../profile/profile.html";
+};
 }

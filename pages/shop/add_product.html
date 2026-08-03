@@ -688,13 +688,7 @@ Dijual MacBook Pro 14" M1 2021. Kondisi mulus 98%, pemakaian pribadi untuk kulia
       }
 
       function goProfile() {
-        const verified = localStorage.getItem("userVerified");
-
-        if (verified === "true") {
-          window.location.href = "../profile/profile.html";
-        } else {
-          window.location.href = "../verify/verify.html";
-        }
+        window.location.href = "../profile/profile.html";
       }
 
       function goSearch() {

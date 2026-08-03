@@ -389,14 +389,7 @@ document.getElementById("nav-chat").addEventListener("click", function(e){
 
 document.getElementById("nav-profile").addEventListener("click", function(e){
     e.preventDefault();
-
-    const verified = localStorage.getItem("userVerified");
-
-    if (verified === "true") {
-        window.location.href = "../profile/profile.html";
-    } else {
-        window.location.href = "../verify/verify.html";
-    }
+    window.location.href = "../profile/profile.html";
 });
     </script>
 </body></html>
